@@ -23,8 +23,11 @@
   --danger:#A8364A;
   --shadow:0 8px 28px rgba(20,27,24,.16);
 
-  --c-pl:#1E6F5C;
-  --c-ps:#6B8B21;
+  --c-pl:#D9202F;
+  --c-ps:#F0A94F;
+  --su-colore:#FFFFFF;
+  --su-chiaro:#FFFFFF;
+  --su-scuro:#3A2205;
   --c-ri:#35569B;
   --c-rc:#75569F;
   --c-rm:#A96716;
@@ -43,8 +46,11 @@
     --accent-ink:#0B1310;
     --danger:#E0778A;
     --shadow:0 8px 28px rgba(0,0,0,.5);
-    --c-pl:#4FB397;
-    --c-ps:#A3C748;
+    --c-pl:#E8404E;
+    --c-ps:#F0A94F;
+    --su-colore:#08120E;
+    --su-chiaro:#FFFFFF;
+    --su-scuro:#3A2205;
     --c-ri:#7EA0E0;
     --c-rc:#B59BE0;
     --c-rm:#DFA359;
@@ -63,8 +69,11 @@
   --accent-ink:#0B1310;
   --danger:#E0778A;
   --shadow:0 8px 28px rgba(0,0,0,.5);
-  --c-pl:#4FB397;
-  --c-ps:#A3C748;
+  --c-pl:#E8404E;
+  --c-ps:#F0A94F;
+  --su-colore:#08120E;
+  --su-chiaro:#FFFFFF;
+  --su-scuro:#3A2205;
   --c-ri:#7EA0E0;
   --c-rc:#B59BE0;
   --c-rm:#DFA359;
@@ -145,6 +154,7 @@ header.top{
   background:color-mix(in srgb, var(--rc-color) var(--tint), var(--card));
   color:var(--rc-color);border:1px solid color-mix(in srgb, var(--rc-color) 35%, transparent)
 }
+.chip.pieno{background:var(--rc-color);color:var(--rc-su,var(--su-colore));border-color:transparent}
 .chip.empty{background:transparent;color:var(--ink-soft);border:1px dashed var(--line-strong);font-weight:500}
 .chip .lbl{display:none}
 @media (min-width:520px){.chip .lbl{display:inline;font-weight:500}}
@@ -186,6 +196,10 @@ table.griglia .dnum b{display:block;font-size:11px;color:var(--ink);font-weight:
 table.griglia .dnum span{display:block;font-size:8px;font-weight:500;text-transform:lowercase}
 table.griglia th.festivo,table.griglia td.festivo{background:color-mix(in srgb,var(--ink) 7%,var(--card))}
 table.griglia .oggi{box-shadow:inset 0 0 0 2px var(--accent)}
+table.griglia th.domenica,table.griglia td.domenica{border-right:2px solid #D9202F}
+table.griglia th.domenica{background:color-mix(in srgb,#D9202F 15%,var(--card));color:#D9202F}
+table.griglia th.domenica b{color:#D9202F}
+table.griglia td.domenica.vuota{background:color-mix(in srgb,var(--ink) 9%,var(--card))}
 
 table.griglia .nome{
   position:sticky;left:0;z-index:2;background:var(--card);
@@ -198,6 +212,7 @@ table.griglia tbody tr{height:38px}
 table.griglia td.cella{width:29px;min-width:29px;font-weight:700;font-size:10px;color:var(--rc-color);
   background:color-mix(in srgb,var(--rc-color) 12%,transparent)}
 table.griglia td.vuota{color:var(--line-strong);font-weight:400}
+table.griglia td.cella.pieno{background:var(--rc-color);color:var(--rc-su,var(--su-colore));font-size:11px}
 table.griglia .sep{border-left:2px solid var(--line-strong)}
 table.griglia td.tot{width:30px;min-width:30px;font-size:11px;font-weight:600;background:color-mix(in srgb,var(--ink) 3%,var(--card))}
 table.griglia td.tot.zero{color:var(--line-strong);font-weight:400}
@@ -206,6 +221,14 @@ table.griglia th.tot{width:30px;min-width:30px;font-size:9px;font-weight:700;pad
 table.griglia tfoot td{font-weight:700;font-size:11px;background:color-mix(in srgb,var(--ink) 5%,var(--card))}
 table.griglia tbody tr:last-child td{border-bottom:1px solid var(--line)}
 
+.pasti{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-bottom:8px}
+.pasto{display:flex;align-items:center;gap:10px;padding:7px 12px;border-bottom:1px solid var(--line);min-height:54px}
+.pasto:last-child{border-bottom:none}
+.pasto .pn{flex:1;min-width:0;font-weight:500;font-size:.95rem;overflow:hidden;text-overflow:ellipsis}
+.pasto .eur{color:var(--ink-soft);font-size:.95rem}
+.pasto input{width:96px;text-align:right;background:var(--paper);border:1px solid var(--line-strong);border-radius:10px;padding:9px 10px;min-height:42px}
+.pastiTot{display:flex;justify-content:space-between;font-size:.85rem;color:var(--ink-soft);margin:0 4px 16px}
+.pastiTot b{color:var(--ink)}
 .legenda{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
 .legenda span{display:inline-flex;align-items:center;gap:5px;font-size:.72rem;color:var(--ink-soft);
   border:1px solid var(--line);border-radius:7px;padding:4px 7px;background:var(--card)}
@@ -347,7 +370,13 @@ nav.tabs button.active{color:var(--accent);font-weight:600}
     <p class="hint">Scorri la griglia con il dito. Tocca una casella per correggerla.</p>
     <p class="hint" id="notaCumulo"></p>
     <div class="legenda" id="legenda"></div>
-    <button class="btn" id="exportBtn">Esporta in Excel</button>
+    <h2 style="margin-top:24px">Pasti del mese</h2>
+    <p class="sub">L'importo complessivo dei pasti di ogni autista. Finisce in un foglio a parte del file Excel.</p>
+    <div id="pastiWrap"></div>
+    <div class="pastiTot" id="pastiTot"></div>
+
+    <button class="btn" id="sendBtn">Invia al commercialista</button>
+    <button class="btn ghost" id="exportBtn" style="margin-top:10px">Scarica il file Excel</button>
     <p class="note" id="exportNote"></p>
   </section>
 
@@ -361,6 +390,13 @@ nav.tabs button.active{color:var(--accent);font-weight:600}
     </div>
     <div id="empList"></div>
     <button class="linkbtn" id="showDeleted" hidden></button>
+
+    <h2 style="margin-top:30px">Commercialista</h2>
+    <p class="sub">L'indirizzo a cui mandi il foglio ogni mese. Serve solo quando il telefono non apre da solo il tasto Condividi.</p>
+    <div class="addrow">
+      <input id="mailComm" type="email" placeholder="email@studio.it" autocapitalize="off" autocorrect="off">
+      <button id="salvaMail">Salva</button>
+    </div>
 
     <h2 style="margin-top:30px">Copia di sicurezza</h2>
     <p class="sub">I dati stanno dentro questo browser. Salva ogni tanto una copia: se cambi telefono o svuoti la cronologia, la rimetti da qui.</p>
@@ -405,12 +441,12 @@ nav.tabs button.active{color:var(--accent);font-weight:600}
 
 /* ---------------- tipi di presenza ---------------- */
 const TIPI = [
-  {k:'PL', s:'SCH', sx:'P',   color:'--c-pl', label:'Scheda',              xls:'Presente'},
-  {k:'PS', s:'DIS', sx:'P',   color:'--c-ps', label:'Disco',               xls:'Presente'},
-  {k:'RI', s:'RIP', sx:'RIP', color:'--c-ri', label:'Riposo',              xls:'Riposo'},
-  {k:'RC', s:'RC',  sx:'RC',  color:'--c-rc', label:'Riposo compensativo', xls:'Riposo compensativo'},
-  {k:'RM', s:'RIM', sx:'RIM', color:'--c-rm', label:'Rimessa',             xls:'Rimessa'},
-  {k:'MA', s:'MAL', sx:'MAL', color:'--c-ma', label:'Malattia',            xls:'Malattia'}
+  {k:'PL', s:'S',   sx:'P', pieno:1, color:'--c-pl', su:'--su-chiaro', label:'Scheda', xls:'Presente'},
+  {k:'PS', s:'D',   sx:'P', pieno:1, color:'--c-ps', su:'--su-scuro',  label:'Disco',  xls:'Presente'},
+  {k:'RI', s:'R',   sx:'R', color:'--c-ri', label:'Riposo',              xls:'Riposo'},
+  {k:'RC', s:'RC',  sx:'R', color:'--c-rc', label:'Riposo compensativo', xls:'Riposo'},
+  {k:'RM', s:'O',   sx:'O', color:'--c-rm', label:'Rimessa',             xls:'Rimessa'},
+  {k:'MA', s:'M',   sx:'M', color:'--c-ma', label:'Malattia',            xls:'Malattia'}
 ];
 const TIPO = Object.fromEntries(TIPI.map(t=>[t.k,t]));
 
@@ -445,6 +481,26 @@ function monthOf(key){
   if(!months[key]) months[key] = {marks:{}};
   return months[key];
 }
+function pastiDi(key){
+  const m = months[key];
+  return (m && m.pasti) || {};
+}
+function setPasto(key, empId, importo){
+  const m = monthOf(key);
+  if(!m.pasti) m.pasti = {};
+  if(importo > 0) m.pasti[empId] = importo;
+  else delete m.pasti[empId];
+  saveMonth(key);
+  if(typeof accoda === 'function') accoda({t:'pasto', id:empId, mese:key, importo: importo > 0 ? importo : null});
+}
+function totalePasti(key){
+  const p = pastiDi(key);
+  return Object.keys(p).reduce((a,k)=> a + (Number(p[k])||0), 0);
+}
+function euro(n){
+  return new Intl.NumberFormat('it-IT',{style:'currency',currency:'EUR'}).format(n||0);
+}
+
 function markOf(date, empId){
   const m = months[date.slice(0,7)];
   return (m && m.marks[date] && m.marks[date][empId]) || null;
@@ -487,9 +543,9 @@ function renderDay(){
     const code = markOf(curDate, e.id);
     if(code) segnati++;
     const t = code ? TIPO[code] : null;
-    const style = t ? 'style="--rc-color:var('+t.color+')"' : '';
+    const style = t ? 'style="--rc-color:var('+t.color+')'+(t.su?';--rc-su:var('+t.su+')':'')+'"' : '';
     const chip = t
-      ? '<span class="chip" '+style+'><span>'+t.s+'</span><span class="lbl">'+t.label+'</span></span>'
+      ? '<span class="chip'+(t.pieno?' pieno':'')+'" '+style+'><span>'+t.s+'</span><span class="lbl">'+t.label+'</span></span>'
       : '<span class="chip empty">segna</span>';
     return '<button class="row '+(t?'set':'')+'" '+style+' data-emp="'+e.id+'">'
          +   '<span class="gutter"></span>'
@@ -603,6 +659,39 @@ function riposiCumulati(fino){
 /* Sostituita dalla versione sincronizzata quando i dati stanno anche sul profilo. */
 function precaricaMesi(){}
 
+let pastiMostrati = null;   // per non ridisegnare mentre stai scrivendo
+function renderPasti(righe){
+  const host = $('#pastiWrap');
+  if(pastiMostrati !== sumMonth || !host.children.length){
+    pastiMostrati = sumMonth;
+    const p = pastiDi(sumMonth);
+    host.innerHTML = righe.length
+      ? '<div class="pasti">' + righe.map(r=>
+          '<div class="pasto"><span class="pn">'+escapeHtml(r.nome)+'</span>'
+          + '<span class="eur">€</span>'
+          + '<input type="number" inputmode="decimal" min="0" step="0.01" placeholder="0,00" '
+          + 'data-emp="'+r.id+'" value="'+(p[r.id] != null ? p[r.id] : '')+'"></div>'
+        ).join('') + '</div>'
+      : '';
+    host.querySelectorAll('input').forEach(inp=>{
+      inp.addEventListener('change', ()=>{
+        const v = parseFloat(String(inp.value).replace(',','.'));
+        setPasto(sumMonth, inp.dataset.emp, isNaN(v) ? 0 : Math.round(v*100)/100);
+        aggiornaTotalePasti();
+      });
+    });
+  }
+  aggiornaTotalePasti();
+}
+function aggiornaTotalePasti(){
+  const tot = totalePasti(sumMonth);
+  $('#pastiTot').innerHTML = tot ? '<span>Totale pasti del mese</span><b>'+euro(tot)+'</b>' : '';
+}
+
+function abilitaInvio(si){
+  $('#exportBtn').disabled = !si;
+  $('#sendBtn').disabled = !si;
+}
 function giorniDelMese(key){
   const p = key.split('-').map(Number);
   return new Date(p[0], p[1], 0).getDate();
@@ -619,7 +708,8 @@ function renderSummary(){
   if(!righe.length){
     host.innerHTML = '<div class="empty-state"><b>Foglio ancora vuoto</b>Aggiungi i dipendenti e segna le giornate: qui le ritrovi tutte insieme.</div>';
     $('#legenda').innerHTML = '';
-    $('#exportBtn').disabled = true;
+    $('#pastiWrap').innerHTML = ''; $('#pastiTot').innerHTML = ''; pastiMostrati = null;
+    abilitaInvio(false);
     $('#exportNote').textContent = '';
     return;
   }
@@ -631,13 +721,13 @@ function renderSummary(){
   // intestazione: due fasce, come sul foglio cartaceo
   const cumulo = riposiCumulati(sumMonth);
   let h1 = '<tr><th class="nome" rowspan="2">Cognome e nome</th>'
-         + '<th class="gruppo" colspan="'+nG+'">Prestazioni per ciascuna giornata</th>'
+         + '<th class="gruppo" colspan="'+nG+'"></th>'
          + '<th class="gruppo sep" colspan="2">Riposi</th></tr>';
   let h2 = '<tr>';
   for(let g=1; g<=nG; g++){
     const iso = sumMonth+'-'+String(g).padStart(2,'0');
     const gs = parseISO(iso).getDay();
-    const fest = (gs===0 || gs===6) ? ' festivo' : '';
+    const fest = gs===0 ? ' domenica' : (gs===6 ? ' festivo' : '');
     h2 += '<th class="dnum'+fest+'"><b>'+g+'</b><span>'+INIZIALI[gs]+'</span></th>';
   }
   h2 += '<th class="tot sep" title="Riposi e riposi compensativi di questo mese">mese</th>'
@@ -653,9 +743,11 @@ function renderSummary(){
       const gs = parseISO(iso).getDay();
       const cls = ['cella'];
       if(!t) cls.push('vuota');
-      if(!t && (gs===0||gs===6)) cls.push('festivo');
+      if(t && t.pieno) cls.push('pieno');
+      if(gs===0) cls.push('domenica');
+      else if(!t && gs===6) cls.push('festivo');
       if(iso===oggi) cls.push('oggi');
-      const stile = t ? ' style="--rc-color:var('+t.color+')"' : '';
+      const stile = t ? ' style="--rc-color:var('+t.color+')'+(t.su?';--rc-su:var('+t.su+')':'')+'"' : '';
       tr += '<td class="'+cls.join(' ')+'"'+stile+' data-emp="'+r.id+'" data-date="'+iso+'">'+(t?t.s:'')+'</td>';
     }
     const riposiMese = RIPOSI.reduce((a,k)=> a + (r.counts[TIPI.findIndex(t=>t.k===k)]||0), 0);
@@ -675,25 +767,27 @@ function renderSummary(){
     '<span style="--rc-color:var('+t.color+')"><i></i><b>'+t.s+'</b> '+t.label+'</span>'
   ).join('');
 
+  renderPasti(righe);
+
   const primoMese = tuttiIMesi().filter(k=>k<=sumMonth)[0];
   $('#notaCumulo').textContent = primoMese && primoMese !== sumMonth
     ? 'La colonna «totale» somma i riposi da ' + fmtMonth.format(parseISO(primoMese+'-01')) + ' a oggi.'
     : 'La colonna «totale» somma i riposi di tutti i mesi registrati.';
 
   const giorniSegnati = Object.keys(marks).length;
-  $('#exportBtn').disabled = !giorniSegnati;
+  abilitaInvio(!!giorniSegnati);
   $('#exportNote').textContent = giorniSegnati
     ? giorniSegnati + ' giornate registrate su ' + nG
     : 'Nessuna giornata registrata in questo mese.';
 }
 
 /* ---------------- export Excel ---------------- */
-async function exportXlsx(){
-  if(typeof XLSX === 'undefined'){ toast('Foglio di calcolo non disponibile, riapri la pagina'); return; }
+function creaFileExcel(){
+  if(typeof XLSX === 'undefined'){ toast('Foglio di calcolo non disponibile, riapri la pagina'); return null; }
 
   const nG = giorniDelMese(sumMonth);
   const marks = (months[sumMonth] || {marks:{}}).marks;
-  if(!Object.keys(marks).length){ toast('Nessuna presenza da esportare'); return; }
+  if(!Object.keys(marks).length){ toast('Nessuna presenza da esportare'); return null; }
 
   const righe = totalsFor(sumMonth);
   const titolo = fmtMonth.format(parseISO(sumMonth+'-01'));
@@ -727,7 +821,9 @@ async function exportXlsx(){
   });
 
   aoa.push([]);
-  aoa.push(['P = presente   ·   RIP = riposo   ·   RC = riposo compensativo   ·   RIM = rimessa   ·   MAL = malattia']);
+  const voci = [];
+  TIPI.forEach(t=>{ if(!voci.some(v=>v.s === t.sx)) voci.push({s:t.sx, d:t.xls.toLowerCase()}); });
+  aoa.push([voci.map(v=> v.s+' = '+v.d).join('   ·   ')]);
 
   const ws = XLSX.utils.aoa_to_sheet(aoa);
   ws['!cols'] = [{wch:24}].concat(Array.from({length:nG}, ()=>({wch:4})));
@@ -741,12 +837,63 @@ async function exportXlsx(){
   const wb = XLSX.utils.book_new();
   XLSX.utils.book_append_sheet(wb, ws, 'Foglio presenze');
 
+  // secondo foglio: importo complessivo dei pasti, autista per autista
+  const pasti = pastiDi(sumMonth);
+  const aoaPasti = [
+    ['La Terra – Viaggi in pullman'],
+    ['Pasti – '+titolo.charAt(0).toUpperCase()+titolo.slice(1)],
+    [],
+    ['Autista', 'Importo pasti']
+  ];
+  righe.forEach(r=> aoaPasti.push([r.nome, Number(pasti[r.id]) || 0]));
+  aoaPasti.push([]);
+  aoaPasti.push(['Totale', totalePasti(sumMonth)]);
+
+  const wsPasti = XLSX.utils.aoa_to_sheet(aoaPasti);
+  wsPasti['!cols'] = [{wch:26},{wch:16}];
+  wsPasti['!merges'] = [{s:{r:0,c:0}, e:{r:0,c:1}}, {s:{r:1,c:0}, e:{r:1,c:1}}];
+  for(let r=4; r<aoaPasti.length; r++){
+    const cella = wsPasti[XLSX.utils.encode_cell({r:r, c:1})];
+    if(cella && typeof cella.v === 'number') cella.z = '#,##0.00\\ "€"';
+  }
+  XLSX.utils.book_append_sheet(wb, wsPasti, 'Pasti');
+
   const out = XLSX.write(wb, {bookType:'xlsx', type:'array'});
   const blob = new Blob([out], {type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
   const filename = 'Presenze_LaTerra_'+sumMonth+'.xlsx';
+  return {blob, filename, titolo};
+}
 
-  scarica(blob, filename);
-  toast('File pronto: '+filename);
+/* Scarica il file sul dispositivo. */
+function scaricaExcel(){
+  const f = creaFileExcel();
+  if(!f) return;
+  scarica(f.blob, f.filename);
+  toast('File pronto: '+f.filename);
+}
+
+/* Passa il file al tasto Condividi del telefono: Mail, WhatsApp, quello che usi. */
+function inviaExcel(){
+  const f = creaFileExcel();
+  if(!f) return;
+  const mail = lsGet('mailCommercialista', '');
+  const oggetto = 'Foglio presenze '+f.titolo+' – La Terra';
+
+  try{
+    const file = new File([f.blob], f.filename, {type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
+    if(navigator.canShare && navigator.canShare({files:[file]})){
+      navigator.share({files:[file], title:f.filename, text:oggetto})
+        .catch(err=>{ if(err && err.name !== 'AbortError') toast('Invio non riuscito'); });
+      return;
+    }
+  }catch(e){ /* condivisione non disponibile: si scarica e si allega a mano */ }
+
+  scarica(f.blob, f.filename);
+  const corpo = 'Buongiorno,\nin allegato il foglio presenze di '+f.titolo+'.\n\nLa Terra – Viaggi in pullman';
+  window.location.href = 'mailto:'+encodeURIComponent(mail)
+    + '?subject='+encodeURIComponent(oggetto)
+    + '&body='+encodeURIComponent(corpo);
+  toast('File scaricato: allegalo all\'email');
 }
 
 function scarica(blob, filename){
@@ -873,7 +1020,7 @@ $('#copyPrev').addEventListener('click', ()=>{
   activeEmps().forEach(e=>{ if(src[e.id]){ setMark(curDate, e.id, src[e.id]); n++; } });
   renderDay(); toast(n+' presenze copiate dal giorno prima');
 });
-function vaiAlMese(key){ sumMonth = key; ensureMonth(key); renderSummary(); }
+function vaiAlMese(key){ sumMonth = key; pastiMostrati = null; ensureMonth(key); renderSummary(); }
 function spostaMese(n){
   const p = sumMonth.split('-').map(Number);
   const d = new Date(p[0], p[1]-1+n, 1);
@@ -883,10 +1030,16 @@ $('#prevMonth').addEventListener('click', ()=>spostaMese(-1));
 $('#nextMonth').addEventListener('click', ()=>spostaMese(1));
 $('#monthLbl').addEventListener('click', ()=>{ const i=$('#monthInput'); if(i.showPicker) i.showPicker(); else i.click(); });
 $('#monthInput').addEventListener('change', e=>{ if(e.target.value) vaiAlMese(e.target.value); });
-$('#exportBtn').addEventListener('click', exportXlsx);
+$('#exportBtn').addEventListener('click', scaricaExcel);
+$('#sendBtn').addEventListener('click', inviaExcel);
 $('#addEmp').addEventListener('click', addEmployee);
 $('#newName').addEventListener('keydown', e=>{ if(e.key==='Enter'){ e.preventDefault(); addEmployee(); } });
 $('#showDeleted').addEventListener('click', ()=>{ showDel=!showDel; renderEmps(); });
+$('#mailComm').value = lsGet('mailCommercialista', '');
+$('#salvaMail').addEventListener('click', ()=>{
+  lsSet('mailCommercialista', $('#mailComm').value.trim());
+  toast('Indirizzo salvato');
+});
 $('#backupBtn').addEventListener('click', backup);
 $('#restoreBtn').addEventListener('click', ()=>$('#restoreFile').click());
 $('#restoreFile').addEventListener('change', e=>{ if(e.target.files[0]) restore(e.target.files[0]); e.target.value=''; });
