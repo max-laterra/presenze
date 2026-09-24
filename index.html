@@ -1,4 +1,6 @@
 <!doctype html>
+<!-- La Terra – Registro presenze · versione 1.1.1 (senza sincronizzazione) · 24 settembre 2026
+     Storico delle modifiche: vedi README.md -->
 <html lang="it">
 <head>
 <meta charset="utf-8">
@@ -28,6 +30,10 @@
   --su-colore:#FFFFFF;
   --su-chiaro:#FFFFFF;
   --su-scuro:#3A2205;
+  --ambra:#9A6210;
+  --ambra-su:#FFFFFF;
+  --ambra-fondo:#C9821F;
+  --allarme:#B01F12;
   --c-ri:#35569B;
   --c-rc:#75569F;
   --c-rm:#A96716;
@@ -51,6 +57,10 @@
     --su-colore:#08120E;
     --su-chiaro:#FFFFFF;
     --su-scuro:#3A2205;
+    --ambra:#E0A44A;
+    --ambra-su:#1A1104;
+    --ambra-fondo:#C9821F;
+    --allarme:#F08070;
     --c-ri:#7EA0E0;
     --c-rc:#B59BE0;
     --c-rm:#DFA359;
@@ -74,6 +84,10 @@
   --su-colore:#08120E;
   --su-chiaro:#FFFFFF;
   --su-scuro:#3A2205;
+  --ambra:#E0A44A;
+  --ambra-su:#1A1104;
+  --ambra-fondo:#C9821F;
+  --allarme:#F08070;
   --c-ri:#7EA0E0;
   --c-rc:#B59BE0;
   --c-rm:#DFA359;
@@ -107,11 +121,12 @@ header.top{
   border-bottom:2px solid #D9202F;
   padding-top:env(safe-area-inset-top);
 }
-.top-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 0 10px}
+.top-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 16px 10px}  /* i 16px ripristinano il margine che .wrap perdeva qui */
 .brand{font-weight:700;letter-spacing:-.01em;font-size:1.05rem}
 .logo{height:27px;width:auto;display:block;flex:0 0 auto}
 @media (max-width:360px){.logo{height:23px}}
-.sync{font-size:.75rem;color:var(--ink-soft);display:flex;align-items:center;gap:6px}
+.sync{font-size:.75rem;color:var(--ink-soft);display:flex;align-items:center;gap:6px;min-width:0}
+.sync span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .sync i{width:7px;height:7px;border-radius:50%;background:var(--line-strong);display:block}
 .sync.on i{background:var(--accent)}
 
@@ -123,8 +138,8 @@ header.top{
 }
 .daynav .arrow:active{background:var(--line)}
 .dayinfo{flex:1;min-width:0;text-align:center}
-.dayinfo .d{font-size:1.5rem;font-weight:700;letter-spacing:-.02em;text-transform:capitalize;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.dayinfo .m{font-size:.8rem;color:var(--ink-soft)}
+.dayinfo .d{display:block;font-size:clamp(1rem,4.6vw,1.5rem);font-weight:700;letter-spacing:-.02em;text-transform:capitalize;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dayinfo .m{display:block;font-size:.8rem;color:var(--ink-soft)}
 .dayinfo input{position:absolute;opacity:0;width:0;height:0;pointer-events:none}
 .daybtn{display:block;width:100%;padding:2px 0}
 
@@ -158,6 +173,31 @@ header.top{
 .chip.empty{background:transparent;color:var(--ink-soft);border:1px dashed var(--line-strong);font-weight:500}
 .chip .lbl{display:none}
 @media (min-width:520px){.chip .lbl{display:inline;font-weight:500}}
+
+/* avviso: autisti ancora da segnare */
+.avviso{background:color-mix(in srgb,var(--ambra-fondo) 13%,var(--card));border:1px solid color-mix(in srgb,var(--ambra-fondo) 45%,transparent);
+  border-radius:14px;padding:13px 14px;margin-bottom:12px}
+.avviso .av-t{font-weight:600;font-size:.95rem;margin-bottom:3px}
+.avviso .av-n{font-size:.83rem;color:var(--ink-soft);line-height:1.35;margin-bottom:11px}
+.avviso .av-b{background:var(--ambra);color:var(--ambra-su);border-radius:11px;padding:10px 14px;font-weight:600;font-size:.87rem;width:100%;min-height:44px}
+
+/* scelta di più giorni */
+.rangebar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:4px 16px 12px}
+.rangebar .rb{border:1px solid var(--line-strong);background:var(--paper);border-radius:999px;padding:8px 14px;font-size:.85rem;font-weight:500}
+.rangebar .rb.on{background:var(--accent);color:var(--accent-ink);border-color:transparent;font-weight:600}
+.rangebar .fino{display:none;align-items:center;gap:7px;width:100%;font-size:.85rem;color:var(--ink-soft)}
+.rangebar.multi .fino{display:flex}
+.rangebar .fino input{flex:1;background:var(--paper);border:1px solid var(--line-strong);border-radius:10px;padding:9px 10px;min-height:42px}
+
+/* finestra di conferma */
+.modale{position:fixed;left:50%;top:50%;transform:translate(-50%,-48%) scale(.96);z-index:70;
+  width:min(420px,calc(100vw - 32px));background:var(--card);border-radius:18px;box-shadow:var(--shadow);
+  padding:20px;opacity:0;pointer-events:none;transition:opacity .16s,transform .16s}
+.modale.open{opacity:1;pointer-events:auto;transform:translate(-50%,-50%) scale(1)}
+.modale h3{margin:0 0 8px;font-size:1.05rem;font-weight:700;letter-spacing:-.01em;color:var(--allarme)}
+.modale p{margin:0 0 18px;font-size:.92rem;line-height:1.45;color:var(--ink)}
+.modale .mb{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.scrim.alto{z-index:65}
 
 .empty-state{background:var(--card);border:1px dashed var(--line-strong);border-radius:16px;padding:26px 20px;text-align:center;color:var(--ink-soft)}
 .empty-state b{display:block;color:var(--ink);font-size:1.05rem;margin-bottom:6px}
@@ -266,8 +306,8 @@ td.zero{color:var(--line-strong)}
 .addrow button{background:var(--accent);color:var(--accent-ink);border-radius:12px;padding:0 18px;font-weight:600}
 .emplist{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden}
 .emp{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:11px 14px;border-bottom:1px solid var(--line)}
-.emp .en{flex:1 0 100%}
-.emp .mini{flex:1;text-align:center}
+.emp .en{flex:1;min-width:0}
+.emp .mini{flex:0 0 auto;min-width:96px;text-align:center}
 .emp:last-child{border-bottom:none}
 .emp .en{flex:1;min-width:0;font-weight:500;overflow:hidden;text-overflow:ellipsis}
 .emp.off .en{color:var(--ink-soft);text-decoration:line-through}
@@ -276,6 +316,7 @@ td.zero{color:var(--line-strong)}
 .mini.warn{color:var(--danger);border-color:color-mix(in srgb,var(--danger) 45%,transparent)}
 .mini:active{background:var(--line)}
 .backup{display:grid;gap:10px}
+.versione{text-align:center;font-size:.75rem;color:var(--ink-soft);line-height:1.5;margin:26px 0 4px}
 .linkbtn{display:block;margin:16px auto 0;color:var(--ink-soft);font-size:.85rem;text-decoration:underline}
 
 /* ---------- barra tab ---------- */
@@ -405,6 +446,8 @@ nav.tabs button.active{color:var(--accent);font-weight:600}
       <button class="btn ghost" id="restoreBtn">Ripristina da una copia</button>
       <input type="file" id="restoreFile" accept="application/json,.json" hidden>
     </div>
+
+    <p class="versione">La Terra · Registro presenze<br>versione 1.1.1</p>
   </section>
 
 </main>
@@ -429,7 +472,22 @@ nav.tabs button.active{color:var(--accent);font-weight:600}
   <div class="grab"></div>
   <h3 id="sheetTitle">Segna la presenza</h3>
   <p class="who" id="sheetWho"></p>
+  <div class="rangebar" id="rangeBar">
+    <button class="rb on" id="rbUno">Solo questo giorno</button>
+    <button class="rb" id="rbPiu">Più giorni</button>
+    <label class="fino"><span>fino al</span><input type="date" id="rbEnd"></label>
+  </div>
   <div id="sheetOpts"></div>
+</div>
+
+<div class="scrim alto" id="scrim2"></div>
+<div class="modale" id="modale" role="alertdialog" aria-modal="true">
+  <h3 id="modTitolo"></h3>
+  <p id="modTesto"></p>
+  <div class="mb">
+    <button class="btn ghost" id="modNo">No, annulla</button>
+    <button class="btn" id="modSi">Sì, continua</button>
+  </div>
 </div>
 
 <div id="toast"></div>
@@ -475,14 +533,30 @@ function toast(msg){
   clearTimeout(toast._t); toast._t=setTimeout(()=>t.classList.remove('show'),2600);
 }
 function lsGet(key,fb){ try{ const v=localStorage.getItem(LS+key); return v?JSON.parse(v):fb; }catch(e){ return fb; } }
-function lsSet(key,val){ try{ localStorage.setItem(LS+key, JSON.stringify(val)); }catch(e){} }
+let avvisatoSalvataggio = false;
+function lsSet(key,val){
+  try{
+    localStorage.setItem(LS+key, JSON.stringify(val));
+    return true;
+  }catch(e){
+    if(!avvisatoSalvataggio){
+      avvisatoSalvataggio = true;
+      setTimeout(()=> toast('Attenzione: il dispositivo non sta salvando. Fai una copia di sicurezza.'), 100);
+    }
+    return false;
+  }
+}
+function lsDel(key){ try{ localStorage.removeItem(LS+key); }catch(e){} }
 
 function monthOf(key){
-  if(!months[key]) months[key] = {marks:{}};
+  // recupero dal dispositivo se il mese non e' ancora in memoria:
+  // senza questo, segnare un tour a cavallo di due mesi azzererebbe il secondo.
+  if(!months[key]) months[key] = lsGet('month.'+key, {marks:{}});
+  if(!months[key].marks) months[key].marks = {};
   return months[key];
 }
 function pastiDi(key){
-  const m = months[key];
+  const m = months[key] || lsGet('month.'+key, null);
   return (m && m.pasti) || {};
 }
 function setPasto(key, empId, importo){
@@ -493,17 +567,87 @@ function setPasto(key, empId, importo){
   saveMonth(key);
   if(typeof accoda === 'function') accoda({t:'pasto', id:empId, mese:key, importo: importo > 0 ? importo : null});
 }
-function totalePasti(key){
+function totalePasti(key, righe){
   const p = pastiDi(key);
+  if(righe) return righe.reduce((a,r)=> a + (Number(p[r.id])||0), 0);
   return Object.keys(p).reduce((a,k)=> a + (Number(p[k])||0), 0);
+}
+/* Legge un importo scritto come viene: 412,50 · 412.50 · 1.234,56 · 1,234.56 */
+function leggiImporto(testo){
+  let t = String(testo == null ? '' : testo).replace(/[^0-9.,]/g, '');
+  if(!t) return 0;
+  const virgola = t.lastIndexOf(','), punto = t.lastIndexOf('.');
+  if(virgola >= 0 && punto >= 0){
+    // ci sono tutti e due: l'ultimo e' quello dei decimali
+    t = virgola > punto ? t.replace(/\./g,'').replace(',', '.')
+                        : t.replace(/,/g,'');
+  } else if(virgola >= 0){
+    // in italiano la virgola e' sempre decimale
+    t = t.replace(/,/g, '.');
+  } else if(punto >= 0){
+    // un punto seguito da tre cifre e' il separatore delle migliaia: 1.000
+    t = /^\d+\.\d{3}$/.test(t) ? t.replace(/\./g,'') : t;
+  }
+  const n = parseFloat(t);
+  return (isNaN(n) || n < 0) ? 0 : Math.round(n * 100) / 100;
+}
+/* Come lo rimettiamo nella casella: 1.234,56 */
+function scriviImporto(n){
+  return n ? Number(n).toLocaleString('it-IT', {minimumFractionDigits:2, maximumFractionDigits:2}) : '';
 }
 function euro(n){
   return new Intl.NumberFormat('it-IT',{style:'currency',currency:'EUR'}).format(n||0);
 }
 
+/* Finestra di conferma. Restituisce una promessa: vero se si prosegue. */
+let modRisolvi = null;
+function chiedi(titolo, testo){
+  return new Promise(res=>{
+    $('#modTitolo').textContent = titolo;
+    $('#modTesto').textContent = testo;
+    $('#modale').classList.add('open');
+    $('#scrim2').classList.add('open');
+    modRisolvi = res;
+  });
+}
+function chiudiModale(risposta){
+  $('#modale').classList.remove('open');
+  $('#scrim2').classList.remove('open');
+  if(modRisolvi){ const r = modRisolvi; modRisolvi = null; r(risposta); }
+}
+
+/* Il codice di un giorno, anche se il mese non è caricato in memoria. */
+function codiceDi(date, empId){
+  const marks = marksDi(date.slice(0,7));
+  return (marks[date] && marks[date][empId]) || null;
+}
+
+/* Giorni di scheda di fila attorno ai giorni che stiamo per segnare. */
+const GIORNI_SOGLIA = 7;
+function catenaScheda(empId, giorni){
+  const inArrivo = {};
+  giorni.forEach(g=>{ inArrivo[g] = true; });
+  const scheda = d => inArrivo[d] === true || codiceDi(d, empId) === 'PL';
+  let massimo = 0;
+  giorni.forEach(g=>{
+    let n = 1, d = shiftDay(g,-1), giri = 0;
+    while(scheda(d) && giri++ < 90){ n++; d = shiftDay(d,-1); }
+    d = shiftDay(g,1); giri = 0;
+    while(scheda(d) && giri++ < 90){ n++; d = shiftDay(d,1); }
+    if(n > massimo) massimo = n;
+  });
+  return massimo;
+}
+function avvisoSettimoGiorno(nomi){
+  const chi = nomi.length === 1
+    ? 'Questo Autista sta'
+    : 'Questi autisti stanno ('+nomi.join(', ')+')';
+  return chiedi('ATTENZIONE!',
+    chi + ' usando la scheda per il settimo giorno consecutivo, sei sicuro?');
+}
+
 function markOf(date, empId){
-  const m = months[date.slice(0,7)];
-  return (m && m.marks[date] && m.marks[date][empId]) || null;
+  return codiceDi(date, empId);
 }
 function setMark(date, empId, code){
   const key = date.slice(0,7), m = monthOf(key);
@@ -554,8 +698,19 @@ function renderDay(){
          + '</button>';
   }).join('');
 
-  host.innerHTML = '<div class="register">'+rows+'</div>';
+  const mancanti = curDate <= todayISO() ? list.filter(e=>!markOf(curDate, e.id)) : [];
+  const avviso = mancanti.length
+    ? '<div class="avviso"><div class="av-t">'
+      + (mancanti.length === 1 ? 'Manca un autista' : 'Mancano '+mancanti.length+' autisti')
+      + '</div><div class="av-n">'+mancanti.map(e=>escapeHtml(e.nome)).join(' · ')+'</div>'
+      + '<button class="av-b" id="avSegna">Segnali adesso</button></div>'
+    : '';
+
+  host.innerHTML = avviso + '<div class="register">'+rows+'</div>';
   $('#dayCount').textContent = segnati+' di '+list.length+' segnati';
+
+  const bottoneAvviso = $('#avSegna');
+  if(bottoneAvviso) bottoneAvviso.addEventListener('click', ()=> openSheet('*rimanenti'));
 
   host.querySelectorAll('.row').forEach(btn=>{
     btn.addEventListener('click', ()=> openSheet(btn.dataset.emp));
@@ -566,10 +721,35 @@ function escapeHtml(s){ return String(s).replace(/[&<>"']/g, c=>({'&':'&amp;','<
 /* ---------------- foglio di scelta ---------------- */
 let sheetTarget = null;   // id dipendente, oppure '*rimanenti'
 let sheetDate = null;     // giorno su cui stiamo intervenendo
+let modoPiuGiorni = false;
+
+/* I giorni a cui applicare la scelta. */
+const MAX_GIORNI_TOUR = 31;
+function giorniScelti(){
+  if(!modoPiuGiorni) return [sheetDate];
+  let a = sheetDate, b = $('#rbEnd').value || sheetDate;
+  if(b < a){ const t = a; a = b; b = t; }
+  const out = []; let d = a;
+  while(d <= b && out.length < MAX_GIORNI_TOUR){ out.push(d); d = shiftDay(d, 1); }
+  if(d <= b) toast('Al massimo '+MAX_GIORNI_TOUR+' giorni per volta');
+  return out.length ? out : [sheetDate];
+}
+function impostaModoGiorni(piu){
+  modoPiuGiorni = piu;
+  $('#rangeBar').classList.toggle('multi', piu);
+  $('#rbUno').classList.toggle('on', !piu);
+  $('#rbPiu').classList.toggle('on', piu);
+}
+
 function openSheet(empId, data){
   sheetTarget = empId;
   sheetDate = data || curDate;
   const bulk = empId === '*rimanenti';
+  $('#rangeBar').style.display = bulk ? 'none' : 'flex';
+  impostaModoGiorni(false);
+  $('#rbEnd').value = shiftDay(sheetDate, 3);
+  $('#rbEnd').min = sheetDate;
+  $('#rbEnd').max = shiftDay(sheetDate, MAX_GIORNI_TOUR - 1);
   const current = bulk ? null : markOf(sheetDate, empId);
   $('#sheetTitle').textContent = bulk ? 'Segna i rimanenti' : empName(empId);
   $('#sheetWho').textContent = bulk
@@ -585,14 +765,30 @@ function openSheet(empId, data){
     : '';
   $('#sheetOpts').innerHTML = opts + clear;
   $('#sheetOpts').querySelectorAll('.opt').forEach(b=>{
-    b.addEventListener('click', ()=>{
+    b.addEventListener('click', async ()=>{
       const k = b.dataset.k || null;
-      if(bulk){
-        activeEmps().forEach(e=>{ if(!markOf(sheetDate,e.id)) setMark(sheetDate,e.id,k); });
-      } else {
-        setMark(sheetDate, sheetTarget, k);
+      const giorni = bulk ? [sheetDate] : giorniScelti();
+      const chi = bulk ? activeEmps().filter(e=>!markOf(sheetDate, e.id)) : null;
+      closeSheet();
+
+      if(k === 'PL'){
+        const sospetti = bulk
+          ? chi.filter(e => catenaScheda(e.id, giorni) >= GIORNI_SOGLIA)
+          : (catenaScheda(sheetTarget, giorni) >= GIORNI_SOGLIA ? [{nome: empName(sheetTarget)}] : []);
+        if(sospetti.length){
+          const ok = await avvisoSettimoGiorno(sospetti.map(e=>e.nome));
+          if(!ok) return;
+        }
       }
-      closeSheet(); renderDay();
+
+      if(bulk){
+        chi.forEach(e=> setMark(sheetDate, e.id, k));
+      } else {
+        giorni.forEach(g=> setMark(g, sheetTarget, k));
+        if(giorni.length > 1) toast(giorni.length+' giorni segnati');
+      }
+
+      renderDay();
       if($('#v-riepilogo').classList.contains('active')) renderSummary();
     });
   });
@@ -600,13 +796,23 @@ function openSheet(empId, data){
 }
 function closeSheet(){ $('#sheet').classList.remove('open'); $('#scrim').classList.remove('open'); }
 $('#scrim').addEventListener('click', closeSheet);
+$('#rbUno').addEventListener('click', ()=> impostaModoGiorni(false));
+$('#rbPiu').addEventListener('click', ()=> impostaModoGiorni(true));
+$('#modSi').addEventListener('click', ()=> chiudiModale(true));
+$('#modNo').addEventListener('click', ()=> chiudiModale(false));
+$('#scrim2').addEventListener('click', ()=> chiudiModale(false));
+document.addEventListener('keydown', e=>{
+  if(e.key !== 'Escape') return;
+  if($('#modale').classList.contains('open')) chiudiModale(false);
+  else if($('#sheet').classList.contains('open')) closeSheet();
+});
 
 /* ---------------- render: riepilogo ---------------- */
 function totalsFor(monthKey){
-  const m = months[monthKey] || {marks:{}};
+  const tuttiISegni = marksDi(monthKey);
   const per = {};   // empId -> {PL:0,...}
-  Object.keys(m.marks).forEach(date=>{
-    const day = m.marks[date];
+  Object.keys(tuttiISegni).forEach(date=>{
+    const day = tuttiISegni[date];
     Object.keys(day).forEach(id=>{
       if(!per[id]) per[id] = {};
       per[id][day[id]] = (per[id][day[id]]||0)+1;
@@ -659,32 +865,39 @@ function riposiCumulati(fino){
 /* Sostituita dalla versione sincronizzata quando i dati stanno anche sul profilo. */
 function precaricaMesi(){}
 
-let pastiMostrati = null;   // per non ridisegnare mentre stai scrivendo
+let pastiMostrati = null;   // firma di cio' che e' gia' disegnato
+let righeRiepilogo = [];    // le righe attualmente a schermo
 function renderPasti(righe){
+  righeRiepilogo = righe;
   const host = $('#pastiWrap');
-  if(pastiMostrati !== sumMonth || !host.children.length){
-    pastiMostrati = sumMonth;
+  const firma = sumMonth + '|' + righe.map(r=>r.id).join(',');
+  if(pastiMostrati !== firma || !host.children.length){
+    pastiMostrati = firma;
     const p = pastiDi(sumMonth);
     host.innerHTML = righe.length
       ? '<div class="pasti">' + righe.map(r=>
           '<div class="pasto"><span class="pn">'+escapeHtml(r.nome)+'</span>'
           + '<span class="eur">€</span>'
-          + '<input type="number" inputmode="decimal" min="0" step="0.01" placeholder="0,00" '
-          + 'data-emp="'+r.id+'" value="'+(p[r.id] != null ? p[r.id] : '')+'"></div>'
+          + '<input type="text" inputmode="decimal" enterkeyhint="done" placeholder="0,00" '
+          + 'data-emp="'+r.id+'" value="'+scriviImporto(p[r.id])+'"></div>'
         ).join('') + '</div>'
       : '';
     host.querySelectorAll('input').forEach(inp=>{
-      inp.addEventListener('change', ()=>{
-        const v = parseFloat(String(inp.value).replace(',','.'));
-        setPasto(sumMonth, inp.dataset.emp, isNaN(v) ? 0 : Math.round(v*100)/100);
+      const salva = ()=>{
+        const v = leggiImporto(inp.value);
+        inp.value = scriviImporto(v);            // rimetto in ordine quello che e' stato scritto
+        setPasto(sumMonth, inp.dataset.emp, v);
         aggiornaTotalePasti();
-      });
+      };
+      inp.addEventListener('change', salva);
+      inp.addEventListener('blur', salva);
+      inp.addEventListener('keydown', ev=>{ if(ev.key === 'Enter'){ ev.preventDefault(); inp.blur(); } });
     });
   }
   aggiornaTotalePasti();
 }
 function aggiornaTotalePasti(){
-  const tot = totalePasti(sumMonth);
+  const tot = totalePasti(sumMonth, righeRiepilogo);
   $('#pastiTot').innerHTML = tot ? '<span>Totale pasti del mese</span><b>'+euro(tot)+'</b>' : '';
 }
 
@@ -695,6 +908,15 @@ function abilitaInvio(si){
 function giorniDelMese(key){
   const p = key.split('-').map(Number);
   return new Date(p[0], p[1], 0).getDate();
+}
+/* Numero, data e giorno della settimana di ogni giorno del mese, calcolati una volta sola. */
+function giorniDelMeseInfo(key){
+  const n = giorniDelMese(key), out = [];
+  for(let g=1; g<=n; g++){
+    const iso = key+'-'+String(g).padStart(2,'0');
+    out.push({g:g, iso:iso, gs:parseISO(iso).getDay()});
+  }
+  return out;
 }
 const INIZIALI = ['d','l','m','m','g','v','s'];
 
@@ -715,8 +937,9 @@ function renderSummary(){
   }
 
   const nG = giorniDelMese(sumMonth);
-  const marks = (months[sumMonth] || {marks:{}}).marks;
+  const marks = marksDi(sumMonth);
   const oggi = todayISO();
+  const giorni = giorniDelMeseInfo(sumMonth);
 
   // intestazione: due fasce, come sul foglio cartaceo
   const cumulo = riposiCumulati(sumMonth);
@@ -724,23 +947,21 @@ function renderSummary(){
          + '<th class="gruppo" colspan="'+nG+'"></th>'
          + '<th class="gruppo sep" colspan="2">Riposi</th></tr>';
   let h2 = '<tr>';
-  for(let g=1; g<=nG; g++){
-    const iso = sumMonth+'-'+String(g).padStart(2,'0');
-    const gs = parseISO(iso).getDay();
-    const fest = gs===0 ? ' domenica' : (gs===6 ? ' festivo' : '');
-    h2 += '<th class="dnum'+fest+'"><b>'+g+'</b><span>'+INIZIALI[gs]+'</span></th>';
-  }
+  giorni.forEach(d=>{
+    const fest = d.gs===0 ? ' domenica' : (d.gs===6 ? ' festivo' : '');
+    h2 += '<th class="dnum'+fest+'"><b>'+d.g+'</b><span>'+INIZIALI[d.gs]+'</span></th>';
+  });
   h2 += '<th class="tot sep" title="Riposi e riposi compensativi di questo mese">mese</th>'
       + '<th class="tot" title="Totale riposi da quando usi l\'app, questo mese compreso">totale</th></tr>';
 
   // corpo
+  const indiciRiposi = RIPOSI.map(k=> TIPI.findIndex(t=>t.k===k));
   const corpo = righe.map(r=>{
     let tr = '<tr><td class="nome" title="'+escapeHtml(r.nome)+'">'+escapeHtml(r.nome)+'</td>';
-    for(let g=1; g<=nG; g++){
-      const iso = sumMonth+'-'+String(g).padStart(2,'0');
+    for(let i=0; i<giorni.length; i++){
+      const iso = giorni[i].iso, gs = giorni[i].gs;
       const code = (marks[iso] && marks[iso][r.id]) || null;
       const t = code ? TIPO[code] : null;
-      const gs = parseISO(iso).getDay();
       const cls = ['cella'];
       if(!t) cls.push('vuota');
       if(t && t.pieno) cls.push('pieno');
@@ -750,7 +971,7 @@ function renderSummary(){
       const stile = t ? ' style="--rc-color:var('+t.color+')'+(t.su?';--rc-su:var('+t.su+')':'')+'"' : '';
       tr += '<td class="'+cls.join(' ')+'"'+stile+' data-emp="'+r.id+'" data-date="'+iso+'">'+(t?t.s:'')+'</td>';
     }
-    const riposiMese = RIPOSI.reduce((a,k)=> a + (r.counts[TIPI.findIndex(t=>t.k===k)]||0), 0);
+    const riposiMese = indiciRiposi.reduce((a,i)=> a + (r.counts[i]||0), 0);
     tr += '<td class="tot sep'+(riposiMese?'':' zero')+'">'+(riposiMese||'')+'</td>'
         + '<td class="tot gran">'+(cumulo[r.id]||0)+'</td></tr>';
     return tr;
@@ -786,10 +1007,13 @@ function creaFileExcel(){
   if(typeof XLSX === 'undefined'){ toast('Foglio di calcolo non disponibile, riapri la pagina'); return null; }
 
   const nG = giorniDelMese(sumMonth);
-  const marks = (months[sumMonth] || {marks:{}}).marks;
-  if(!Object.keys(marks).length){ toast('Nessuna presenza da esportare'); return null; }
-
+  const marks = marksDi(sumMonth);
   const righe = totalsFor(sumMonth);
+  const pastiDelMese = pastiDi(sumMonth);
+  if(!Object.keys(marks).length && !Object.keys(pastiDelMese).length){
+    toast('Nessuna presenza da esportare'); return null;
+  }
+  const giorni = giorniDelMeseInfo(sumMonth);
   const titolo = fmtMonth.format(parseISO(sumMonth+'-01'));
   const ultimaCol = nG;   // nome + i giorni del mese
 
@@ -803,20 +1027,15 @@ function creaFileExcel(){
   // due righe di intestazione: numero del giorno e iniziale del giorno della settimana
   const rNumeri = ['Cognome e nome'];
   const rGiorni = [''];
-  for(let g=1; g<=nG; g++){
-    const iso = sumMonth+'-'+String(g).padStart(2,'0');
-    rNumeri.push(g);
-    rGiorni.push(INIZIALI[parseISO(iso).getDay()]);
-  }
+  giorni.forEach(d=>{ rNumeri.push(d.g); rGiorni.push(INIZIALI[d.gs]); });
   aoa.push(rNumeri, rGiorni);
 
   righe.forEach(r=>{
     const riga = [r.nome];
-    for(let g=1; g<=nG; g++){
-      const iso = sumMonth+'-'+String(g).padStart(2,'0');
-      const code = (marks[iso] && marks[iso][r.id]) || null;
+    giorni.forEach(d=>{
+      const code = (marks[d.iso] && marks[d.iso][r.id]) || null;
       riga.push(code ? TIPO[code].sx : '');
-    }
+    });
     aoa.push(riga);
   });
 
@@ -838,7 +1057,7 @@ function creaFileExcel(){
   XLSX.utils.book_append_sheet(wb, ws, 'Foglio presenze');
 
   // secondo foglio: importo complessivo dei pasti, autista per autista
-  const pasti = pastiDi(sumMonth);
+  const pasti = pastiDelMese;
   const aoaPasti = [
     ['La Terra – Viaggi in pullman'],
     ['Pasti – '+titolo.charAt(0).toUpperCase()+titolo.slice(1)],
@@ -847,7 +1066,7 @@ function creaFileExcel(){
   ];
   righe.forEach(r=> aoaPasti.push([r.nome, Number(pasti[r.id]) || 0]));
   aoaPasti.push([]);
-  aoaPasti.push(['Totale', totalePasti(sumMonth)]);
+  aoaPasti.push(['Totale', totalePasti(sumMonth, righe)]);
 
   const wsPasti = XLSX.utils.aoa_to_sheet(aoaPasti);
   wsPasti['!cols'] = [{wch:26},{wch:16}];
@@ -906,24 +1125,48 @@ function scarica(blob, filename){
 /* ---------------- copia di sicurezza ---------------- */
 function backup(){
   const dati = {formato:'presenze-v1', data:new Date().toISOString(), employees, months:{}};
-  tuttiIMesi().forEach(k=>{ dati.months[k] = {marks: marksDi(k)}; });
+  tuttiIMesi().forEach(k=>{
+    dati.months[k] = {marks: marksDi(k), pasti: pastiDi(k)};
+  });
+  dati.mailCommercialista = lsGet('mailCommercialista', '');
   scarica(new Blob([JSON.stringify(dati)], {type:'application/json'}), 'Presenze_backup_'+todayISO()+'.json');
   toast('Copia salvata');
 }
 function restore(file){
   const r = new FileReader();
-  r.onload = ()=>{
+  r.onload = async ()=>{
     let d;
     try{ d = JSON.parse(r.result); }catch(e){ toast('File non leggibile'); return; }
     if(!d || d.formato !== 'presenze-v1' || !Array.isArray(d.employees)){ toast('Questo non è un backup delle presenze'); return; }
-    employees = d.employees;
-    months = {};
+
+    const quando = d.data ? new Date(d.data) : null;
+    const quandoTesto = quando && !isNaN(quando)
+      ? ' del ' + new Intl.DateTimeFormat('it-IT',{day:'numeric',month:'long',year:'numeric'}).format(quando)
+      : '';
+    const ok = await chiedi('Sostituire tutti i dati?',
+      'Questa copia' + quandoTesto + ' prende il posto di tutto quello che c\'è ora su questo dispositivo: '
+      + d.employees.length + ' dipendenti e ' + Object.keys(d.months || {}).length + ' mesi. '
+      + 'Quello che c\'è adesso va perso.');
+    if(!ok) return;
+
+    const mesiNuovi = {};
     Object.keys(d.months || {}).forEach(k=>{
-      months[k] = {marks:(d.months[k] && d.months[k].marks) || {}};
-      lsSet('month.'+k, months[k]);
+      const m = d.months[k] || {};
+      mesiNuovi[k] = {marks: m.marks || {}, pasti: m.pasti || {}};
     });
+    // via i mesi rimasti sul dispositivo che la copia non contiene
+    tuttiIMesi().forEach(k=>{ if(!mesiNuovi[k]) lsDel('month.'+k); });
+
+    employees = d.employees;
+    months = mesiNuovi;
+    Object.keys(mesiNuovi).forEach(k=> lsSet('month.'+k, mesiNuovi[k]));
+    if(typeof d.mailCommercialista === 'string'){
+      lsSet('mailCommercialista', d.mailCommercialista);
+      $('#mailComm').value = d.mailCommercialista;
+    }
     saveEmployees();
     ensureMonth(curMonth); ensureMonth(sumMonth);
+    pastiMostrati = null;
     renderDay(); renderEmps(); renderSummary();
     toast('Dati ripristinati');
   };
@@ -945,9 +1188,7 @@ function renderEmps(){
       + '<span class="en">'+escapeHtml(e.nome)+'</span>'
       + (e.eliminato
           ? '<button class="mini" data-act="restore">Ripristina</button>'
-          : '<button class="mini" data-act="rename">Rinomina</button>'
-            + '<button class="mini" data-act="toggle">'+(e.attivo===false?'Riattiva':'Sospendi')+'</button>'
-            + '<button class="mini warn" data-act="del">Elimina</button>')
+          : '<button class="mini warn" data-act="del">Elimina</button>')
       + '</div>').join('')+'</div>';
   }
   const nDel = employees.filter(e=>e.eliminato).length;
@@ -961,20 +1202,10 @@ function renderEmps(){
     row.querySelectorAll('button').forEach(b=>{
       b.addEventListener('click', ()=>{
         const act = b.dataset.act;
-        if(act==='toggle'){ emp.attivo = emp.attivo===false; saveEmployees(); renderEmps(); renderDay(); }
-        else if(act==='restore'){ emp.eliminato = false; saveEmployees(); renderEmps(); renderDay(); }
+        if(act==='restore'){ emp.eliminato = false; saveEmployees(); renderEmps(); renderDay(); }
         else if(act==='del'){
           if(b.dataset.armed){ emp.eliminato = true; saveEmployees(); renderEmps(); renderDay(); toast('Eliminato, i mesi passati restano'); }
           else { b.dataset.armed='1'; b.textContent='Confermi?'; setTimeout(()=>{ if(b.isConnected){ delete b.dataset.armed; b.textContent='Elimina'; } },4000); }
-        }
-        else if(act==='rename'){
-          const span = row.querySelector('.en'); if(!span) return;
-          const inp = document.createElement('input');
-          inp.className='rename'; inp.value=emp.nome; inp.enterKeyHint='done';
-          span.replaceWith(inp); inp.focus(); inp.select();
-          const commit = ()=>{ const v=inp.value.trim(); if(v){ emp.nome=v; saveEmployees(); } renderEmps(); renderDay(); };
-          inp.addEventListener('blur', commit);
-          inp.addEventListener('keydown', ev=>{ if(ev.key==='Enter'){ ev.preventDefault(); inp.blur(); } });
         }
       });
     });
@@ -989,6 +1220,16 @@ function addEmployee(){
 
 /* ---------------- navigazione ---------------- */
 function goDate(iso){
+  const lasciato = curDate;
+  const attivi = activeEmps();
+  const segnati = attivi.filter(e=>markOf(lasciato, e.id)).length;
+  const mancano = attivi.length - segnati;
+  if(iso !== lasciato && segnati > 0 && mancano > 0 && lasciato <= todayISO()){
+    const g = new Intl.DateTimeFormat('it-IT',{day:'numeric',month:'long'}).format(parseISO(lasciato));
+    setTimeout(()=> toast(mancano===1
+      ? 'Il '+g+' manca ancora 1 autista'
+      : 'Il '+g+' mancano ancora '+mancano+' autisti'), 60);
+  }
   curDate = iso;
   const m = iso.slice(0,7);
   if(m !== curMonth){ curMonth = m; ensureMonth(m); }
@@ -999,7 +1240,9 @@ function showView(name){
   document.querySelectorAll('nav.tabs button').forEach(b=>b.classList.toggle('active', b.dataset.view===name));
   if(name==='riepilogo'){
     ensureMonth(sumMonth); renderSummary();
-    Promise.resolve(precaricaMesi()).then(()=>renderSummary());
+    // il secondo passaggio serve solo quando i mesi arrivano dall'archivio online
+    const attesa = precaricaMesi();
+    if(attesa && typeof attesa.then === 'function') attesa.then(()=>renderSummary());
   }
   if(name==='dipendenti') renderEmps();
   window.scrollTo(0,0);
