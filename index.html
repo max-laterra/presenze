@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- La Terra – Registro presenze · versione 1.1.1 (senza sincronizzazione) · 24 settembre 2026
+<!-- La Terra – Registro presenze · versione 1.5 (senza sincronizzazione) · 24 settembre 2026
      Storico delle modifiche: vedi README.md -->
 <html lang="it">
 <head>
@@ -11,7 +11,7 @@
 <link rel="apple-touch-icon" href="data:image/png;base64,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">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Carlito:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
 :root{
   --paper:#EEF0EA;
@@ -25,7 +25,7 @@
   --danger:#A8364A;
   --shadow:0 8px 28px rgba(20,27,24,.16);
 
-  --c-pl:#D9202F;
+  --c-pl:#B0485A;
   --c-ps:#F0A94F;
   --su-colore:#FFFFFF;
   --su-chiaro:#FFFFFF;
@@ -37,7 +37,8 @@
   --c-ri:#35569B;
   --c-rc:#75569F;
   --c-rm:#A96716;
-  --c-ma:#A8364A;
+  --c-ma:#9C2F3F;
+  --c-lu:#4A5560;
   --tint:14%;
 }
 @media (prefers-color-scheme: dark){
@@ -52,7 +53,7 @@
     --accent-ink:#0B1310;
     --danger:#E0778A;
     --shadow:0 8px 28px rgba(0,0,0,.5);
-    --c-pl:#E8404E;
+    --c-pl:#D98A94;
     --c-ps:#F0A94F;
     --su-colore:#08120E;
     --su-chiaro:#FFFFFF;
@@ -65,6 +66,7 @@
     --c-rc:#B59BE0;
     --c-rm:#DFA359;
     --c-ma:#E0778A;
+    --c-lu:#9AA7B4;
     --tint:22%;
   }
 }
@@ -79,7 +81,7 @@
   --accent-ink:#0B1310;
   --danger:#E0778A;
   --shadow:0 8px 28px rgba(0,0,0,.5);
-  --c-pl:#E8404E;
+  --c-pl:#D98A94;
   --c-ps:#F0A94F;
   --su-colore:#08120E;
   --su-chiaro:#FFFFFF;
@@ -92,6 +94,7 @@
   --c-rc:#B59BE0;
   --c-rm:#DFA359;
   --c-ma:#E0778A;
+  --c-lu:#9AA7B4;
   --tint:22%;
 }
 
@@ -236,6 +239,12 @@ table.griglia .dnum b{display:block;font-size:11px;color:var(--ink);font-weight:
 table.griglia .dnum span{display:block;font-size:8px;font-weight:500;text-transform:lowercase}
 table.griglia th.festivo,table.griglia td.festivo{background:color-mix(in srgb,var(--ink) 7%,var(--card))}
 table.griglia .oggi{box-shadow:inset 0 0 0 2px var(--accent)}
+table.griglia .altromese{opacity:.62}
+table.griglia th.dnum.inizio,table.griglia td.cella.inizio{border-left:3px solid var(--accent)}
+table.griglia th.gruppo.prima{color:var(--ink-soft);font-weight:600}
+table.griglia th.gruppo.adesso{color:var(--accent);font-weight:700}
+/* il nome del mese resta agganciato mentre si scorre */
+table.griglia th.gruppo span{position:sticky;left:112px;display:inline-block;padding:0 6px}
 table.griglia th.domenica,table.griglia td.domenica{border-right:2px solid #D9202F}
 table.griglia th.domenica{background:color-mix(in srgb,#D9202F 15%,var(--card));color:#D9202F}
 table.griglia th.domenica b{color:#D9202F}
@@ -316,6 +325,106 @@ td.zero{color:var(--line-strong)}
 .mini.warn{color:var(--danger);border-color:color-mix(in srgb,var(--danger) 45%,transparent)}
 .mini:active{background:var(--line)}
 .backup{display:grid;gap:10px}
+/* ---------- anteprima del foglio ---------- */
+.vista{position:fixed;inset:0;z-index:80;background:var(--paper);display:none;flex-direction:column}
+.vista.open{display:flex}
+.vista-alto{display:flex;align-items:center;gap:10px;padding:calc(10px + env(safe-area-inset-top)) 14px 10px;
+  border-bottom:1px solid var(--line);background:var(--card)}
+.vista-alto .chi{flex:1;min-width:0}
+.vista-alto .chi b{display:block;font-size:1rem;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.vista-alto .chi span{display:block;font-size:.78rem;color:var(--ink-soft)}
+.vista-alto .chiudi{flex:0 0 auto;width:40px;height:40px;border:1px solid var(--line-strong);
+  border-radius:11px;font-size:1.2rem;line-height:1}
+.vista-foglio{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;padding:14px;text-align:center}
+.vista-foglio img{max-width:100%;height:auto;border:1px solid var(--line-strong);border-radius:6px;
+  box-shadow:0 4px 20px rgba(20,27,24,.13)}
+.vista-foglio .attesa{color:var(--ink-soft);font-size:.9rem;padding:40px 0}
+.vista-basso{padding:12px 14px calc(12px + env(safe-area-inset-bottom));border-top:1px solid var(--line);
+  background:var(--card);display:grid;gap:10px}
+.taglio{display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--ink-soft)}
+.taglio span{flex:1;min-width:0}
+.taglio button{width:40px;height:40px;border:1px solid var(--line-strong);border-radius:10px;
+  font-size:1.1rem;font-weight:600;background:var(--paper)}
+.vista-basso .inviaGrande{background:#25D366;color:#06301A;border-radius:13px;padding:15px;
+  font-weight:700;font-size:1rem;min-height:52px}
+.badge-xls{flex:0 0 auto;font-size:.68rem;font-weight:700;padding:3px 7px;border-radius:6px;
+  background:color-mix(in srgb,var(--accent) 16%,var(--card));color:var(--accent)}
+
+/* ---------- fogli di servizio ---------- */
+.spiega{font-size:.8rem;color:var(--ink-soft);text-align:center;margin:-8px 0 20px}
+h2.sez{font-size:1.05rem;margin:26px 0 12px}
+.barra-lotto{display:grid;grid-template-columns:1fr auto;align-items:end;gap:10px;margin-bottom:8px}
+.barra-lotto label{min-width:0}
+.barra-lotto label span{display:block;font-size:.78rem;color:var(--ink-soft);margin-bottom:4px}
+.barra-lotto input{width:100%;background:var(--card);border:1px solid var(--line-strong);
+  border-radius:11px;padding:10px 12px;min-height:46px}
+.barra-lotto .mini{min-height:46px}
+.conta{font-size:.82rem;color:var(--ink-soft);margin:0 2px 14px}
+
+.smista{background:var(--card);border:1px solid var(--line-strong);border-radius:14px;
+  padding:11px 12px;margin-bottom:9px}
+.smista.indovinato{border-left:4px solid var(--accent)}
+.sm-file{display:flex;align-items:center;gap:8px;font-size:.78rem;color:var(--ink-soft);margin-bottom:9px}
+.sm-file b{flex:1;min-width:0;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--ink)}
+.sm-file .via{flex:0 0 auto;width:30px;height:30px;border-radius:8px;border:1px solid var(--line);
+  font-size:1.05rem;line-height:1;color:var(--ink-soft)}
+.sm-riga{display:flex;gap:7px;align-items:stretch}
+.sm-riga select{flex:1;min-width:0;background:var(--paper);border:1px solid var(--line-strong);
+  border-radius:10px;padding:10px;min-height:46px;font-size:.92rem}
+.sm-riga .gg{flex:0 0 auto;width:48px;border:1px solid var(--line-strong);background:var(--paper);
+  border-radius:10px;font-weight:600;font-size:.85rem}
+.sm-riga .inv{flex:0 0 auto;padding:0 16px;background:#25D366;color:#06301A;border-radius:10px;
+  font-weight:700;font-size:.9rem;min-height:46px}
+.sm-riga .inv[disabled]{opacity:.4}
+.smista.fatto{opacity:.5}
+.azione{display:block;width:100%;background:var(--accent);color:var(--accent-ink);border-radius:14px;
+  padding:15px;font-weight:600;font-size:1rem;text-align:center;min-height:52px;margin-bottom:16px}
+.azione:active{filter:brightness(.93)}
+.filtri{display:flex;gap:8px;margin-bottom:14px}
+.filtri select{flex:1;background:var(--card);border:1px solid var(--line-strong);border-radius:12px;
+  padding:11px 12px;min-height:46px}
+
+.foglio-card{background:var(--card);border:1px solid var(--line);border-radius:16px;
+  padding:13px 14px;margin-bottom:10px}
+.foglio-card.aperto{border-color:var(--accent);box-shadow:0 4px 18px rgba(20,27,24,.10)}
+.fc-alto{display:flex;align-items:flex-start;gap:10px}
+.fc-testo{flex:1;min-width:0}
+.fc-aut{font-weight:600;font-size:1rem;margin-bottom:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fc-tit{font-size:.87rem;color:var(--ink-soft);margin-bottom:5px;overflow:hidden;text-overflow:ellipsis}
+.fc-per{font-size:.8rem;color:var(--ink-soft)}
+.fc-stato{flex:0 0 auto;font-size:.72rem;font-weight:600;padding:5px 9px;border-radius:8px;white-space:nowrap}
+.fc-stato.da{background:color-mix(in srgb,var(--ambra-fondo) 16%,var(--card));color:var(--ambra)}
+.fc-stato.fatto{background:color-mix(in srgb,var(--accent) 15%,var(--card));color:var(--accent)}
+.fc-azioni{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.fc-azioni button{border:1px solid var(--line-strong);background:var(--paper);border-radius:11px;
+  padding:11px 8px;font-size:.85rem;font-weight:500;min-height:44px}
+.fc-azioni button.forte{background:#25D366;color:#06301A;border-color:transparent;font-weight:600}
+.fc-azioni button.warn{color:var(--danger);border-color:color-mix(in srgb,var(--danger) 40%,transparent)}
+.fc-azioni button:active{filter:brightness(.95)}
+
+.modulo{background:var(--card);border:1px solid var(--line-strong);border-radius:16px;padding:16px;margin-bottom:16px}
+.modulo label,.modulo .campo{display:block;margin-bottom:13px}
+.modulo label > span,.modulo .campo > span{display:block;font-size:.8rem;color:var(--ink-soft);margin-bottom:5px}
+.modulo select,.modulo input[type="text"],.modulo input[type="date"]{
+  width:100%;background:var(--paper);border:1px solid var(--line-strong);border-radius:11px;
+  padding:12px;min-height:46px}
+.scegli-file{width:100%;border:1px dashed var(--line-strong);background:var(--paper);border-radius:11px;
+  padding:14px;font-size:.92rem;font-weight:500;min-height:52px;color:var(--ink)}
+.scegli-file.pieno{border-style:solid;border-color:var(--accent);color:var(--accent);font-weight:600}
+.giorni-chip{display:flex;gap:7px;flex-wrap:wrap}
+.giorni-chip button{flex:1;min-width:44px;border:1px solid var(--line-strong);background:var(--paper);
+  border-radius:10px;padding:10px 4px;font-weight:600;font-size:.9rem;min-height:44px}
+.giorni-chip button.on{background:var(--accent);color:var(--accent-ink);border-color:transparent}
+.modulo .due{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.modulo .due button{border-radius:12px;padding:13px;font-weight:600;min-height:48px}
+.modulo .due .ann{border:1px solid var(--line-strong);background:var(--paper)}
+.modulo .due .sal{background:var(--accent);color:var(--accent-ink)}
+.modulo .due .sal[disabled]{opacity:.45}
+
+.emp .tel{flex:1;min-width:0;background:var(--paper);border:1px solid var(--line-strong);
+  border-radius:10px;padding:9px 10px;font-size:.88rem;min-height:42px}
+.emp .riga2{display:flex;gap:8px;width:100%;align-items:center}
+
 .versione{text-align:center;font-size:.75rem;color:var(--ink-soft);line-height:1.5;margin:26px 0 4px}
 .linkbtn{display:block;margin:16px auto 0;color:var(--ink-soft);font-size:.85rem;text-decoration:underline}
 
@@ -355,6 +464,42 @@ nav.tabs button.active{color:var(--accent);font-weight:600}
 .opt .k{font-size:.75rem;font-weight:600;color:var(--rc-color)}
 .opt.clear .t{color:var(--ink-soft)}
 .opt.current{background:color-mix(in srgb,var(--rc-color) 10%,var(--card))}
+
+/* ---------- schermi grandi: computer ---------- */
+@media (min-width:900px){
+  .wrap{max-width:1080px}
+  nav.tabs{max-width:1080px;left:50%;transform:translateX(-50%);border:1px solid var(--line);
+    border-bottom:none;border-radius:16px 16px 0 0}
+  nav.tabs button{padding:12px 4px 14px;font-size:.8rem}
+  nav.tabs button svg{width:20px;height:20px}
+  .row{min-height:54px}
+  #v-giorno{max-width:760px}
+  .toolrow .tool{font-size:.9rem}
+  table.griglia{font-size:12px}
+  table.griglia .dnum{width:33px;min-width:33px}
+  table.griglia td.cella{width:33px;min-width:33px}
+  .pasti,.pastiTot{max-width:560px}
+  .modulo,.smista,.foglio-card,.barra-lotto{max-width:760px}
+  .emplist,.addrow,.backup,.card{max-width:720px}
+  .btn,.azione{max-width:420px}
+  .note,.hint,.conta{max-width:720px}
+}
+/* il puntatore del mouse merita una reazione */
+@media (hover:hover){
+  .row:hover{background:color-mix(in srgb, var(--ink) 4%, var(--card))}
+  .tool:hover,.mini:hover,.arrow:hover{background:color-mix(in srgb, var(--ink) 5%, var(--card))}
+  table.griglia td.cella:hover{outline:2px solid var(--accent);outline-offset:-2px;cursor:pointer}
+  .opt:hover{background:color-mix(in srgb,var(--ink) 5%,var(--card))}
+  nav.tabs button:hover{color:var(--ink)}
+}
+/* riga scelta con la tastiera */
+.row.scelta{background:color-mix(in srgb, var(--accent) 12%, var(--card))}
+.row.scelta .name{font-weight:700}
+.aiutotasti{font-size:.78rem;color:var(--ink-soft);margin:10px 2px 0;display:none}
+@media (min-width:900px){ .aiutotasti{display:block} }
+.aiutotasti kbd{display:inline-block;border:1px solid var(--line-strong);border-bottom-width:2px;
+  border-radius:5px;padding:1px 5px;font-family:inherit;font-size:.75rem;font-weight:600;
+  background:var(--card);margin:0 1px}
 
 #toast{
   position:fixed;left:50%;bottom:calc(88px + env(safe-area-inset-bottom));transform:translateX(-50%) translateY(10px);
@@ -397,6 +542,10 @@ nav.tabs button.active{color:var(--accent);font-weight:600}
     </div>
 
     <div id="dayList"></div>
+    <p class="aiutotasti">Da computer: <kbd>↑</kbd><kbd>↓</kbd> scegli l'autista,
+      <kbd>S</kbd> scheda, <kbd>D</kbd> disco, <kbd>R</kbd> riposo, <kbd>C</kbd> compensativo,
+      <kbd>O</kbd> rimessa, <kbd>M</kbd> malattia, <kbd>L</kbd> lutto,
+      <kbd>Canc</kbd> toglie il segno, <kbd>←</kbd><kbd>→</kbd> cambia giorno.</p>
   </section>
 
   <!-- ============ RIEPILOGO ============ -->
@@ -408,7 +557,7 @@ nav.tabs button.active{color:var(--accent);font-weight:600}
       <input type="month" id="monthInput" aria-label="Scegli il mese">
     </div>
     <div id="sumWrap"></div>
-    <p class="hint">Scorri la griglia con il dito. Tocca una casella per correggerla.</p>
+    <p class="hint">Scorri la griglia: a sinistra c'è il mese prima. Tocca una casella per correggerla.</p>
     <p class="hint" id="notaCumulo"></p>
     <div class="legenda" id="legenda"></div>
     <h2 style="margin-top:24px">Pasti del mese</h2>
@@ -419,6 +568,31 @@ nav.tabs button.active{color:var(--accent);font-weight:600}
     <button class="btn" id="sendBtn">Invia al commercialista</button>
     <button class="btn ghost" id="exportBtn" style="margin-top:10px">Scarica il file Excel</button>
     <p class="note" id="exportNote"></p>
+  </section>
+
+  <!-- ============ FOGLI DI SERVIZIO ============ -->
+  <section class="view" id="v-servizi">
+    <h2>Fogli di servizio</h2>
+    <p class="sub">Prendi tutti i fogli del giorno in una volta, assegnali e mandali.</p>
+
+    <button class="azione" id="prendiFogli">Prendi i fogli di oggi</button>
+    <p class="spiega" id="spiegaFogli">Entra nella cartella del giorno e prendili tutti in una volta.<br>Excel o PDF, come li avete.</p>
+    <input type="file" id="fgFile" accept=".xlsx,.xls,.pdf,application/pdf" multiple hidden>
+
+    <div id="smistamento" hidden>
+      <div class="barra-lotto">
+        <label><span>Giorno dei fogli</span><input type="date" id="loDal"></label>
+        <button class="mini" id="loSvuota">Svuota</button>
+      </div>
+      <p class="conta" id="loConta"></p>
+      <div id="listaSmista"></div>
+    </div>
+
+    <h2 class="sez" id="titoloArchivio">Archivio</h2>
+    <div class="filtri">
+      <select id="fgFiltro"><option value="">Tutti gli autisti</option></select>
+    </div>
+    <div id="listaServizi"></div>
   </section>
 
   <!-- ============ DIPENDENTI ============ -->
@@ -433,10 +607,26 @@ nav.tabs button.active{color:var(--accent);font-weight:600}
     <button class="linkbtn" id="showDeleted" hidden></button>
 
     <h2 style="margin-top:30px">Commercialista</h2>
-    <p class="sub">L'indirizzo a cui mandi il foglio ogni mese. Serve solo quando il telefono non apre da solo il tasto Condividi.</p>
+    <p class="sub">L'indirizzo a cui mandi il foglio ogni mese.</p>
     <div class="addrow">
       <input id="mailComm" type="email" placeholder="email@studio.it" autocapitalize="off" autocorrect="off">
       <button id="salvaMail">Salva</button>
+    </div>
+
+    <div class="card" style="margin-top:14px">
+      <div class="stato" id="statoInvio"><i></i><span></span></div>
+      <p class="piccolo" style="margin:0 0 12px">Con il servizio di invio collegato, il tasto «Invia» manda
+        l'email da solo, senza passare dalla schermata di condivisione.</p>
+      <label class="campo"><span>Indirizzo del servizio</span>
+        <input id="invioUrl" type="url" placeholder="https://…/invia-presenze" autocapitalize="off" autocorrect="off" spellcheck="false">
+      </label>
+      <label class="campo"><span>Chiave</span>
+        <input id="invioChiave" type="password" placeholder="la chiave del servizio" autocomplete="off">
+      </label>
+      <div class="riga2">
+        <button class="btn" id="salvaInvio">Salva</button>
+        <button class="btn ghost" id="provaInvio">Manda una prova</button>
+      </div>
     </div>
 
     <h2 style="margin-top:30px">Copia di sicurezza</h2>
@@ -447,7 +637,7 @@ nav.tabs button.active{color:var(--accent);font-weight:600}
       <input type="file" id="restoreFile" accept="application/json,.json" hidden>
     </div>
 
-    <p class="versione">La Terra · Registro presenze<br>versione 1.1.1</p>
+    <p class="versione">La Terra · Registro presenze<br>versione 1.5</p>
   </section>
 
 </main>
@@ -460,6 +650,10 @@ nav.tabs button.active{color:var(--accent);font-weight:600}
   <button data-view="riepilogo">
     <svg viewBox="0 0 24 24"><path d="M5 20V10M12 20V4M19 20v-7"/><path d="M3 20h18"/></svg>
     Riepilogo
+  </button>
+  <button data-view="servizi">
+    <svg viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h4"/></svg>
+    Servizi
   </button>
   <button data-view="dipendenti">
     <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><path d="M16 5.6a3 3 0 0 1 0 5.6M17.5 14.2A5.4 5.4 0 0 1 20.5 19"/></svg>
@@ -480,6 +674,22 @@ nav.tabs button.active{color:var(--accent);font-weight:600}
   <div id="sheetOpts"></div>
 </div>
 
+<div class="vista" id="vista">
+  <div class="vista-alto">
+    <div class="chi"><b id="vsChi"></b><span id="vsQuando"></span></div>
+    <button class="chiudi" id="vsChiudi" aria-label="Chiudi">&times;</button>
+  </div>
+  <div class="vista-foglio" id="vsFoglio"></div>
+  <div class="vista-basso">
+    <div class="taglio">
+      <button id="vsMeno" aria-label="Una riga in meno">−</button>
+      <span id="vsTaglio"></span>
+      <button id="vsPiu" aria-label="Una riga in più">+</button>
+    </div>
+    <button class="inviaGrande" id="vsInvia">Invia su WhatsApp</button>
+  </div>
+</div>
+
 <div class="scrim alto" id="scrim2"></div>
 <div class="modale" id="modale" role="alertdialog" aria-modal="true">
   <h3 id="modTitolo"></h3>
@@ -492,19 +702,20 @@ nav.tabs button.active{color:var(--accent);font-weight:600}
 
 <div id="toast"></div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fflate/0.8.2/umd/index.js"></script>
 <script>
 (function(){
 "use strict";
 
 /* ---------------- tipi di presenza ---------------- */
 const TIPI = [
-  {k:'PL', s:'S',   sx:'P', pieno:1, color:'--c-pl', su:'--su-chiaro', label:'Scheda', xls:'Presente'},
+  {k:'PL', s:'S',   sx:'P', pieno:1, color:'--c-pl', su:'--su-colore', label:'Scheda', xls:'Presente'},
   {k:'PS', s:'D',   sx:'P', pieno:1, color:'--c-ps', su:'--su-scuro',  label:'Disco',  xls:'Presente'},
   {k:'RI', s:'R',   sx:'R', color:'--c-ri', label:'Riposo',              xls:'Riposo'},
   {k:'RC', s:'RC',  sx:'R', color:'--c-rc', label:'Riposo compensativo', xls:'Riposo'},
   {k:'RM', s:'O',   sx:'O', color:'--c-rm', label:'Rimessa',             xls:'Rimessa'},
-  {k:'MA', s:'M',   sx:'M', color:'--c-ma', label:'Malattia',            xls:'Malattia'}
+  {k:'MA', s:'M',   sx:'M', color:'--c-ma', label:'Malattia',            xls:'Malattia'},
+  {k:'LU', s:'L',   sx:'L', color:'--c-lu', label:'Lutto',               xls:'Lutto'}
 ];
 const TIPO = Object.fromEntries(TIPI.map(t=>[t.k,t]));
 
@@ -516,6 +727,85 @@ let curDate = todayISO();
 let curMonth = curDate.slice(0,7);
 let sumMonth = curMonth;
 
+
+/* ---------------- fogli di servizio: dati ---------------- */
+let servizi = [];   // {id, dip, titolo, dal, giorni, file:{id,nome,peso}, creato, inviato, inviatoA}
+
+/* Il magazzino dei PDF sta qui, separato da tutto il resto: il giorno che
+   si accende l'archivio online basta riscrivere queste tre funzioni. */
+const MAG_DB = 'presenze-file', MAG_STORE = 'pdf';
+let magazzinoAperto = null;
+function apriMagazzino(){
+  if(magazzinoAperto) return magazzinoAperto;
+  magazzinoAperto = new Promise((ris, rif)=>{
+    if(!window.indexedDB){ rif(new Error('archivio file non disponibile')); return; }
+    const r = indexedDB.open(MAG_DB, 1);
+    r.onupgradeneeded = ()=>{
+      const d = r.result;
+      if(!d.objectStoreNames.contains(MAG_STORE)) d.createObjectStore(MAG_STORE);
+    };
+    r.onsuccess = ()=> ris(r.result);
+    r.onerror = ()=> rif(r.error);
+  });
+  return magazzinoAperto;
+}
+const Magazzino = {
+  async salva(id, blob){
+    const d = await apriMagazzino();
+    return new Promise((ris, rif)=>{
+      const t = d.transaction(MAG_STORE, 'readwrite');
+      t.objectStore(MAG_STORE).put(blob, id);
+      t.oncomplete = ()=> ris(id);
+      t.onerror = ()=> rif(t.error);
+    });
+  },
+  async leggi(id){
+    const d = await apriMagazzino();
+    return new Promise((ris, rif)=>{
+      const t = d.transaction(MAG_STORE, 'readonly');
+      const q = t.objectStore(MAG_STORE).get(id);
+      q.onsuccess = ()=> ris(q.result || null);
+      q.onerror = ()=> rif(q.error);
+    });
+  },
+  async elimina(id){
+    const d = await apriMagazzino();
+    return new Promise((ris)=>{
+      const t = d.transaction(MAG_STORE, 'readwrite');
+      t.objectStore(MAG_STORE).delete(id);
+      t.oncomplete = ()=> ris(true);
+      t.onerror = ()=> ris(false);
+    });
+  }
+};
+
+function salvaServizi(){ lsSet('servizi', servizi); }
+
+/* Il numero come lo vuole WhatsApp: solo cifre, col prefisso del paese. */
+function numeroWhatsApp(tel){
+  let t = String(tel == null ? '' : tel).trim();
+  const conPrefisso = t.indexOf('+') === 0 || t.indexOf('00') === 0;
+  t = t.replace(/\D/g, '');
+  if(t.indexOf('00') === 0) t = t.slice(2);
+  if(!t) return '';
+  if(!conPrefisso && t.length <= 11 && t.indexOf('39') !== 0) t = '39' + t;
+  return t;
+}
+function telefonoDi(id){
+  const e = employees.find(x=>x.id===id);
+  return (e && e.telefono) || '';
+}
+function pesoFile(n){
+  if(!n) return '';
+  return n < 1024*1024 ? Math.round(n/1024)+' KB' : (n/1024/1024).toFixed(1).replace('.',',')+' MB';
+}
+const fmtGiorno = new Intl.DateTimeFormat('it-IT',{day:'numeric', month:'long'});
+function periodoTesto(dal, giorni){
+  const a = parseISO(dal);
+  if(giorni <= 1) return fmtGiorno.format(a);
+  const b = parseISO(shiftDay(dal, giorni-1));
+  return fmtGiorno.format(a) + ' – ' + fmtGiorno.format(b);
+}
 
 /* ---------------- utilità ---------------- */
 function todayISO(){ return isoOf(new Date()); }
@@ -712,10 +1002,78 @@ function renderDay(){
   const bottoneAvviso = $('#avSegna');
   if(bottoneAvviso) bottoneAvviso.addEventListener('click', ()=> openSheet('*rimanenti'));
 
-  host.querySelectorAll('.row').forEach(btn=>{
-    btn.addEventListener('click', ()=> openSheet(btn.dataset.emp));
+  host.querySelectorAll('.row').forEach((btn,i)=>{
+    btn.addEventListener('click', ()=>{ rigaScelta = i; evidenziaRiga(); openSheet(btn.dataset.emp); });
   });
+  evidenziaRiga();
 }
+/* ---------------- uso da tastiera (computer) ---------------- */
+let rigaScelta = -1;
+
+function righeVisibili(){ return Array.from(document.querySelectorAll('#dayList .row')); }
+function evidenziaRiga(){
+  const righe = righeVisibili();
+  righe.forEach((r,i)=> r.classList.toggle('scelta', i === rigaScelta));
+  if(rigaScelta >= 0 && righe[rigaScelta]){
+    righe[rigaScelta].scrollIntoView({block:'nearest'});
+  }
+}
+function spostaRiga(n){
+  const totale = righeVisibili().length;
+  if(!totale) return;
+  rigaScelta = rigaScelta < 0 ? 0 : Math.max(0, Math.min(totale - 1, rigaScelta + n));
+  evidenziaRiga();
+}
+/* La lettera che si preme e il tipo che vale. */
+const TASTI = {S:'PL', D:'PS', R:'RI', C:'RC', O:'RM', M:'MA', L:'LU'};
+
+function qualcosaAperto(){
+  return $('#sheet').classList.contains('open')
+      || $('#modale').classList.contains('open')
+      || $('#vista').classList.contains('open');
+}
+function staScrivendo(e){
+  const t = e.target;
+  return t && (t.tagName === 'INPUT' || t.tagName === 'SELECT' || t.tagName === 'TEXTAREA' || t.isContentEditable);
+}
+
+document.addEventListener('keydown', async e=>{
+  if(staScrivendo(e) || qualcosaAperto() || e.ctrlKey || e.metaKey || e.altKey) return;
+  if(!$('#v-giorno').classList.contains('active')) return;
+
+  if(e.key === 'ArrowDown'){ e.preventDefault(); spostaRiga(1); return; }
+  if(e.key === 'ArrowUp'){ e.preventDefault(); spostaRiga(-1); return; }
+  if(e.key === 'ArrowLeft'){ e.preventDefault(); goDate(shiftDay(curDate,-1)); evidenziaRiga(); return; }
+  if(e.key === 'ArrowRight'){ e.preventDefault(); goDate(shiftDay(curDate,1)); evidenziaRiga(); return; }
+
+  const righe = righeVisibili();
+  if(rigaScelta < 0 || !righe[rigaScelta]){
+    if(e.key.length === 1 && TASTI[e.key.toUpperCase()]){ e.preventDefault(); spostaRiga(1); }
+    return;
+  }
+  const idDip = righe[rigaScelta].dataset.emp;
+
+  if(e.key === 'Enter'){ e.preventDefault(); openSheet(idDip); return; }
+
+  let tipo;
+  if(e.key === 'Delete' || e.key === 'Backspace') tipo = null;
+  else if(e.key.length === 1 && TASTI[e.key.toUpperCase()]) tipo = TASTI[e.key.toUpperCase()];
+  else return;
+  e.preventDefault();
+
+  // il settimo giorno di scheda avvisa anche da tastiera
+  if(tipo === 'PL' && catenaScheda(idDip, [curDate]) >= GIORNI_SOGLIA){
+    const ok = await avvisoSettimoGiorno([empName(idDip)]);
+    if(!ok) return;
+  }
+  setMark(curDate, idDip, tipo);
+  const prossima = Math.min(righe.length - 1, rigaScelta + 1);
+  renderDay();
+  rigaScelta = prossima;
+  evidenziaRiga();
+  if($('#v-riepilogo').classList.contains('active')) renderSummary();
+});
+
 function escapeHtml(s){ return String(s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 
 /* ---------------- foglio di scelta ---------------- */
@@ -741,13 +1099,14 @@ function impostaModoGiorni(piu){
   $('#rbPiu').classList.toggle('on', piu);
 }
 
-function openSheet(empId, data){
+function openSheet(empId, data, giorniPreimpostati){
   sheetTarget = empId;
   sheetDate = data || curDate;
   const bulk = empId === '*rimanenti';
   $('#rangeBar').style.display = bulk ? 'none' : 'flex';
-  impostaModoGiorni(false);
-  $('#rbEnd').value = shiftDay(sheetDate, 3);
+  const n = Math.min(Number(giorniPreimpostati) || 1, MAX_GIORNI_TOUR);
+  impostaModoGiorni(!bulk && n > 1);
+  $('#rbEnd').value = shiftDay(sheetDate, n > 1 ? n - 1 : 3);
   $('#rbEnd').min = sheetDate;
   $('#rbEnd').max = shiftDay(sheetDate, MAX_GIORNI_TOUR - 1);
   const current = bulk ? null : markOf(sheetDate, empId);
@@ -865,6 +1224,13 @@ function riposiCumulati(fino){
 /* Sostituita dalla versione sincronizzata quando i dati stanno anche sul profilo. */
 function precaricaMesi(){}
 
+let ultimoMeseMostrato = null;   // per non riportare la griglia a inizio mese mentre scorri
+const fmtMeseSolo = new Intl.DateTimeFormat('it-IT',{month:'long'});
+function meseSpostato(key, n){
+  const p = key.split('-').map(Number);
+  const d = new Date(p[0], p[1]-1+n, 1);
+  return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0');
+}
 let pastiMostrati = null;   // firma di cio' che e' gia' disegnato
 let righeRiepilogo = [];    // le righe attualmente a schermo
 function renderPasti(righe){
@@ -939,17 +1305,27 @@ function renderSummary(){
   const nG = giorniDelMese(sumMonth);
   const marks = marksDi(sumMonth);
   const oggi = todayISO();
-  const giorni = giorniDelMeseInfo(sumMonth);
+
+  // il mese prima resta attaccato a sinistra: si scorre e si continua
+  const mesePrec = meseSpostato(sumMonth, -1);
+  ensureMonth(mesePrec);
+  const marksPrec = marksDi(mesePrec);
+  const giorniPrec = giorniDelMeseInfo(mesePrec).map(d=>{ d.prec = true; return d; });
+  const giorni = giorniPrec.concat(giorniDelMeseInfo(sumMonth));
+  const nPrec = giorniPrec.length;
 
   // intestazione: due fasce, come sul foglio cartaceo
   const cumulo = riposiCumulati(sumMonth);
+  const nomeMese = k => { const t = fmtMeseSolo.format(parseISO(k+'-01')); return t.charAt(0).toUpperCase()+t.slice(1); };
   let h1 = '<tr><th class="nome" rowspan="2">Cognome e nome</th>'
-         + '<th class="gruppo" colspan="'+nG+'"></th>'
+         + '<th class="gruppo prima" colspan="'+nPrec+'"><span>'+nomeMese(mesePrec)+'</span></th>'
+         + '<th class="gruppo adesso" colspan="'+nG+'"><span>'+nomeMese(sumMonth)+'</span></th>'
          + '<th class="gruppo sep" colspan="2">Riposi</th></tr>';
   let h2 = '<tr>';
-  giorni.forEach(d=>{
+  giorni.forEach((d,i)=>{
     const fest = d.gs===0 ? ' domenica' : (d.gs===6 ? ' festivo' : '');
-    h2 += '<th class="dnum'+fest+'"><b>'+d.g+'</b><span>'+INIZIALI[d.gs]+'</span></th>';
+    const cls = 'dnum' + fest + (d.prec ? ' altromese' : '') + (i === nPrec ? ' inizio' : '');
+    h2 += '<th class="'+cls+'"><b>'+d.g+'</b><span>'+INIZIALI[d.gs]+'</span></th>';
   });
   h2 += '<th class="tot sep" title="Riposi e riposi compensativi di questo mese">mese</th>'
       + '<th class="tot" title="Totale riposi da quando usi l\'app, questo mese compreso">totale</th></tr>';
@@ -960,7 +1336,8 @@ function renderSummary(){
     let tr = '<tr><td class="nome" title="'+escapeHtml(r.nome)+'">'+escapeHtml(r.nome)+'</td>';
     for(let i=0; i<giorni.length; i++){
       const iso = giorni[i].iso, gs = giorni[i].gs;
-      const code = (marks[iso] && marks[iso][r.id]) || null;
+      const quali = giorni[i].prec ? marksPrec : marks;
+      const code = (quali[iso] && quali[iso][r.id]) || null;
       const t = code ? TIPO[code] : null;
       const cls = ['cella'];
       if(!t) cls.push('vuota');
@@ -968,6 +1345,8 @@ function renderSummary(){
       if(gs===0) cls.push('domenica');
       else if(!t && gs===6) cls.push('festivo');
       if(iso===oggi) cls.push('oggi');
+      if(giorni[i].prec) cls.push('altromese');
+      if(i === nPrec) cls.push('inizio');
       const stile = t ? ' style="--rc-color:var('+t.color+')'+(t.su?';--rc-su:var('+t.su+')':'')+'"' : '';
       tr += '<td class="'+cls.join(' ')+'"'+stile+' data-emp="'+r.id+'" data-date="'+iso+'">'+(t?t.s:'')+'</td>';
     }
@@ -977,12 +1356,35 @@ function renderSummary(){
     return tr;
   }).join('');
 
+  // dove eravamo arrivati a scorrere, per non perdere il punto a ogni ridisegno
+  const corniceVecchia = host.querySelector('.foglio');
+  const scorrimentoPrima = corniceVecchia ? corniceVecchia.scrollLeft : null;
+  const stessoMese = (ultimoMeseMostrato === sumMonth);
+
   host.innerHTML = '<div class="foglio"><table class="griglia"><thead>'+h1+h2+'</thead>'
                  + '<tbody>'+corpo+'</tbody></table></div>';
 
   host.querySelectorAll('td.cella').forEach(td=>{
     td.addEventListener('click', ()=> openSheet(td.dataset.emp, td.dataset.date));
   });
+
+  // all'apertura la griglia mostra il mese scelto; il mese prima resta a
+  // sinistra, basta scorrere. Se stavi gia' scorrendo, il punto si conserva.
+  const cornice = host.querySelector('.foglio');
+  if(cornice){
+    if(stessoMese && scorrimentoPrima != null){
+      cornice.scrollLeft = scorrimentoPrima;
+    } else {
+      const primo = host.querySelector('th.dnum.inizio');
+      if(primo){
+        const intestNome = host.querySelector('thead th.nome');
+        const largNome = intestNome ? intestNome.offsetWidth : 108;
+        cornice.scrollLeft += primo.getBoundingClientRect().left
+                            - cornice.getBoundingClientRect().left - largNome;
+      }
+    }
+    ultimoMeseMostrato = sumMonth;
+  }
 
   $('#legenda').innerHTML = TIPI.map(t=>
     '<span style="--rc-color:var('+t.color+')"><i></i><b>'+t.s+'</b> '+t.label+'</span>'
@@ -1002,10 +1404,152 @@ function renderSummary(){
     : 'Nessuna giornata registrata in questo mese.';
 }
 
-/* ---------------- export Excel ---------------- */
-function creaFileExcel(){
-  if(typeof XLSX === 'undefined'){ toast('Foglio di calcolo non disponibile, riapri la pagina'); return null; }
+/* ============================================================
+   Scrittura del file Excel.
+   Lo costruiamo noi documento per documento: la libreria di
+   lettura non sa scrivere bordi, sfondi e grassetti, che qui
+   servono per rispettare il modello concordato.
+   ============================================================ */
 
+const ESC_XML = {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&apos;'};
+function xmlSicuro(t){
+  return String(t == null ? '' : t)
+    .replace(/[&<>"']/g, c => ESC_XML[c])
+    .replace(/[\x00-\x08\x0B\x0C\x0E-\x1F]/g, '');
+}
+function letteraColonna(n){            // 1 -> A, 27 -> AA
+  let t = '';
+  while(n > 0){ const r = (n - 1) % 26; t = String.fromCharCode(65 + r) + t; n = Math.floor((n - 1) / 26); }
+  return t;
+}
+
+/* Gli stili del foglio, nell'ordine in cui li richiamiamo per numero:
+   0 normale · 1 titolo · 2 sottotitolo · 3 testo · 4 intestazione al centro
+   5 intestazione a sinistra · 6 cella al centro · 7 cella a sinistra
+   8 importo in euro · 9 totale in grassetto */
+const STILI_XLSX = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
++ '<styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">'
++ '<numFmts count="1"><numFmt numFmtId="164" formatCode="#,##0.00\\ &quot;€&quot;"/></numFmts>'
++ '<fonts count="5">'
++   '<font><sz val="11"/><name val="Calibri"/><family val="2"/></font>'
++   '<font><b/><sz val="14"/><name val="Calibri"/><family val="2"/></font>'
++   '<font><b/><sz val="12"/><name val="Calibri"/><family val="2"/></font>'
++   '<font><sz val="12"/><name val="Calibri"/><family val="2"/></font>'
++   '<font><b/><sz val="11"/><name val="Calibri"/><family val="2"/></font>'
++ '</fonts>'
++ '<fills count="3">'
++   '<fill><patternFill patternType="none"/></fill>'
++   '<fill><patternFill patternType="gray125"/></fill>'
++   '<fill><patternFill patternType="solid"><fgColor rgb="FFD9E1F2"/><bgColor indexed="64"/></patternFill></fill>'
++ '</fills>'
++ '<borders count="2">'
++   '<border><left/><right/><top/><bottom/><diagonal/></border>'
++   '<border><left style="thin"><color rgb="FF9BA7B4"/></left><right style="thin"><color rgb="FF9BA7B4"/></right>'
++   '<top style="thin"><color rgb="FF9BA7B4"/></top><bottom style="thin"><color rgb="FF9BA7B4"/></bottom><diagonal/></border>'
++ '</borders>'
++ '<cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs>'
++ '<cellXfs count="10">'
++   '<xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0"/>'
++   '<xf numFmtId="0" fontId="1" fillId="0" borderId="0" xfId="0" applyFont="1"/>'
++   '<xf numFmtId="0" fontId="2" fillId="0" borderId="0" xfId="0" applyFont="1"/>'
++   '<xf numFmtId="0" fontId="3" fillId="0" borderId="0" xfId="0" applyFont="1"/>'
++   '<xf numFmtId="0" fontId="4" fillId="2" borderId="1" xfId="0" applyFont="1" applyFill="1" applyBorder="1" applyAlignment="1"><alignment horizontal="center" vertical="center" wrapText="1"/></xf>'
++   '<xf numFmtId="0" fontId="4" fillId="2" borderId="1" xfId="0" applyFont="1" applyFill="1" applyBorder="1" applyAlignment="1"><alignment horizontal="left" vertical="center"/></xf>'
++   '<xf numFmtId="0" fontId="3" fillId="0" borderId="1" xfId="0" applyFont="1" applyBorder="1" applyAlignment="1"><alignment horizontal="center" vertical="center"/></xf>'
++   '<xf numFmtId="0" fontId="3" fillId="0" borderId="1" xfId="0" applyFont="1" applyBorder="1" applyAlignment="1"><alignment horizontal="left" vertical="center"/></xf>'
++   '<xf numFmtId="164" fontId="3" fillId="0" borderId="1" xfId="0" applyFont="1" applyBorder="1" applyNumberFormat="1" applyAlignment="1"><alignment horizontal="right" vertical="center"/></xf>'
++   '<xf numFmtId="164" fontId="2" fillId="0" borderId="1" xfId="0" applyFont="1" applyBorder="1" applyNumberFormat="1" applyAlignment="1"><alignment horizontal="right" vertical="center"/></xf>'
++ '</cellXfs>'
++ '<cellStyles count="1"><cellStyle name="Normal" xfId="0" builtinId="0"/></cellStyles>'
++ '</styleSheet>';
+
+/* Un foglio: righe di celle {v, s, n} dove n = numero, s = stile. */
+function foglioXml(righe, colonne, unioni){
+  let x = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
+    + '<worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">';
+  if(colonne && colonne.length){
+    x += '<cols>';
+    colonne.forEach(c=>{
+      x += '<col min="'+c.da+'" max="'+c.a+'" width="'+c.larg+'" customWidth="1"/>';
+    });
+    x += '</cols>';
+  }
+  x += '<sheetData>';
+  righe.forEach((riga, i)=>{
+    const nr = i + 1;
+    if(!riga || !riga.length){ x += '<row r="'+nr+'"/>'; return; }
+    x += '<row r="'+nr+'"'+(riga.alt ? ' ht="'+riga.alt+'" customHeight="1"' : '')+'>';
+    riga.forEach((cel, j)=>{
+      if(cel == null) return;
+      const rif = letteraColonna(j+1) + nr;
+      const st = cel.s ? ' s="'+cel.s+'"' : '';
+      if(cel.n){
+        x += '<c r="'+rif+'"'+st+'><v>'+cel.v+'</v></c>';
+      } else if(cel.v === '' || cel.v == null){
+        if(cel.s) x += '<c r="'+rif+'"'+st+'/>';
+      } else {
+        x += '<c r="'+rif+'"'+st+' t="inlineStr"><is><t xml:space="preserve">'+xmlSicuro(cel.v)+'</t></is></c>';
+      }
+    });
+    x += '</row>';
+  });
+  x += '</sheetData>';
+  if(unioni && unioni.length){
+    x += '<mergeCells count="'+unioni.length+'">';
+    unioni.forEach(u=>{ x += '<mergeCell ref="'+u+'"/>'; });
+    x += '</mergeCells>';
+  }
+  x += '</worksheet>';
+  return x;
+}
+
+/* Mette insieme i fogli e restituisce il file .xlsx. */
+function creaXlsx(fogli){
+  if(typeof fflate === 'undefined') throw new Error('non posso scrivere il file');
+  const cod = new TextEncoder();
+  const parti = {};
+
+  let tipi = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
+    + '<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">'
+    + '<Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/>'
+    + '<Default Extension="xml" ContentType="application/xml"/>'
+    + '<Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/>'
+    + '<Override PartName="/xl/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml"/>';
+  let libro = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
+    + '<workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"'
+    + ' xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets>';
+  let rel = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
+    + '<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">';
+
+  fogli.forEach((f, i)=>{
+    const n = i + 1;
+    parti['xl/worksheets/sheet'+n+'.xml'] = cod.encode(foglioXml(f.righe, f.colonne, f.unioni));
+    tipi += '<Override PartName="/xl/worksheets/sheet'+n+'.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/>';
+    libro += '<sheet name="'+xmlSicuro(f.nome)+'" sheetId="'+n+'" r:id="rId'+n+'"/>';
+    rel += '<Relationship Id="rId'+n+'" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet'+n+'.xml"/>';
+  });
+  const rStili = fogli.length + 1;
+  rel += '<Relationship Id="rId'+rStili+'" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>';
+  libro += '</sheets></workbook>';
+  tipi += '</Types>';
+
+  parti['[Content_Types].xml'] = cod.encode(tipi);
+  parti['_rels/.rels'] = cod.encode('<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
+    + '<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">'
+    + '<Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/>'
+    + '</Relationships>');
+  parti['xl/workbook.xml'] = cod.encode(libro);
+  parti['xl/_rels/workbook.xml.rels'] = cod.encode(rel);
+  parti['xl/styles.xml'] = cod.encode(STILI_XLSX);
+
+  const zip = fflate.zipSync(parti, {level:6});
+  return new Blob([zip], {type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
+}
+
+/* ---------------- export Excel ---------------- */
+const GIORNI_BREVI = ['Dom','Lun','Mar','Mer','Gio','Ven','Sab'];
+
+function creaFileExcel(){
   const nG = giorniDelMese(sumMonth);
   const marks = marksDi(sumMonth);
   const righe = totalsFor(sumMonth);
@@ -1015,72 +1559,67 @@ function creaFileExcel(){
   }
   const giorni = giorniDelMeseInfo(sumMonth);
   const titolo = fmtMonth.format(parseISO(sumMonth+'-01'));
-  const ultimaCol = nG;   // nome + i giorni del mese
+  const titoloMaiusc = titolo.charAt(0).toUpperCase() + titolo.slice(1);
+  const ultima = letteraColonna(nG + 1);          // ultima colonna del foglio
+  const oggi = new Intl.DateTimeFormat('it-IT',{day:'2-digit',month:'2-digit',year:'numeric'}).format(new Date());
 
-  const aoa = [
-    ['La Terra – Viaggi in pullman'],
-    ['Foglio presenze – '+titolo.charAt(0).toUpperCase()+titolo.slice(1)],
-    ['Generato il '+new Intl.DateTimeFormat('it-IT',{day:'2-digit',month:'2-digit',year:'numeric'}).format(new Date())],
-    []
-  ];
+  /* ---------- foglio delle presenze ---------- */
+  const r = [];
+  r.push([{v:'La Terra – Viaggi in pullman', s:1}]);
+  r.push([{v:'Foglio presenze – '+titoloMaiusc, s:2}]);
+  r.push([{v:'Generato il '+oggi, s:3}]);
+  r.push([]);
 
-  // due righe di intestazione: numero del giorno e iniziale del giorno della settimana
-  const rNumeri = ['Cognome e nome'];
-  const rGiorni = [''];
-  giorni.forEach(d=>{ rNumeri.push(d.g); rGiorni.push(INIZIALI[d.gs]); });
-  aoa.push(rNumeri, rGiorni);
+  const intestazione = [{v:'Cognome e nome', s:5}];
+  giorni.forEach(d=>{ intestazione.push({v: GIORNI_BREVI[d.gs]+' '+d.g, s:4}); });
+  intestazione.alt = 30;
+  r.push(intestazione);
 
-  righe.forEach(r=>{
-    const riga = [r.nome];
+  righe.forEach(p=>{
+    const riga = [{v:p.nome, s:7}];
     giorni.forEach(d=>{
-      const code = (marks[d.iso] && marks[d.iso][r.id]) || null;
-      riga.push(code ? TIPO[code].sx : '');
+      const code = (marks[d.iso] && marks[d.iso][p.id]) || null;
+      riga.push({v: code ? TIPO[code].sx : '', s:6});
     });
-    aoa.push(riga);
+    r.push(riga);
   });
 
-  aoa.push([]);
+  r.push([]);
   const voci = [];
   TIPI.forEach(t=>{ if(!voci.some(v=>v.s === t.sx)) voci.push({s:t.sx, d:t.xls.toLowerCase()}); });
-  aoa.push([voci.map(v=> v.s+' = '+v.d).join('   ·   ')]);
+  r.push([{v: voci.map(v=> v.s+' = '+v.d).join('   ·   '), s:3}]);
 
-  const ws = XLSX.utils.aoa_to_sheet(aoa);
-  ws['!cols'] = [{wch:24}].concat(Array.from({length:nG}, ()=>({wch:4})));
-  ws['!merges'] = [
-    {s:{r:0,c:0}, e:{r:0,c:ultimaCol}},
-    {s:{r:1,c:0}, e:{r:1,c:ultimaCol}},
-    {s:{r:2,c:0}, e:{r:2,c:ultimaCol}},
-    {s:{r:aoa.length-1,c:0}, e:{r:aoa.length-1,c:ultimaCol}}
-  ];
+  const presenze = {
+    nome: 'Foglio presenze',
+    righe: r,
+    colonne: [{da:1, a:1, larg:24.8}, {da:2, a:nG+1, larg:7}],
+    unioni: ['A1:'+ultima+'1', 'A2:'+ultima+'2', 'A3:'+ultima+'3',
+             'A'+r.length+':'+ultima+r.length]
+  };
 
-  const wb = XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(wb, ws, 'Foglio presenze');
+  /* ---------- foglio dei pasti ---------- */
+  const p2 = [];
+  p2.push([{v:'La Terra – Viaggi in pullman', s:1}]);
+  p2.push([{v:'Pasti – '+titoloMaiusc, s:2}]);
+  p2.push([]);
+  p2.push([{v:'Autista', s:5}, {v:'Importo pasti', s:4}]);
+  righe.forEach(x=>{
+    p2.push([{v:x.nome, s:7}, {v: Number(pastiDelMese[x.id]) || 0, n:true, s:8}]);
+  });
+  p2.push([]);
+  p2.push([{v:'Totale', s:9}, {v: totalePasti(sumMonth, righe), n:true, s:9}]);
 
-  // secondo foglio: importo complessivo dei pasti, autista per autista
-  const pasti = pastiDelMese;
-  const aoaPasti = [
-    ['La Terra – Viaggi in pullman'],
-    ['Pasti – '+titolo.charAt(0).toUpperCase()+titolo.slice(1)],
-    [],
-    ['Autista', 'Importo pasti']
-  ];
-  righe.forEach(r=> aoaPasti.push([r.nome, Number(pasti[r.id]) || 0]));
-  aoaPasti.push([]);
-  aoaPasti.push(['Totale', totalePasti(sumMonth, righe)]);
+  const pasti = {
+    nome: 'Pasti',
+    righe: p2,
+    colonne: [{da:1, a:1, larg:26.8}, {da:2, a:2, larg:16.8}],
+    unioni: ['A1:B1', 'A2:B2']
+  };
 
-  const wsPasti = XLSX.utils.aoa_to_sheet(aoaPasti);
-  wsPasti['!cols'] = [{wch:26},{wch:16}];
-  wsPasti['!merges'] = [{s:{r:0,c:0}, e:{r:0,c:1}}, {s:{r:1,c:0}, e:{r:1,c:1}}];
-  for(let r=4; r<aoaPasti.length; r++){
-    const cella = wsPasti[XLSX.utils.encode_cell({r:r, c:1})];
-    if(cella && typeof cella.v === 'number') cella.z = '#,##0.00\\ "€"';
-  }
-  XLSX.utils.book_append_sheet(wb, wsPasti, 'Pasti');
-
-  const out = XLSX.write(wb, {bookType:'xlsx', type:'array'});
-  const blob = new Blob([out], {type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
-  const filename = 'Presenze_LaTerra_'+sumMonth+'.xlsx';
-  return {blob, filename, titolo};
+  let blob;
+  try{ blob = creaXlsx([presenze, pasti]); }
+  catch(e){ toast('Non sono riuscito a creare il file Excel'); return null; }
+  return {blob, filename: 'Presenze_LaTerra_'+sumMonth+'.xlsx', titolo};
 }
 
 /* Scarica il file sul dispositivo. */
@@ -1092,12 +1631,65 @@ function scaricaExcel(){
 }
 
 /* Passa il file al tasto Condividi del telefono: Mail, WhatsApp, quello che usi. */
+/* Il servizio di invio, se e' stato collegato. */
+function servizioInvio(){
+  const c = lsGet('invioEmail', null);
+  return (c && c.url) ? c : null;
+}
+function base64Di(blob){
+  return new Promise((ris, rif)=>{
+    const r = new FileReader();
+    r.onload = ()=>{ const t = String(r.result); ris(t.slice(t.indexOf(',') + 1)); };
+    r.onerror = ()=> rif(r.error);
+    r.readAsDataURL(blob);
+  });
+}
+function corpoEmail(titolo){
+  return 'Buongiorno,\nin allegato il foglio presenze di ' + titolo + '.\n\nLa Terra – Viaggi in pullman';
+}
+
+/* Manda davvero l'email. Restituisce vero se il servizio l'ha presa in carico. */
+async function mandaConServizio(destinatario, oggetto, testo, nomeFile, blob){
+  const c = servizioInvio();
+  if(!c) return false;
+  const contenuto = await base64Di(blob);
+  const risposta = await fetch(c.url, {
+    method: 'POST',
+    headers: {'Content-Type':'application/json', 'Authorization':'Bearer ' + (c.chiave || '')},
+    body: JSON.stringify({a: destinatario, oggetto: oggetto, testo: testo,
+                          nomeFile: nomeFile, contenuto: contenuto})
+  });
+  if(!risposta.ok){
+    let dettaglio = '';
+    try{ const d = await risposta.json(); dettaglio = d.errore || d.error || ''; }catch(e){}
+    throw new Error(dettaglio || ('il servizio ha risposto ' + risposta.status));
+  }
+  return true;
+}
+
 function inviaExcel(){
   const f = creaFileExcel();
   if(!f) return;
   const mail = lsGet('mailCommercialista', '');
-  const oggetto = 'Foglio presenze '+f.titolo+' – La Terra';
+  const oggetto = 'Foglio presenze ' + f.titolo + ' – La Terra';
 
+  // 1. invio automatico, se il servizio e' collegato
+  if(servizioInvio()){
+    if(!mail){ toast('Manca l\'indirizzo del commercialista'); return; }
+    const bottone = $('#sendBtn');
+    const prima = bottone.textContent;
+    bottone.disabled = true; bottone.textContent = 'Invio in corso…';
+    mandaConServizio(mail, oggetto, corpoEmail(f.titolo), f.filename, f.blob)
+      .then(()=> toast('Email inviata a ' + mail))
+      .catch(err=>{
+        toast('Invio non riuscito: ' + (err.message || 'controlla il collegamento'));
+        scarica(f.blob, f.filename);
+      })
+      .finally(()=>{ bottone.disabled = false; bottone.textContent = prima; });
+    return;
+  }
+
+  // 2. telefono: il file passa al tasto Condividi
   try{
     const file = new File([f.blob], f.filename, {type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
     if(navigator.canShare && navigator.canShare({files:[file]})){
@@ -1105,13 +1697,13 @@ function inviaExcel(){
         .catch(err=>{ if(err && err.name !== 'AbortError') toast('Invio non riuscito'); });
       return;
     }
-  }catch(e){ /* condivisione non disponibile: si scarica e si allega a mano */ }
+  }catch(e){ /* niente condivisione */ }
 
+  // 3. computer senza servizio: scarico e apro la posta
   scarica(f.blob, f.filename);
-  const corpo = 'Buongiorno,\nin allegato il foglio presenze di '+f.titolo+'.\n\nLa Terra – Viaggi in pullman';
-  window.location.href = 'mailto:'+encodeURIComponent(mail)
-    + '?subject='+encodeURIComponent(oggetto)
-    + '&body='+encodeURIComponent(corpo);
+  window.location.href = 'mailto:' + encodeURIComponent(mail)
+    + '?subject=' + encodeURIComponent(oggetto)
+    + '&body=' + encodeURIComponent(corpoEmail(f.titolo));
   toast('File scaricato: allegalo all\'email');
 }
 
@@ -1124,7 +1716,7 @@ function scarica(blob, filename){
 
 /* ---------------- copia di sicurezza ---------------- */
 function backup(){
-  const dati = {formato:'presenze-v1', data:new Date().toISOString(), employees, months:{}};
+  const dati = {formato:'presenze-v1', data:new Date().toISOString(), employees, servizi, months:{}};
   tuttiIMesi().forEach(k=>{
     dati.months[k] = {marks: marksDi(k), pasti: pastiDi(k)};
   });
@@ -1158,6 +1750,7 @@ function restore(file){
     tuttiIMesi().forEach(k=>{ if(!mesiNuovi[k]) lsDel('month.'+k); });
 
     employees = d.employees;
+    if(Array.isArray(d.servizi)){ servizi = d.servizi; salvaServizi(); }
     months = mesiNuovi;
     Object.keys(mesiNuovi).forEach(k=> lsSet('month.'+k, mesiNuovi[k]));
     if(typeof d.mailCommercialista === 'string'){
@@ -1173,6 +1766,816 @@ function restore(file){
   r.readAsText(file);
 }
 
+/* ---------------- foglio Excel: lettura e disegno ---------------- */
+
+/* Dove finisce la parte dell'autista. Sotto ci sono prezzi e fatture,
+   che non devono mai arrivargli. */
+function rigaDelTaglio(aoa){
+  // se e' stato regolato a mano, quella scelta vale per tutti i fogli successivi
+  const salvata = lsGet('tagliaFoglio', null);
+  if(salvata && salvata <= aoa.length) return salvata;
+  for(let i = aoa.length - 1; i >= 0; i--){
+    const testo = (aoa[i] || []).join(' ').toLowerCase();
+    if(testo.indexOf('firma') >= 0) return i + 1;      // le firme chiudono la parte dell'autista
+  }
+  return aoa.length;
+}
+
+/* ============================================================
+   Lettura del foglio Excel: non solo i valori, anche com'e' fatto.
+   Il file .xlsx e' un archivio di documenti XML: lo apriamo e
+   leggiamo stili, larghezze, altezze, bordi e celle unite, per
+   ridisegnare il foglio uguale all'originale.
+   ============================================================ */
+
+function testoDi(u8){ return new TextDecoder('utf-8').decode(u8); }
+function xml(testo){ return new DOMParser().parseFromString(testo, 'application/xml'); }
+
+/* Colori: rgb diretto, oppure dal tema (0 bianco, 1 nero). */
+function coloreDa(nodo){
+  if(!nodo) return null;
+  const rgb = nodo.getAttribute('rgb');
+  if(rgb) return '#' + rgb.slice(-6);
+  const tema = nodo.getAttribute('theme');
+  if(tema === '0') return '#FFFFFF';
+  if(tema === '1') return '#000000';
+  if(tema === '2') return '#E7E6E6';
+  if(tema === '3') return '#44546A';
+  return null;
+}
+
+function leggiStili(doc){
+  const q = (p) => Array.from(doc.querySelectorAll(p));
+  const fonts = q('fonts > font').map(f=>({
+    dim: parseFloat((f.querySelector('sz')||{}).getAttribute ? f.querySelector('sz').getAttribute('val') : 11) || 11,
+    grassetto: !!f.querySelector('b'),
+    corsivo: !!f.querySelector('i'),
+    colore: coloreDa(f.querySelector('color')) || '#000000',
+    nome: (f.querySelector('name') ? f.querySelector('name').getAttribute('val') : 'Calibri') || 'Calibri'
+  }));
+  const fills = q('fills > fill').map(f=>{
+    const p = f.querySelector('patternFill');
+    if(!p || p.getAttribute('patternType') === 'none') return null;
+    if(p.getAttribute('patternType') !== 'solid') return null;
+    return coloreDa(p.querySelector('fgColor'));
+  });
+  const lati = ['left','right','top','bottom'];
+  const borders = q('borders > border').map(b=>{
+    const fuori = {};
+    lati.forEach(l=>{
+      const n = b.querySelector(l);
+      const st = n && n.getAttribute('style');
+      if(st) fuori[l] = {stile: st, colore: coloreDa(n.querySelector('color')) || '#000000'};
+    });
+    return fuori;
+  });
+  const xf = q('cellXfs > xf').map(x=>{
+    const a = x.querySelector('alignment');
+    return {
+      font: parseInt(x.getAttribute('fontId')||'0',10),
+      fill: parseInt(x.getAttribute('fillId')||'0',10),
+      bordo: parseInt(x.getAttribute('borderId')||'0',10),
+      oriz: a ? a.getAttribute('horizontal') : null,
+      vert: a ? a.getAttribute('vertical') : null,
+      accapo: !!(a && a.getAttribute('wrapText') === '1')
+    };
+  });
+  return {fonts, fills, borders, xf};
+}
+
+function colonnaDaRif(rif){            // "H12" -> 8
+  let n = 0;
+  for(let i = 0; i < rif.length; i++){
+    const c = rif.charCodeAt(i);
+    if(c < 65 || c > 90) break;
+    n = n * 26 + (c - 64);
+  }
+  return n;
+}
+function rigaDaRif(rif){ return parseInt(rif.replace(/^[A-Z]+/, ''), 10) || 0; }
+
+function leggiFoglioExcel(bytes){
+  if(typeof fflate === 'undefined') throw new Error('lettore archivio non disponibile');
+  const parti = fflate.unzipSync(bytes);
+  const prendi = (via) => parti[via] ? testoDi(parti[via]) : null;
+
+  // il primo foglio del libro
+  const rels = prendi('xl/_rels/workbook.xml.rels');
+  const wbx = xml(prendi('xl/workbook.xml'));
+  const primo = wbx.querySelector('sheets > sheet');
+  let via = 'xl/worksheets/sheet1.xml';
+  if(primo && rels){
+    const rid = primo.getAttribute('r:id') || primo.getAttributeNS('http://schemas.openxmlformats.org/officeDocument/2006/relationships','id');
+    const rel = Array.from(xml(rels).querySelectorAll('Relationship')).find(r=>r.getAttribute('Id') === rid);
+    if(rel){
+      let t = rel.getAttribute('Target').replace(/^\/?xl\//,'').replace(/^\//,'');
+      via = 'xl/' + t;
+    }
+  }
+  const foglio = xml(prendi(via));
+  const stili = prendi('xl/styles.xml') ? leggiStili(xml(prendi('xl/styles.xml'))) : {fonts:[],fills:[],borders:[],xf:[]};
+
+  // testi condivisi
+  const ssTxt = prendi('xl/sharedStrings.xml');
+  const condivisi = [];
+  if(ssTxt){
+    xml(ssTxt).querySelectorAll('si').forEach(si=>{
+      let t = '';
+      si.querySelectorAll('t').forEach(n=>{ t += n.textContent; });
+      condivisi.push(t);
+    });
+  }
+
+  // larghezze delle colonne e altezze delle righe
+  const fmt = foglio.querySelector('sheetFormatPr');
+  const altezzaBase = fmt ? (parseFloat(fmt.getAttribute('defaultRowHeight')) || 15) : 15;
+  const largBase = fmt ? (parseFloat(fmt.getAttribute('defaultColWidth')) || 0) : 0;
+  const larghezze = {};
+  foglio.querySelectorAll('cols > col').forEach(c=>{
+    const da = parseInt(c.getAttribute('min'),10), a = parseInt(c.getAttribute('max'),10);
+    const w = parseFloat(c.getAttribute('width'));
+    for(let i = da; i <= a && i <= 64; i++) larghezze[i] = w;
+  });
+
+  // le celle
+  const celle = {};
+  let maxR = 0, maxC = 0;
+  const altezze = {};
+  foglio.querySelectorAll('sheetData > row').forEach(r=>{
+    const nr = parseInt(r.getAttribute('r'),10);
+    if(r.getAttribute('ht')) altezze[nr] = parseFloat(r.getAttribute('ht'));
+    if(nr > maxR) maxR = nr;
+    r.querySelectorAll('c').forEach(c=>{
+      const rif = c.getAttribute('r') || '';
+      const nc = colonnaDaRif(rif);
+      if(nc > maxC) maxC = nc;
+      const tipo = c.getAttribute('t');
+      let val = '';
+      if(tipo === 'inlineStr'){
+        c.querySelectorAll('is t').forEach(n=>{ val += n.textContent; });
+      } else {
+        const v = c.querySelector('v');
+        if(v){
+          val = v.textContent;
+          if(tipo === 's') val = condivisi[parseInt(val,10)] || '';
+        }
+      }
+      const s = parseInt(c.getAttribute('s')||'0',10);
+      if(val !== '' || s) celle[nr+'_'+nc] = {v:val, s:s, num: !tipo || tipo === 'n'};
+    });
+  });
+
+  // celle unite
+  const unite = [];
+  foglio.querySelectorAll('mergeCells > mergeCell').forEach(m=>{
+    const [a,b] = m.getAttribute('ref').split(':');
+    unite.push({r1:rigaDaRif(a), c1:colonnaDaRif(a), r2:rigaDaRif(b), c2:colonnaDaRif(b)});
+  });
+
+  return {celle, unite, larghezze, altezze, altezzaBase, largBase, maxR, maxC, stili};
+}
+
+/* Comodità: le righe come testo, per riconoscere autista e giorni. */
+function fogliaInRighe(f){
+  const fuori = [];
+  for(let r = 1; r <= f.maxR; r++){
+    const riga = [];
+    for(let c = 1; c <= Math.max(8, f.maxC); c++){
+      const cel = f.celle[r+'_'+c];
+      riga.push(cel ? String(cel.v) : '');
+    }
+    fuori.push(riga);
+  }
+  return fuori;
+}
+
+function leggiExcel(blob){
+  return new Promise((ris, rif)=>{
+    const r = new FileReader();
+    r.onload = ()=>{
+      try{
+        const f = leggiFoglioExcel(new Uint8Array(r.result));
+        ris({foglio: f, aoa: fogliaInRighe(f)});
+      }catch(e){ rif(e); }
+    };
+    r.onerror = ()=> rif(r.error);
+    r.readAsArrayBuffer(blob);
+  });
+}
+
+/* Disegna il foglio esattamente com'è nel file Excel. Restituisce un PNG. */
+const FONT_FOGLIO = "Carlito, Calibri, 'Segoe UI', system-ui, sans-serif";
+
+function fontCss(f, scala){
+  return (f.corsivo ? 'italic ' : '') + (f.grassetto ? '700 ' : '400 ')
+       + ((f.dim || 11) * (scala||1)).toFixed(2) + 'px ' + FONT_FOGLIO;
+}
+
+function disegnaFoglio(foglio, fino, chi, periodo){
+  const S = 2;                              // doppia risoluzione
+  const f = foglio;
+  const st = f.stili;
+  const fontBase = st.fonts[0] || {dim:11, colore:'#000000'};
+
+  // Excel misura le colonne in "larghezze della cifra 0" del carattere di base
+  const mis = document.createElement('canvas').getContext('2d');
+  mis.font = fontCss({dim:fontBase.dim}, 1);
+  const MDW = Math.max(6, mis.measureText('0').width);
+  const PT = 96/72;                         // i punti di Excel in pixel
+
+  const nCol = Math.max(1, f.maxC);
+  const nRig = Math.max(1, Math.min(fino || f.maxR, f.maxR));
+
+  const largCol = [];
+  for(let c = 1; c <= nCol; c++){
+    const w = f.larghezze[c] || f.largBase || 8.43;
+    largCol.push(Math.round(w * MDW) + 5);
+  }
+  const altRig = [];
+  for(let r = 1; r <= nRig; r++) altRig.push(Math.round((f.altezze[r] || f.altezzaBase) * PT));
+
+  const somma = (arr, da, a) => arr.slice(da, a).reduce((x,y)=>x+y, 0);
+  const xDi = c => somma(largCol, 0, c-1);
+  const yDi = r => somma(altRig, 0, r-1);
+
+  const margine = 18;
+  const largTot = somma(largCol, 0, nCol);
+  const altTot = somma(altRig, 0, nRig);
+  const hPiede = 34;
+  const W = largTot + margine*2;
+  const H = altTot + margine*2 + hPiede;
+
+  const cv = document.createElement('canvas');
+  cv.width = Math.round(W*S); cv.height = Math.round(H*S);
+  const x = cv.getContext('2d');
+  x.scale(S, S);
+  x.fillStyle = '#FFFFFF'; x.fillRect(0, 0, W, H);
+  x.textBaseline = 'alphabetic';
+
+  // le celle unite: una sola da disegnare, le altre coperte
+  const coperte = {}, unitaDa = {};
+  f.unite.forEach(u=>{
+    unitaDa[u.r1+'_'+u.c1] = u;
+    for(let r = u.r1; r <= u.r2; r++)
+      for(let c = u.c1; c <= u.c2; c++)
+        if(r !== u.r1 || c !== u.c1) coperte[r+'_'+c] = true;
+  });
+  const stileDi = cel => (cel && st.xf[cel.s]) || null;
+  const misuraCella = (r, c) => {
+    const u = unitaDa[r+'_'+c];
+    return {
+      larg: u ? somma(largCol, u.c1-1, u.c2) : largCol[c-1],
+      alt:  u ? somma(altRig, u.r1-1, Math.min(u.r2, nRig)) : altRig[r-1],
+      unita: !!u
+    };
+  };
+
+  // 1. sfondi
+  for(let r = 1; r <= nRig; r++){
+    for(let c = 1; c <= nCol; c++){
+      if(coperte[r+'_'+c]) continue;
+      const xf = stileDi(f.celle[r+'_'+c]);
+      const colore = xf ? st.fills[xf.fill] : null;
+      if(!colore) continue;
+      const m = misuraCella(r, c);
+      x.fillStyle = colore;
+      x.fillRect(margine + xDi(c), margine + yDi(r), m.larg, m.alt);
+    }
+  }
+
+  // 2. bordi
+  const traccia = (x1,y1,x2,y2,b)=>{
+    if(!b) return;
+    x.strokeStyle = b.colore || '#000000';
+    x.lineWidth = (b.stile === 'medium' || b.stile === 'thick') ? 2 : 1;
+    x.beginPath(); x.moveTo(x1, y1); x.lineTo(x2, y2); x.stroke();
+  };
+  for(let r = 1; r <= nRig; r++){
+    for(let c = 1; c <= nCol; c++){
+      if(coperte[r+'_'+c]) continue;
+      const xf = stileDi(f.celle[r+'_'+c]);
+      const bd = xf ? st.borders[xf.bordo] : null;
+      if(!bd) continue;
+      const m = misuraCella(r, c);
+      const px = margine + xDi(c) + .5, py = margine + yDi(r) + .5;
+      traccia(px, py, px + m.larg, py, bd.top);
+      traccia(px, py + m.alt, px + m.larg, py + m.alt, bd.bottom);
+      traccia(px, py, px, py + m.alt, bd.left);
+      traccia(px + m.larg, py, px + m.larg, py + m.alt, bd.right);
+    }
+  }
+
+  // 3. testi
+  for(let r = 1; r <= nRig; r++){
+    for(let c = 1; c <= nCol; c++){
+      if(coperte[r+'_'+c]) continue;
+      const cel = f.celle[r+'_'+c];
+      if(!cel || cel.v === '' || cel.v == null) continue;
+      const xf = stileDi(cel);
+      const font = (xf && st.fonts[xf.font]) || fontBase;
+      const m = misuraCella(r, c);
+
+      // come in Excel: il testo sconfina nelle celle vuote che seguono
+      let spazio = m.larg;
+      if(!m.unita && !(xf && xf.accapo)){
+        let c2 = c + 1;
+        while(c2 <= nCol){
+          const vicino = f.celle[r+'_'+c2];
+          if(vicino && String(vicino.v).trim() !== '') break;
+          spazio += largCol[c2-1]; c2++;
+        }
+      }
+
+      const testo = String(cel.v);
+      x.font = fontCss(font, 1);
+      x.fillStyle = font.colore || '#000000';
+
+      const oriz = (xf && xf.oriz) || null;
+      let px = margine + xDi(c) + 3;
+      x.textAlign = 'left';
+      if(oriz === 'center'){ px = margine + xDi(c) + m.larg/2; x.textAlign = 'center'; }
+      else if(oriz === 'right'){ px = margine + xDi(c) + m.larg - 3; x.textAlign = 'right'; }
+
+      const py = margine + yDi(r) + m.alt/2 + (font.dim || 11) * 0.36;
+
+      x.save();
+      x.beginPath();
+      x.rect(margine + xDi(c) - 1, margine + yDi(r), Math.max(spazio, m.larg) + 2, m.alt);
+      x.clip();
+      x.fillText(testo, px, py);
+      x.restore();
+    }
+  }
+
+  // 4. piede con destinatario e periodo, fuori dal foglio
+  x.textAlign = 'left';
+  const yp = margine + altTot + 22;
+  x.strokeStyle = '#C9CFC8'; x.lineWidth = 1;
+  x.beginPath(); x.moveTo(margine, yp - 12); x.lineTo(W - margine, yp - 12); x.stroke();
+  x.fillStyle = '#141B18'; x.font = "700 12px " + FONT_FOGLIO;
+  x.fillText(chi || '', margine, yp);
+  x.fillStyle = '#6B7671'; x.font = "400 11px " + FONT_FOGLIO;
+  x.textAlign = 'right';
+  x.fillText(periodo || '', W - margine, yp);
+  x.textAlign = 'left';
+
+  return new Promise(ris => cv.toBlob(b => ris(b), 'image/png'));
+}
+
+/* Cerca nel foglio il valore accanto a una dicitura. */
+function valoreAccantoA(aoa, dicitura){
+  const cercata = dicitura.toLowerCase();
+  for(let r = 0; r < aoa.length; r++){
+    const riga = aoa[r] || [];
+    for(let c = 0; c < riga.length; c++){
+      if(String(riga[c] == null ? '' : riga[c]).trim().toLowerCase() === cercata){
+        for(let c2 = c + 1; c2 < riga.length; c2++){
+          const v = String(riga[c2] == null ? '' : riga[c2]).trim();
+          if(v) return v;
+        }
+      }
+    }
+  }
+  return '';
+}
+
+/* Confronta un nome scritto nel foglio con gli autisti in elenco. */
+function autistaDalNome(testo){
+  const parole = pezziNome(testo);
+  if(!parole.length) return null;
+  let migliore = null, punti = 0;
+  activeEmps().forEach(e=>{
+    let p = 0;
+    pezziNome(e.nome).forEach(s2=>{
+      parole.forEach(w=>{
+        if(w === s2) p += 3;
+        else if(s2.length>=4 && w.indexOf(s2) >= 0) p += 2;
+        else if(w.length>=4 && s2.indexOf(w) >= 0) p += 2;
+      });
+    });
+    if(p > punti){ punti = p; migliore = e; }
+    else if(p === punti && p > 0) migliore = null;
+  });
+  return punti >= 2 ? migliore : null;
+}
+
+/* Legge giorno di partenza e durata dal foglio, se ci sono. */
+function periodoDalFoglio(aoa, annoDiRiferimento){
+  const fuori = {dal:'', giorni:0};
+  const g = parseInt(valoreAccantoA(aoa, 'giorni'), 10);
+  if(g > 0 && g <= 31) fuori.giorni = g;
+  const inizio = valoreAccantoA(aoa, 'inizio');
+  const m = inizio.match(/(\d{1,2})[\/\-\.](\d{1,2})(?:[\/\-\.](\d{2,4}))?/);
+  if(m){
+    const gg = parseInt(m[1],10), mm = parseInt(m[2],10);
+    let aa = m[3] ? parseInt(m[3],10) : annoDiRiferimento;
+    if(aa < 100) aa += 2000;
+    if(gg>=1 && gg<=31 && mm>=1 && mm<=12){
+      fuori.dal = aa + '-' + String(mm).padStart(2,'0') + '-' + String(gg).padStart(2,'0');
+    }
+  }
+  return fuori;
+}
+
+function nomeImmagine(chi, dal){
+  const pulito = String(chi || 'autista').replace(/[^\w\s-]/g,'').trim().replace(/\s+/g,'_');
+  return 'Foglio_' + pulito + '_' + dal + '.png';
+}
+
+/* ---------------- fogli di servizio: schermata ---------------- */
+let daSmistare = [];          // {rif, blob, nome, peso, dip, giorni, fatto}
+let fgApertoId = null;        // il foglio aperto nell'archivio
+let fgBlobAperto = null;      // il file originale, gia' pronto
+let fgPngAperto = null;       // e la sua immagine, se e' un Excel
+
+/* --- riconoscimento dell'autista dal nome del file --- */
+function senzaAccenti(t){
+  return String(t == null ? '' : t).toLowerCase()
+    .replace(/[\u00e0\u00e1\u00e2\u00e4]/g,'a').replace(/[\u00e8\u00e9\u00ea\u00eb]/g,'e')
+    .replace(/[\u00ec\u00ed\u00ee\u00ef]/g,'i').replace(/[\u00f2\u00f3\u00f4\u00f6]/g,'o')
+    .replace(/[\u00f9\u00fa\u00fb\u00fc]/g,'u').replace(/\u00e7/g,'c').replace(/['\u2019]/g,'');
+}
+function pezziNome(t){ return senzaAccenti(t).split(/[^a-z0-9]+/).filter(x=>x.length>=3); }
+function indovinaAutista(nomeFile){
+  const parole = pezziNome(String(nomeFile).replace(/\.pdf$/i,''));
+  if(!parole.length) return null;
+  let migliore = null, punti = 0;
+  activeEmps().forEach(e=>{
+    let p = 0;
+    pezziNome(e.nome).forEach(s=>{
+      parole.forEach(w=>{
+        if(w === s) p += 3;
+        else if(s.length>=4 && w.indexOf(s) >= 0) p += 2;
+        else if(w.length>=4 && s.indexOf(w) >= 0) p += 2;
+      });
+    });
+    if(p > punti){ punti = p; migliore = e; }
+    else if(p === punti && p > 0) migliore = null;   // due autisti pari: meglio far scegliere
+  });
+  return punti >= 2 ? migliore : null;
+}
+
+function elencoAutisti(sel, primaVoce, scelto){
+  sel.innerHTML = (primaVoce ? '<option value="">'+primaVoce+'</option>' : '')
+    + activeEmps().map(e=>'<option value="'+e.id+'"'+(e.id===scelto?' selected':'')+'>'
+        +escapeHtml(e.nome)+'</option>').join('');
+}
+
+/* --- la fila dei fogli da smistare --- */
+function renderSmista(){
+  const host = $('#listaSmista');
+  const restano = daSmistare.filter(x=>!x.fatto).length;
+  $('#smistamento').hidden = !daSmistare.length;
+  $('#spiegaFogli').hidden = !!daSmistare.length;
+  $('#loConta').textContent = daSmistare.length
+    ? (restano ? restano + (restano===1?' foglio da mandare':' fogli da mandare') : 'tutti mandati')
+    : '';
+
+  host.innerHTML = daSmistare.map(x=>
+    '<div class="smista'+(x.indovinato?' indovinato':'')+(x.fatto?' fatto':'')+'" data-rif="'+x.rif+'">'
+    + '<div class="sm-file"><b>'+escapeHtml(x.nome)+'</b>'
+    + (x.tipo==='xlsx' ? '<span class="badge-xls">vedi</span>' : '<span>'+pesoFile(x.peso)+'</span>')
+    + '<button class="via" title="Togli dalla fila">&times;</button></div>'
+    + '<div class="sm-riga">'
+    + '<select></select>'
+    + '<button class="gg">'+x.giorni+'g</button>'
+    + '<button class="inv"'+(x.fatto?' disabled':'')+'>'+(x.fatto?'fatto':'Invia')+'</button>'
+    + '</div></div>'
+  ).join('');
+
+  host.querySelectorAll('.smista').forEach(card=>{
+    const x = daSmistare.find(v=>v.rif === card.dataset.rif);
+    const sel = card.querySelector('select');
+    elencoAutisti(sel, 'Scegli l\'autista…', x.dip);
+    sel.addEventListener('change', async ()=>{
+      x.dip = sel.value; x.indovinato = false; x.png = null;
+      aggiornaInvio(card, x);
+      await rigeneraImmagini();
+    });
+    card.querySelector('.gg').addEventListener('click', async ()=>{
+      x.giorni = x.giorni >= 7 ? 1 : x.giorni + 1;
+      card.querySelector('.gg').textContent = x.giorni + 'g';
+      x.png = null; await rigeneraImmagini();
+    });
+    card.querySelector('.sm-file b').addEventListener('click', ()=> apriVista(x));
+    const segno = card.querySelector('.badge-xls');
+    if(segno) segno.addEventListener('click', ()=> apriVista(x));
+    card.querySelector('.via').addEventListener('click', ()=>{
+      daSmistare = daSmistare.filter(v=>v.rif !== x.rif); renderSmista();
+    });
+    card.querySelector('.inv').addEventListener('click', ()=> mandaDallaFila(x, card));
+    aggiornaInvio(card, x);
+  });
+}
+function aggiornaInvio(card, x){
+  const b = card.querySelector('.inv');
+  b.disabled = x.fatto || !x.dip;
+}
+
+/* Il PDF e' gia' in memoria: la condivisione parte con un tocco solo. */
+function mandaDallaFila(x, card){
+  if(!x.dip || x.fatto) return;
+  const dal = x.dal || $('#loDal').value || todayISO();
+  const sv = {
+    id: 'f' + Date.now().toString(36) + Math.random().toString(36).slice(2,6),
+    dip: x.dip, titolo: '', dal: dal, giorni: x.giorni,
+    file: {id:'', nome:x.nome, peso:x.peso},
+    creato: Date.now(), inviato: null, inviatoA: null
+  };
+  sv.file.id = 'p' + sv.id;
+
+  sv.tipo = x.tipo;
+  sv.taglio = x.taglio || 0;
+  const daMandare = (x.tipo === 'xlsx' && x.png)
+    ? {blob: x.png, nome: nomeImmagine(empName(x.dip), dal), tipo: 'image/png'}
+    : {blob: x.blob, nome: x.nome, tipo: 'application/pdf'};
+
+  condividiFoglio(sv, daMandare, ()=>{
+    Magazzino.salva(sv.file.id, x.blob).catch(()=> toast('Inviato, ma non sono riuscito a conservarlo'));
+    sv.inviato = Date.now();
+    sv.inviatoA = numeroWhatsApp(telefonoDi(sv.dip));
+    servizi.push(sv);
+    salvaServizi();
+    x.fatto = true;
+    renderSmista();
+    renderArchivio();
+  });
+}
+
+/* Passa file e messaggio al tasto Condividi. Se non c'e', scarica e apre la chat. */
+function condividiFoglio(sv, cosa, fatto){
+  const testo = messaggioFoglio(sv);
+  try{
+    const file = new File([cosa.blob], cosa.nome, {type: cosa.tipo});
+    if(navigator.canShare && navigator.canShare({files:[file]})){
+      navigator.share({files:[file], text:testo})
+        .then(fatto)
+        .catch(err=>{ if(err && err.name !== 'AbortError') toast('Invio non riuscito'); });
+      return;
+    }
+  }catch(e){ /* niente condivisione */ }
+  scarica(cosa.blob, cosa.nome);
+  const numero = numeroWhatsApp(telefonoDi(sv.dip));
+  window.open('https://wa.me/'+numero+'?text='+encodeURIComponent(testo), '_blank');
+  fatto();
+  toast('File scaricato: allegalo alla chat');
+}
+
+function messaggioFoglio(sv){
+  const nome = empName(sv.dip).split(' ').slice(-1)[0];
+  return 'Ciao ' + nome + ', ecco il foglio di servizio per '
+    + periodoTesto(sv.dal, sv.giorni) + '.\nLa Terra – Viaggi in pullman';
+}
+
+/* --- archivio --- */
+function renderArchivio(){
+  const sel = $('#fgFiltro');
+  const filtro = sel.dataset.scelto || '';
+  elencoAutisti(sel, 'Tutti gli autisti', filtro);
+  sel.value = filtro;
+
+  const elenco = servizi
+    .filter(sv => !filtro || sv.dip === filtro)
+    .sort((a,b) => (b.dal === a.dal ? b.creato - a.creato : (b.dal < a.dal ? -1 : 1)));
+
+  const host = $('#listaServizi');
+  $('#titoloArchivio').textContent = 'Archivio' + (servizi.length ? ' · '+servizi.length : '');
+  if(!elenco.length){
+    host.innerHTML = '<div class="empty-state">'
+      + (servizi.length ? 'Nessun foglio per questo autista.'
+                        : '<b>Archivio vuoto</b>I fogli mandati finiscono qui.')
+      + '</div>';
+    return;
+  }
+
+  host.innerHTML = elenco.map(sv=>{
+    const aperto = sv.id === fgApertoId;
+    const stato = sv.inviato
+      ? '<span class="fc-stato fatto">inviato</span>'
+      : '<span class="fc-stato da">da inviare</span>';
+    const quando = sv.inviato
+      ? new Intl.DateTimeFormat('it-IT',{day:'numeric',month:'long',hour:'2-digit',minute:'2-digit'}).format(new Date(sv.inviato))
+      : sv.file.nome;
+    const azioni = aperto
+      ? '<div class="fc-azioni">'
+        + '<button data-az="apri">'+(sv.tipo==='xlsx' ? 'Vedi il foglio' : 'Apri il PDF')+'</button>'
+        + '<button class="forte" data-az="invia">Invia di nuovo</button>'
+        + '<button data-az="presenze">Segna le presenze</button>'
+        + '<button class="warn" data-az="elimina">Elimina</button>'
+        + '</div>'
+      : '';
+    return '<div class="foglio-card'+(aperto?' aperto':'')+'" data-id="'+sv.id+'">'
+      + '<div class="fc-alto"><div class="fc-testo">'
+      + '<div class="fc-aut">'+escapeHtml(empName(sv.dip))+'</div>'
+      + '<div class="fc-per">'+periodoTesto(sv.dal, sv.giorni)
+      + (sv.giorni>1 ? ' · '+sv.giorni+' giorni' : '') + '</div>'
+      + '<div class="fc-per">'+escapeHtml(quando)+'</div>'
+      + '</div>'+stato+'</div>' + azioni + '</div>';
+  }).join('');
+
+  host.querySelectorAll('.foglio-card').forEach(card=>{
+    const sv = servizi.find(x=>x.id === card.dataset.id);
+    card.querySelector('.fc-alto').addEventListener('click', ()=> apriFoglio(sv.id));
+    card.querySelectorAll('[data-az]').forEach(b=>{
+      b.addEventListener('click', ev=>{
+        ev.stopPropagation();
+        const az = b.dataset.az;
+        if(az === 'apri') apriPdf();
+        else if(az === 'invia') reinviaFoglio(sv);
+        else if(az === 'presenze') presenzeDaFoglio(sv);
+        else if(az === 'elimina') eliminaFoglio(sv, b);
+      });
+    });
+  });
+}
+function renderServizi(){ renderSmista(); renderArchivio(); }
+
+async function apriFoglio(id){
+  if(fgApertoId === id){ fgApertoId = null; fgBlobAperto = null; fgPngAperto = null; renderArchivio(); return; }
+  fgApertoId = id; fgBlobAperto = null; fgPngAperto = null;
+  renderArchivio();
+  const sv = servizi.find(x=>x.id===id);
+  if(!sv) return;
+  try{ fgBlobAperto = await Magazzino.leggi(sv.file.id); }catch(e){ fgBlobAperto = null; }
+  if(!fgBlobAperto){ toast('Il file non si trova più su questo dispositivo'); return; }
+  fgPngAperto = null;
+  if(sv.tipo === 'xlsx'){
+    try{
+      const letto = await leggiExcel(fgBlobAperto);
+      fgPngAperto = await disegnaFoglio(letto.foglio,
+        sv.taglio || rigaDelTaglio(letto.aoa), empName(sv.dip), periodoTesto(sv.dal, sv.giorni));
+    }catch(e){ fgPngAperto = null; }
+  }
+}
+function apriPdf(){
+  const fonte = fgPngAperto || fgBlobAperto;
+  if(!fonte){ toast('Il file non si trova più su questo dispositivo'); return; }
+  const url = URL.createObjectURL(fonte);
+  window.open(url, '_blank');
+  setTimeout(()=> URL.revokeObjectURL(url), 60000);
+}
+function reinviaFoglio(sv){
+  if(!fgBlobAperto){ toast('Il file non si trova più su questo dispositivo'); return; }
+  const cosa = (sv.tipo === 'xlsx' && fgPngAperto)
+    ? {blob: fgPngAperto, nome: nomeImmagine(empName(sv.dip), sv.dal), tipo: 'image/png'}
+    : {blob: fgBlobAperto, nome: sv.file.nome, tipo: 'application/pdf'};
+  condividiFoglio(sv, cosa, ()=>{
+    sv.inviato = Date.now();
+    sv.inviatoA = numeroWhatsApp(telefonoDi(sv.dip));
+    salvaServizi(); renderArchivio();
+  });
+}
+function presenzeDaFoglio(sv){
+  const e = employees.find(x=>x.id === sv.dip);
+  if(!e || e.eliminato){ toast('Questo autista non è più in elenco'); return; }
+  goDate(sv.dal);
+  showView('giorno');
+  setTimeout(()=> openSheet(sv.dip, sv.dal, sv.giorni), 120);
+}
+function eliminaFoglio(sv, bottone){
+  if(!bottone.dataset.armed){
+    bottone.dataset.armed = '1';
+    bottone.textContent = 'Confermi?';
+    setTimeout(()=>{ if(bottone.isConnected){ delete bottone.dataset.armed; bottone.textContent = 'Elimina'; } }, 4000);
+    return;
+  }
+  Magazzino.elimina(sv.file.id);
+  servizi = servizi.filter(x=>x.id !== sv.id);
+  salvaServizi();
+  fgApertoId = null; fgBlobAperto = null;
+  renderArchivio();
+  toast('Foglio eliminato');
+}
+
+/* --- anteprima a schermo intero --- */
+let vistaVoce = null;
+function apriVista(x){
+  if(x.tipo !== 'xlsx'){ toast('L\'anteprima è per i fogli Excel'); return; }
+  vistaVoce = x;
+  $('#vsChi').textContent = x.dip ? empName(x.dip) : 'Autista da scegliere';
+  $('#vsQuando').textContent = periodoTesto(x.dal || $('#loDal').value || todayISO(), x.giorni);
+  $('#vsInvia').disabled = !x.dip || x.fatto;
+  $('#vista').classList.add('open');
+  mostraVista();
+}
+function chiudiVista(){ $('#vista').classList.remove('open'); vistaVoce = null; }
+async function mostraVista(){
+  const x = vistaVoce; if(!x) return;
+  const dentro = $('#vsFoglio');
+  $('#vsTaglio').textContent = 'Il foglio si ferma alla riga ' + x.taglio
+    + (x.aoa && x.taglio < x.aoa.length ? ' · ' + (x.aoa.length - x.taglio) + ' righe non inviate' : '');
+  if(!x.png){
+    dentro.innerHTML = '<p class="attesa">preparo il foglio…</p>';
+    await rigeneraImmagini();
+  }
+  if(!vistaVoce || vistaVoce.rif !== x.rif) return;
+  if(x.png){
+    const url = URL.createObjectURL(x.png);
+    dentro.innerHTML = '<img alt="Anteprima del foglio" src="'+url+'">'
+      + '<p class="attesa" style="padding:12px 0 0">tocca il foglio per ingrandirlo</p>';
+    dentro.querySelector('img').addEventListener('click', ()=> window.open(url, '_blank'));
+  } else {
+    dentro.innerHTML = '<p class="attesa">Non sono riuscito a leggere questo foglio.</p>';
+  }
+}
+async function spostaTaglio(n){
+  const x = vistaVoce; if(!x || !x.aoa) return;
+  const nuovo = Math.max(1, Math.min(x.aoa.length, x.taglio + n));
+  if(nuovo === x.taglio) return;
+  x.taglio = nuovo; x.png = null;
+  lsSet('tagliaFoglio', nuovo);
+  await mostraVista();
+  renderSmista();
+}
+$('#vsChiudi').addEventListener('click', chiudiVista);
+$('#vsMeno').addEventListener('click', ()=> spostaTaglio(-1));
+$('#vsPiu').addEventListener('click', ()=> spostaTaglio(1));
+$('#vsInvia').addEventListener('click', ()=>{
+  const x = vistaVoce; if(!x) return;
+  chiudiVista();
+  const card = document.querySelector('.smista[data-rif="'+x.rif+'"]');
+  mandaDallaFila(x, card);
+});
+document.addEventListener('keydown', e=>{
+  if(e.key === 'Escape' && $('#vista').classList.contains('open')) chiudiVista();
+});
+
+/* --- presa dei fogli --- */
+$('#prendiFogli').addEventListener('click', ()=> $('#fgFile').click());
+$('#loSvuota').addEventListener('click', ()=>{ daSmistare = []; renderSmista(); });
+$('#fgFile').addEventListener('change', async e=>{
+  const scelti = Array.from(e.target.files || []);
+  e.target.value = '';
+  if(!scelti.length) return;
+  if(!activeEmps().length){ toast('Prima aggiungi gli autisti in Dipendenti'); return; }
+  if(!$('#loDal').value) $('#loDal').value = todayISO();
+
+  let scartati = 0, riconosciuti = 0, illeggibili = 0;
+  toast('Leggo ' + scelti.length + (scelti.length===1?' foglio…':' fogli…'));
+
+  for(const f of scelti){
+    if(f.size > 25*1024*1024){ scartati++; continue; }
+    const excel = /\.xlsx?$/i.test(f.name);
+    const voce = {
+      rif: 'r'+Date.now().toString(36)+Math.random().toString(36).slice(2,6),
+      blob: f, nome: f.name, peso: f.size,
+      tipo: excel ? 'xlsx' : 'pdf',
+      dip: '', indovinato: false, giorni: 1, fatto: false,
+      foglio: null, aoa: null, taglio: 0, png: null
+    };
+
+    if(excel){
+      try{
+        const letto = await leggiExcel(f);
+        voce.foglio = letto.foglio;
+        voce.aoa = letto.aoa;
+        voce.taglio = rigaDelTaglio(letto.aoa);
+        // il foglio dice già chi è l'autista e quanto dura
+        const scritto = valoreAccantoA(letto.aoa, 'autista');
+        const trovato = scritto ? autistaDalNome(scritto) : null;
+        if(trovato){ voce.dip = trovato.id; voce.indovinato = true; }
+        const per = periodoDalFoglio(letto.aoa, Number($('#loDal').value.slice(0,4)) || new Date().getFullYear());
+        if(per.giorni) voce.giorni = Math.min(per.giorni, 7);
+        if(per.dal) voce.dal = per.dal;
+      }catch(err){ illeggibili++; }
+    }
+
+    if(!voce.dip){
+      const dalNome = indovinaAutista(f.name);
+      if(dalNome){ voce.dip = dalNome.id; voce.indovinato = true; }
+    }
+    if(voce.indovinato) riconosciuti++;
+    daSmistare.push(voce);
+  }
+
+  await rigeneraImmagini();
+  renderSmista();
+
+  const n = daSmistare.filter(x=>!x.fatto).length;
+  const avvisi = [];
+  if(scartati) avvisi.push(scartati+' troppo grandi');
+  if(illeggibili) avvisi.push(illeggibili+' non letti');
+  toast(n+' fogli in fila'
+        + (riconosciuti ? ', '+riconosciuti+' autisti riconosciuti' : '')
+        + (avvisi.length ? ' ('+avvisi.join(', ')+')' : ''));
+});
+
+/* Prepara l'immagine di ogni foglio Excel, così l'invio parte con un tocco. */
+async function rigeneraImmagini(){
+  for(const x of daSmistare){
+    if(x.tipo !== 'xlsx' || x.png || !x.foglio) continue;
+    try{
+      x.png = await disegnaFoglio(x.foglio, x.taglio,
+        x.dip ? empName(x.dip) : '', periodoTesto(x.dal || $('#loDal').value || todayISO(), x.giorni));
+    }catch(err){ x.png = null; }
+  }
+}
+$('#fgFiltro').addEventListener('change', e=>{
+  e.target.dataset.scelto = e.target.value;
+  fgApertoId = null; fgBlobAperto = null;
+  renderArchivio();
+});
+
 /* ---------------- render: dipendenti ---------------- */
 let showDel = false;
 function renderEmps(){
@@ -1186,10 +2589,12 @@ function renderEmps(){
     host.innerHTML = '<div class="emplist">'+visibili.map(e=>
       '<div class="emp '+(e.attivo===false?'off':'')+'" data-id="'+e.id+'">'
       + '<span class="en">'+escapeHtml(e.nome)+'</span>'
+      + '<div class="riga2">'
       + (e.eliminato
           ? '<button class="mini" data-act="restore">Ripristina</button>'
-          : '<button class="mini warn" data-act="del">Elimina</button>')
-      + '</div>').join('')+'</div>';
+          : '<input class="tel" type="tel" inputmode="tel" autocomplete="off" placeholder="Telefono per WhatsApp" value="'+escapeHtml(e.telefono||'')+'">'
+            + '<button class="mini warn" data-act="del">Elimina</button>')
+      + '</div></div>').join('')+'</div>';
   }
   const nDel = employees.filter(e=>e.eliminato).length;
   const link = $('#showDeleted');
@@ -1199,6 +2604,13 @@ function renderEmps(){
   host.querySelectorAll('.emp').forEach(row=>{
     const id = row.dataset.id;
     const emp = employees.find(x=>x.id===id);
+    const tel = row.querySelector('.tel');
+    if(tel){
+      const salvaTel = ()=>{ emp.telefono = tel.value.trim(); saveEmployees(); };
+      tel.addEventListener('change', salvaTel);
+      tel.addEventListener('blur', salvaTel);
+      tel.addEventListener('keydown', ev=>{ if(ev.key==='Enter'){ ev.preventDefault(); tel.blur(); } });
+    }
     row.querySelectorAll('button').forEach(b=>{
       b.addEventListener('click', ()=>{
         const act = b.dataset.act;
@@ -1245,6 +2657,7 @@ function showView(name){
     if(attesa && typeof attesa.then === 'function') attesa.then(()=>renderSummary());
   }
   if(name==='dipendenti') renderEmps();
+  if(name==='servizi') renderServizi();
   window.scrollTo(0,0);
 }
 
@@ -1264,11 +2677,7 @@ $('#copyPrev').addEventListener('click', ()=>{
   renderDay(); toast(n+' presenze copiate dal giorno prima');
 });
 function vaiAlMese(key){ sumMonth = key; pastiMostrati = null; ensureMonth(key); renderSummary(); }
-function spostaMese(n){
-  const p = sumMonth.split('-').map(Number);
-  const d = new Date(p[0], p[1]-1+n, 1);
-  vaiAlMese(d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0'));
-}
+function spostaMese(n){ vaiAlMese(meseSpostato(sumMonth, n)); }
 $('#prevMonth').addEventListener('click', ()=>spostaMese(-1));
 $('#nextMonth').addEventListener('click', ()=>spostaMese(1));
 $('#monthLbl').addEventListener('click', ()=>{ const i=$('#monthInput'); if(i.showPicker) i.showPicker(); else i.click(); });
@@ -1278,6 +2687,40 @@ $('#sendBtn').addEventListener('click', inviaExcel);
 $('#addEmp').addEventListener('click', addEmployee);
 $('#newName').addEventListener('keydown', e=>{ if(e.key==='Enter'){ e.preventDefault(); addEmployee(); } });
 $('#showDeleted').addEventListener('click', ()=>{ showDel=!showDel; renderEmps(); });
+function mostraStatoInvio(){
+  const c = servizioInvio();
+  const el = $('#statoInvio');
+  el.classList.toggle('ok', !!c);
+  el.querySelector('span').textContent = c
+    ? 'Invio automatico collegato'
+    : 'Invio automatico non collegato: si usa il tasto Condividi';
+  $('#invioUrl').value = c ? c.url : '';
+  $('#invioChiave').value = c ? (c.chiave || '') : '';
+}
+$('#salvaInvio').addEventListener('click', ()=>{
+  const url = $('#invioUrl').value.trim();
+  const chiave = $('#invioChiave').value.trim();
+  if(!url){ lsSet('invioEmail', null); toast('Invio automatico tolto'); mostraStatoInvio(); return; }
+  if(!/^https:\/\//i.test(url)){ toast('L\'indirizzo deve cominciare con https://'); return; }
+  lsSet('invioEmail', {url: url, chiave: chiave});
+  mostraStatoInvio();
+  toast('Servizio di invio salvato');
+});
+$('#provaInvio').addEventListener('click', async ()=>{
+  const mail = lsGet('mailCommercialista', '');
+  if(!mail){ toast('Scrivi prima l\'indirizzo del commercialista'); return; }
+  if(!servizioInvio()){ toast('Collega prima il servizio di invio'); return; }
+  const b = $('#provaInvio'); b.disabled = true; b.textContent = 'Invio…';
+  try{
+    const finto = new Blob(['prova'], {type:'text/plain'});
+    await mandaConServizio(mail, 'Prova di invio – La Terra',
+      'Questa è una prova: se la leggi, l\'invio automatico funziona.', 'prova.txt', finto);
+    toast('Prova inviata a ' + mail);
+  }catch(err){
+    toast('Prova non riuscita: ' + (err.message || 'controlla indirizzo e chiave'));
+  }finally{ b.disabled = false; b.textContent = 'Manda una prova'; }
+});
+
 $('#mailComm').value = lsGet('mailCommercialista', '');
 $('#salvaMail').addEventListener('click', ()=>{
   lsSet('mailCommercialista', $('#mailComm').value.trim());
@@ -1290,6 +2733,8 @@ document.querySelectorAll('nav.tabs button').forEach(b=> b.addEventListener('cli
 
 /* ---------------- avvio ---------------- */
 employees = lsGet('employees', []);
+servizi = lsGet('servizi', []);
+mostraStatoInvio();
 months[curMonth] = lsGet('month.'+curMonth, {marks:{}});
 $('#sync').classList.add('on');
 renderDay();
