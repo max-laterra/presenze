@@ -1,0 +1,20 @@
+{
+  "name": "La Terra – Registro presenze",
+  "short_name": "Presenze",
+  "description": "Presenze degli autisti e foglio mensile per il commercialista.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#EEF0EA",
+  "theme_color": "#D9202F",
+  "lang": "it",
+  "dir": "ltr",
+  "categories": ["business", "productivity"],
+  "icons": [
+    { "src": "./icona-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "./icona-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "./icona-mask-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "./icona-mask-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
