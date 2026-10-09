@@ -1,5 +1,6 @@
 <!doctype html>
-<!-- La Terra – Registro presenze · versione 1.7 (senza sincronizzazione) · 24 settembre 2026
+<!-- La Terra – Registro presenze · versione 1.8 · 9 ottobre 2026
+     Telefono e computer tenuti insieme dall'archivio online.
      Storico delle modifiche: vedi README.md -->
 <html lang="it">
 <head>
@@ -16,7 +17,11 @@
 <link rel="apple-touch-icon" href="data:image/png;base64,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">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Carlito:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<!-- I caratteri arrivano da internet, ma l'app non li aspetta: senza rete si
+     apre subito con il carattere del telefono. Per questo il foglio di stile
+     parte «spento» (media=print) e si accende appena è arrivato. -->
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Carlito:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet" media="print" onload="this.media='all'">
 <style>
 :root{
   --paper:#EEF0EA;
@@ -137,6 +142,7 @@ header.top{
 .sync span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .sync i{width:7px;height:7px;border-radius:50%;background:var(--line-strong);display:block}
 .sync.on i{background:var(--accent)}
+.sync.attesa i{background:#D9A227}
 
 /* ---------- navigatore giorno ---------- */
 .daynav{display:flex;align-items:center;gap:10px;padding:0 0 12px}
@@ -543,6 +549,10 @@ body.bloccata{overflow:hidden}
       </div>
     </div>
 
+    <h2 style="margin-top:30px">Telefono e computer insieme</h2>
+    <p class="sub">Collegato l'archivio, quello che segni dal telefono si vede dal computer e viceversa. Senza rete continui a segnare: parte tutto appena torna.</p>
+    <div class="card" id="cardNuvola"></div>
+
     <h2 style="margin-top:30px">Password</h2>
     <p class="sub">Chi apre l'app deve scriverla. Dopo un po' che non la tocchi si richiude da sola.</p>
     <div class="card" id="cardBlocco"></div>
@@ -555,7 +565,7 @@ body.bloccata{overflow:hidden}
       <input type="file" id="restoreFile" accept="application/json,.json" hidden>
     </div>
 
-    <p class="versione">La Terra · Registro presenze<br>versione 1.7</p>
+    <p class="versione">La Terra · Registro presenze<br>versione 1.8</p>
   </section>
 
 </main>
@@ -777,6 +787,7 @@ function setMark(date, empId, code){
   if(code) m.marks[date][empId] = code;
   else { delete m.marks[date][empId]; if(!Object.keys(m.marks[date]).length) delete m.marks[date]; }
   saveMonth(key);
+  if(typeof accoda === 'function') accoda({t:'presenza', id:empId, giorno:date, codice:code || null});
 }
 function empName(id){
   const e = employees.find(x=>x.id===id);
@@ -785,7 +796,10 @@ function empName(id){
 function activeEmps(){ return employees.filter(e=>!e.eliminato && e.attivo!==false); }
 
 /* ---------------- salvataggio ---------------- */
-function saveEmployees(){ lsSet('employees', employees); }
+function saveEmployees(){
+  lsSet('employees', employees);
+  if(typeof accoda === 'function') accoda({t:'dipendenti', lista: employees});
+}
 function saveMonth(key){ lsSet('month.'+key, months[key]); }
 
 /* ---------------- render: giorno ---------------- */
@@ -1820,6 +1834,427 @@ $('#restoreBtn').addEventListener('click', ()=>$('#restoreFile').click());
 $('#restoreFile').addEventListener('change', e=>{ if(e.target.files[0]) restore(e.target.files[0]); e.target.value=''; });
 document.querySelectorAll('nav.tabs button').forEach(b=> b.addEventListener('click', ()=>showView(b.dataset.view)));
 
+/* ============================================================
+   Collegamento all'archivio online (Supabase).
+   Parliamo con lui in HTTP semplice, senza librerie scaricate:
+   così l'app resta tutta dentro un file e continua a funzionare
+   anche quando la rete non c'è.
+   ============================================================ */
+
+function configNuvola(){ return lsGet('nuvola', null); }
+function sessioneNuvola(){ return lsGet('sessione', null); }
+
+function erroreLeggibile(stato, corpo){
+  const m = (corpo && (corpo.message || corpo.msg || corpo.error_description || corpo.error || corpo.hint)) || '';
+  if(stato === 400 && /grant|credential|password/i.test(m)) return 'email o password sbagliate';
+  if(stato === 401) return 'chiave non valida o accesso scaduto';
+  if(stato === 403) return 'il permesso è negato: controlla le protezioni delle tabelle';
+  if(stato === 404) return 'tabella non trovata: le istruzioni SQL sono state eseguite?';
+  if(stato === 0)   return 'archivio non raggiungibile';
+  return m || ('il server ha risposto ' + stato);
+}
+
+/* Una chiamata, con il messaggio d'errore leggibile se va storta. */
+async function chiamaNuvola(percorso, opzioni){
+  const c = configNuvola();
+  if(!c) throw new Error('archivio non collegato');
+  let risposta;
+  try{
+    risposta = await fetch(c.url.replace(/\/+$/,'') + percorso, opzioni);
+  }catch(e){
+    const err = new Error(erroreLeggibile(0)); err.rete = true; throw err;
+  }
+  const testo = await risposta.text();
+  let corpo = null;
+  if(testo){ try{ corpo = JSON.parse(testo); }catch(e){ corpo = {message: testo.slice(0,200)}; } }
+  if(!risposta.ok){
+    const err = new Error(erroreLeggibile(risposta.status, corpo));
+    err.stato = risposta.status;
+    throw err;
+  }
+  return corpo;
+}
+
+/* --- accesso --- */
+async function entraNuvola(email, password){
+  const c = configNuvola();
+  const dati = await chiamaNuvola('/auth/v1/token?grant_type=password', {
+    method: 'POST',
+    headers: {'apikey': c.chiave, 'Content-Type': 'application/json'},
+    body: JSON.stringify({email: email, password: password})
+  });
+  salvaSessione(dati);
+  return dati;
+}
+function salvaSessione(dati){
+  lsSet('sessione', {
+    permesso: dati.access_token,
+    rinnovo: dati.refresh_token,
+    scade: Date.now() + ((dati.expires_in || 3600) - 60) * 1000,
+    email: (dati.user && dati.user.email) || '',
+    utente: (dati.user && dati.user.id) || ''
+  });
+}
+async function rinnovaPermesso(){
+  const s = sessioneNuvola();
+  if(!s || !s.rinnovo) throw new Error('accesso scaduto');
+  const c = configNuvola();
+  const dati = await chiamaNuvola('/auth/v1/token?grant_type=refresh_token', {
+    method: 'POST',
+    headers: {'apikey': c.chiave, 'Content-Type': 'application/json'},
+    body: JSON.stringify({refresh_token: s.rinnovo})
+  });
+  salvaSessione(dati);
+  return dati;
+}
+function esciNuvola(){
+  lsSet('sessione', null);
+  lsSet('primoInvio', false);
+  aggiornaStatoNuvola();
+  renderNuvola();
+}
+
+/* --- lettura e scrittura delle tabelle --- */
+async function tabella(metodo, nome, {query = '', corpo = null, unisci = false} = {}){
+  let s = sessioneNuvola();
+  if(!s) throw new Error('non hai fatto l\'accesso');
+  if(Date.now() > s.scade){ await rinnovaPermesso(); s = sessioneNuvola(); }
+
+  const c = configNuvola();
+  const testate = {
+    'apikey': c.chiave,
+    'Authorization': 'Bearer ' + s.permesso,
+    'Content-Type': 'application/json',
+    'Prefer': unisci ? 'resolution=merge-duplicates,return=minimal' : 'return=minimal'
+  };
+  const opzioni = {method: metodo, headers: testate};
+  if(corpo) opzioni.body = JSON.stringify(corpo);
+  if(metodo === 'GET') delete testate['Prefer'];
+
+  try{
+    return await chiamaNuvola('/rest/v1/' + nome + query, opzioni);
+  }catch(e){
+    // il permesso può essere scaduto fra un controllo e l'altro: un tentativo in più
+    if(e.stato === 401){
+      await rinnovaPermesso();
+      opzioni.headers['Authorization'] = 'Bearer ' + sessioneNuvola().permesso;
+      return await chiamaNuvola('/rest/v1/' + nome + query, opzioni);
+    }
+    throw e;
+  }
+}
+const leggiTabella  = (nome, query) => tabella('GET', nome, {query: query || '?select=*'});
+const scriviTabella = (nome, righe, conflitto) =>
+  tabella('POST', nome, {corpo: righe, unisci: true,
+                         query: conflitto ? '?on_conflict=' + conflitto : ''});
+const cancellaDa    = (nome, query) => tabella('DELETE', nome, {query: query});
+
+/* ============================================================
+   Motore della sincronizzazione.
+   Regola numero uno: un dispositivo non perde mai quello che ha
+   scritto. Prima si manda su quello che si ha, poi si scarica.
+   Le modifiche fatte senza rete restano in coda e partono dopo.
+   ============================================================ */
+
+let sincroInCorso = false;
+let orologioSincro = null;
+
+function codaModifiche(){ return lsGet('coda', []); }
+function accoda(operazione){
+  if(!sessioneNuvola()) return;                 // senza accesso non c'e' niente da accodare
+  const coda = codaModifiche();
+  coda.push(operazione);
+  lsSet('coda', coda);
+  aggiornaStatoNuvola();
+  clearTimeout(orologioSincro);
+  orologioSincro = setTimeout(()=>{ sincronizza(true); }, 1500);
+}
+
+/* --- una singola modifica verso l'archivio --- */
+async function eseguiOperazione(op){
+  const s = sessioneNuvola();
+  if(!s) throw new Error('non hai fatto l\'accesso');
+  const adesso = new Date().toISOString();
+
+  if(op.t === 'dipendenti'){
+    const righe = op.lista.map(e=>({
+      id: e.id, utente: s.utente, nome: e.nome,
+      attivo: e.attivo !== false, eliminato: !!e.eliminato,
+      ordine: e.ordine || 0, aggiornato: adesso
+    }));
+    if(righe.length) await scriviTabella('dipendenti', righe, 'id');
+
+  } else if(op.t === 'presenza'){
+    if(op.codice){
+      await scriviTabella('presenze', [{
+        utente: s.utente, dipendente_id: op.id, giorno: op.giorno,
+        codice: op.codice, aggiornato: adesso
+      }], 'utente,dipendente_id,giorno');
+    } else {
+      await cancellaDa('presenze',
+        '?dipendente_id=eq.' + encodeURIComponent(op.id) + '&giorno=eq.' + op.giorno);
+    }
+
+  } else if(op.t === 'pasto'){
+    if(op.importo != null && op.importo > 0){
+      await scriviTabella('pasti', [{
+        utente: s.utente, dipendente_id: op.id, mese: op.mese,
+        importo: op.importo, aggiornato: adesso
+      }], 'utente,dipendente_id,mese');
+    } else {
+      await cancellaDa('pasti',
+        '?dipendente_id=eq.' + encodeURIComponent(op.id) + '&mese=eq.' + encodeURIComponent(op.mese));
+    }
+  }
+}
+
+async function svuotaCoda(){
+  let coda = codaModifiche();
+  while(coda.length){
+    await eseguiOperazione(coda[0]);
+    coda.shift();
+    lsSet('coda', coda);
+    aggiornaStatoNuvola();
+  }
+}
+
+/* --- il primo collegamento di un dispositivo porta su quello che ha --- */
+async function mandaTutto(){
+  const s = sessioneNuvola();
+  if(employees.length) await eseguiOperazione({t:'dipendenti', lista: employees});
+
+  const presenze = [], pastiRighe = [];
+  const adesso = new Date().toISOString();
+  tuttiIMesi().forEach(k=>{
+    const m = months[k] || lsGet('month.'+k, null);
+    if(!m) return;
+    Object.keys(m.marks || {}).forEach(g=>{
+      Object.keys(m.marks[g]).forEach(id=>{
+        presenze.push({utente:s.utente, dipendente_id:id, giorno:g, codice:m.marks[g][id], aggiornato:adesso});
+      });
+    });
+    Object.keys(m.pasti || {}).forEach(id=>{
+      const v = Number(m.pasti[id]);
+      if(v > 0) pastiRighe.push({utente:s.utente, dipendente_id:id, mese:k, importo:v, aggiornato:adesso});
+    });
+  });
+
+  for(let i = 0; i < presenze.length; i += 400){
+    await scriviTabella('presenze', presenze.slice(i, i+400), 'utente,dipendente_id,giorno');
+  }
+  if(pastiRighe.length) await scriviTabella('pasti', pastiRighe, 'utente,dipendente_id,mese');
+}
+
+/* --- scarico tutto e lo metto al posto di quello locale --- */
+async function scaricaTutto(){
+  const dip = await leggiTabella('dipendenti', '?select=*&order=ordine');
+  const pre = await leggiTabella('presenze');
+  const pas = await leggiTabella('pasti');
+
+  /* Rete di sicurezza. Se l'archivio risulta vuoto ma qui dentro ci sono
+     dati, NON si cancella niente: si rimanda tutto su. Un archivio
+     svuotato per sbaglio non deve portarsi via l'unica copia buona. */
+  if(!(dip || []).length && !(pre || []).length
+     && (employees.length || tuttiIMesi().length)){
+    await mandaTutto();
+    return 'rimandato';
+  }
+
+  employees = (dip || []).map(d=>({
+    id: d.id, nome: d.nome, attivo: d.attivo, eliminato: d.eliminato, ordine: d.ordine
+  }));
+  lsSet('employees', employees);
+
+  const nuovi = {};
+  (pre || []).forEach(p=>{
+    const g = String(p.giorno).slice(0,10);
+    const k = g.slice(0,7);
+    if(!nuovi[k]) nuovi[k] = {marks:{}, pasti:{}};
+    if(!nuovi[k].marks[g]) nuovi[k].marks[g] = {};
+    nuovi[k].marks[g][p.dipendente_id] = p.codice;
+  });
+  (pas || []).forEach(p=>{
+    if(!nuovi[p.mese]) nuovi[p.mese] = {marks:{}, pasti:{}};
+    nuovi[p.mese].pasti[p.dipendente_id] = Number(p.importo);
+  });
+
+  // i mesi che l'archivio non ha più non devono restare qui
+  tuttiIMesi().forEach(k=>{ if(!nuovi[k]) lsDel('month.'+k); });
+  months = nuovi;
+  Object.keys(nuovi).forEach(k=> lsSet('month.'+k, nuovi[k]));
+  ensureMonth(curMonth); ensureMonth(sumMonth);
+}
+
+/* --- il giro completo --- */
+async function sincronizza(silenzioso){
+  if(!configNuvola() || !sessioneNuvola() || sincroInCorso) return false;
+  if(!navigator.onLine){
+    if(!silenzioso) toast('Nessuna rete: le modifiche partono appena torna');
+    return false;
+  }
+  sincroInCorso = true;
+  aggiornaStatoNuvola('lavoro');
+  try{
+    await svuotaCoda();
+    if(!lsGet('primoInvio', false)){
+      await mandaTutto();                      // prima si manda, poi si riceve
+      lsSet('primoInvio', true);
+    }
+    const esito = await scaricaTutto();
+    lsSet('ultimaSincro', Date.now());
+    pastiMostrati = null;
+    ultimoMeseMostrato = null;
+    renderDay();
+    if($('#v-riepilogo').classList.contains('active')) renderSummary();
+    if($('#v-dipendenti').classList.contains('active')) renderEmps();
+    if(esito === 'rimandato'){
+      if(!silenzioso) toast('L\'archivio era vuoto: ho rimandato su tutto');
+    } else if(!silenzioso) toast('Allineato');
+    return true;
+  }catch(e){
+    if(!silenzioso) toast('Non allineato: ' + (e.message || 'riprovo più tardi'));
+    return false;
+  }finally{
+    sincroInCorso = false;
+    aggiornaStatoNuvola();
+    renderNuvola();
+  }
+}
+
+/* --- quando rifarlo da soli --- */
+window.addEventListener('online', ()=> sincronizza(true));
+document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) sincronizza(true); });
+
+/* --- la scritta in cima --- */
+function aggiornaStatoNuvola(modo){
+  const el = $('#sync');
+  const testo = $('#syncTxt');
+  if(!el || !testo) return;
+  const inCoda = codaModifiche().length;
+  el.classList.remove('on','attesa');
+
+  if(!configNuvola() || !sessioneNuvola()){
+    testo.textContent = 'salvato su questo dispositivo';
+    return;
+  }
+  if(modo === 'lavoro'){ testo.textContent = 'sto allineando…'; return; }
+  if(!navigator.onLine){
+    el.classList.add('attesa');
+    testo.textContent = inCoda ? inCoda + ' da mandare, senza rete' : 'senza rete';
+    return;
+  }
+  if(inCoda){ el.classList.add('attesa'); testo.textContent = inCoda + ' da mandare'; return; }
+  el.classList.add('on');
+  testo.textContent = 'allineato';
+}
+
+/* --- il riquadro nelle impostazioni --- */
+function quandoSincro(){
+  const t = lsGet('ultimaSincro', 0);
+  if(!t) return 'mai';
+  const d = new Date(t), oggi = new Date();
+  const ora = String(d.getHours()).padStart(2,'0') + ':' + String(d.getMinutes()).padStart(2,'0');
+  if(d.toDateString() === oggi.toDateString()) return 'oggi alle ' + ora;
+  return String(d.getDate()).padStart(2,'0') + '/' + String(d.getMonth()+1).padStart(2,'0') + ' alle ' + ora;
+}
+
+function renderNuvola(){
+  const host = $('#cardNuvola');
+  if(!host) return;
+  const c = configNuvola();
+  const sess = sessioneNuvola();
+
+  /* 1. l'archivio non e' ancora collegato */
+  if(!c){
+    host.innerHTML = '<div class="stato"><i></i><span>Non collegato: i dati restano su questo dispositivo</span></div>'
+      + '<p class="piccolo" style="margin:0 0 12px">I due dati qui sotto si copiano una volta sola, dal pannello dell\'archivio '
+      + '(Project URL e chiave «anon public»). Sono gli stessi sul telefono e sul computer.</p>'
+      + '<label class="campo"><span>Indirizzo dell\'archivio</span>'
+      + '<input id="nuvUrl" type="url" placeholder="https://xxxx.supabase.co" autocapitalize="off" autocorrect="off" spellcheck="false"></label>'
+      + '<label class="campo"><span>Chiave pubblica</span>'
+      + '<input id="nuvChiave" type="text" placeholder="eyJhbGciOi…" autocapitalize="off" autocorrect="off" spellcheck="false"></label>'
+      + '<button class="btn" id="nuvCollega">Collega</button>';
+    $('#nuvCollega').addEventListener('click', ()=>{
+      const url = ($('#nuvUrl').value || '').trim().replace(/\/+$/,'');
+      const chiave = ($('#nuvChiave').value || '').trim();
+      const buono = /^https:\/\/.+/.test(url) || /^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(url);
+      if(!buono){ toast('L\'indirizzo deve cominciare con https://'); return; }
+      if(chiave.length < 20){ toast('La chiave sembra incompleta'); return; }
+      lsSet('nuvola', {url: url, chiave: chiave});
+      renderNuvola(); aggiornaStatoNuvola();
+      toast('Archivio collegato: ora fai l\'accesso');
+    });
+    return;
+  }
+
+  /* 2. collegato ma senza accesso */
+  if(!sess){
+    host.innerHTML = '<div class="stato"><i></i><span>Archivio collegato · manca l\'accesso</span></div>'
+      + '<p class="piccolo" style="margin:0 0 12px">Entra con la stessa email e la stessa password su tutti i dispositivi: '
+      + 'è questo che li tiene insieme.</p>'
+      + '<label class="campo"><span>Email</span>'
+      + '<input id="nuvMail" type="email" autocapitalize="off" autocorrect="off" autocomplete="username"></label>'
+      + '<label class="campo"><span>Password</span>'
+      + '<input id="nuvPw" type="password" autocomplete="current-password" enterkeyhint="go"></label>'
+      + '<div class="riga2"><button class="btn" id="nuvEntra">Entra</button>'
+      + '<button class="btn ghost" id="nuvScollega">Cambia archivio</button></div>';
+
+    const entra = async ()=>{
+      const mail = ($('#nuvMail').value || '').trim();
+      const pw = $('#nuvPw').value || '';
+      if(!mail || !pw){ toast('Scrivi email e password'); return; }
+      const tasto = $('#nuvEntra');
+      tasto.disabled = true; tasto.textContent = 'Un attimo…';
+      try{
+        await entraNuvola(mail, pw);
+        lsSet('primoInvio', false);      // questo dispositivo manda su quello che ha
+        renderNuvola();
+        toast('Accesso fatto: sto allineando');
+        sincronizza(false);
+      }catch(e){
+        tasto.disabled = false; tasto.textContent = 'Entra';
+        toast('Niente accesso: ' + (e.message || 'riprova'));
+      }
+    };
+    $('#nuvEntra').addEventListener('click', entra);
+    $('#nuvPw').addEventListener('keydown', e=>{ if(e.key === 'Enter') entra(); });
+    $('#nuvScollega').addEventListener('click', async ()=>{
+      const ok = await chiedi('Cambia archivio',
+        'Togli l\'indirizzo e la chiave. I dati di questo dispositivo restano dove sono. Vuoi procedere?');
+      if(!ok) return;
+      lsSet('nuvola', null); lsSet('coda', []); lsSet('primoInvio', false);
+      renderNuvola(); aggiornaStatoNuvola();
+    });
+    return;
+  }
+
+  /* 3. tutto a posto */
+  const inCoda = codaModifiche().length;
+  host.innerHTML = '<div class="stato ok"><i></i><span>Allineato con ' + (sess.email || 'l\'archivio') + '</span></div>'
+    + '<p class="piccolo" style="margin:0 0 12px">Ultimo allineamento: ' + quandoSincro()
+    + (inCoda ? ' · ' + inCoda + (inCoda === 1 ? ' modifica ancora da mandare' : ' modifiche ancora da mandare') : '')
+    + '</p>'
+    + '<div class="riga2"><button class="btn" id="nuvOra">Sincronizza ora</button>'
+    + '<button class="btn ghost" id="nuvEsci">Esci</button></div>';
+
+  $('#nuvOra').addEventListener('click', async ()=>{
+    const tasto = $('#nuvOra');
+    tasto.disabled = true; tasto.textContent = 'Sto allineando…';
+    await sincronizza(false);
+    renderNuvola();
+  });
+  $('#nuvEsci').addEventListener('click', async ()=>{
+    if(codaModifiche().length){
+      const ok = await chiedi('Ci sono modifiche da mandare',
+        codaModifiche().length + ' modifiche non sono ancora arrivate all\'archivio. '
+        + 'Se esci adesso restano solo su questo dispositivo. Vuoi uscire comunque?');
+      if(!ok) return;
+    }
+    esciNuvola();
+    toast('Uscito: i dati restano su questo dispositivo');
+  });
+}
+
 /* ---------------- password e blocco automatico ----------------
    Attenzione: questa è una serratura, non una cassaforte. Tiene
    fuori chi prende in mano il telefono, ma i dati sul dispositivo
@@ -2008,11 +2443,13 @@ if('serviceWorker' in navigator && location.protocol !== 'file:'){
 employees = lsGet('employees', []);
 $('#serraturaLogo').src = $('.logo') ? $('.logo').src : '';
 renderBlocco();
+renderNuvola();
 if(impostazioniBlocco()) chiudiApp(); else riparteConteggio();
 mostraStatoInvio();
 months[curMonth] = lsGet('month.'+curMonth, {marks:{}});
-$('#sync').classList.add('on');
+aggiornaStatoNuvola();
 renderDay();
+sincronizza(true);          // all'apertura si riallinea da sola, senza dir niente
 
 function ensureMonth(key){
   if(!months[key]) months[key] = lsGet('month.'+key, {marks:{}});
