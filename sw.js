@@ -8,7 +8,7 @@
    c'è qualcosa di nuovo da prendere.
    ============================================================ */
 
-const VERSIONE = 'presenze-1.7';
+const VERSIONE = 'presenze-1.9';
 
 const DA_TENERE = [
   './',
@@ -46,6 +46,13 @@ self.addEventListener('fetch', (evento) => {
 
   const indirizzo = new URL(richiesta.url);
   if (indirizzo.origin !== self.location.origin) return;   // caratteri e simili: lasciamoli al browser
+
+  // Le chiamate all'archivio online non si tengono MAI da parte: se le
+  // tenessimo, il telefono continuerebbe a rivedere i dati di prima e la
+  // sincronizzazione sembrerebbe funzionare senza portare niente di nuovo.
+  if (indirizzo.pathname.indexOf('/rest/') === 0
+      || indirizzo.pathname.indexOf('/auth/') === 0
+      || indirizzo.search) return;
 
   // L'app: si prova la rete, così un aggiornamento arriva subito.
   // Se la rete non c'è, si usa la copia tenuta da parte.

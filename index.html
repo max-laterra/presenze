@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- La Terra – Registro presenze · versione 1.8 · 9 ottobre 2026
+<!-- La Terra – Registro presenze · versione 1.9 · 23 ottobre 2026
      Telefono e computer tenuti insieme dall'archivio online.
      Storico delle modifiche: vedi README.md -->
 <html lang="it">
@@ -292,6 +292,8 @@ table.griglia tbody tr:last-child td{border-bottom:1px solid var(--line)}
 .pasto:last-child{border-bottom:none}
 .pasto .pn{flex:1;min-width:0;font-weight:500;font-size:.95rem;overflow:hidden;text-overflow:ellipsis}
 .pasto .eur{color:var(--ink-soft);font-size:.95rem}
+.pasto input.calc{color:var(--accent);font-weight:600;background:color-mix(in srgb,var(--accent) 7%,var(--paper))}
+.pastinota{font-size:.8rem;color:var(--ink-soft);margin:-8px 0 10px}
 .pasto input{width:96px;text-align:right;background:var(--paper);border:1px solid var(--line-strong);border-radius:10px;padding:9px 10px;min-height:42px}
 .pastiTot{display:flex;justify-content:space-between;font-size:.85rem;color:var(--ink-soft);margin:0 4px 16px}
 .pastiTot b{color:var(--ink)}
@@ -299,6 +301,38 @@ table.griglia tbody tr:last-child td{border-bottom:1px solid var(--line)}
 .legenda span{display:inline-flex;align-items:center;gap:5px;font-size:.72rem;color:var(--ink-soft);
   border:1px solid var(--line);border-radius:7px;padding:4px 7px;background:var(--card)}
 .legenda b{color:var(--rc-color);font-weight:700}
+.crapri{display:flex;align-items:center;gap:12px;width:100%;margin:6px 0 4px;padding:14px 16px;background:var(--card);border:1px solid var(--line-strong);border-radius:14px;text-align:left;font:inherit;color:var(--ink)}
+.crapri b{display:block;font-weight:600}
+.crapri small{display:block;color:var(--ink-soft);font-size:.8rem;margin-top:2px}
+.crapri .ic{font-size:1.5rem}
+.crapri .fr{margin-left:auto;font-size:1.4rem;color:var(--ink-soft)}
+.crtesta{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.crtesta button{border:1px solid var(--line-strong);background:var(--card);border-radius:10px;padding:8px 12px;font:inherit;color:var(--ink)}
+.crtesta h2{margin:0}
+table.griglia td.cr{font-weight:700;font-size:11px;letter-spacing:-.02em;cursor:pointer}
+table.griglia td.cr .o{color:var(--accent)}
+table.griglia td.cr .l{color:var(--ambra)}
+table.griglia td.cr.uff{background:color-mix(in srgb,var(--ambra-fondo) 14%,var(--card))}
+table.griglia td.cr.riposo{background:color-mix(in srgb,var(--ink) 10%,var(--card));color:var(--ink-soft);font-weight:500;cursor:default}
+table.griglia td.cr.riposo s{opacity:.7}
+.crleg{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.78rem;color:var(--ink-soft);margin:0 0 16px}
+.crleg i{font-style:normal;font-weight:700}
+.crtot{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-bottom:10px}
+.crtot .r{display:grid;grid-template-columns:minmax(0,1fr) 54px 54px 90px;gap:6px;align-items:center;padding:10px 14px;border-top:1px solid var(--line);font-size:.92rem}
+.crtot .r:first-child{border-top:0;font-size:.74rem;color:var(--ink-soft);font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+.crtot .r span:not(:first-child){text-align:right}
+.crtot .r.tot{font-weight:700;background:color-mix(in srgb,var(--accent) 7%,var(--card))}
+.crtariffa{display:flex;align-items:center;gap:10px;margin:0 0 12px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.crtariffa label{flex:1;font-size:.92rem}
+.crtariffa input{width:110px;min-height:44px;border:1px solid var(--line-strong);border-radius:10px;padding:0 10px;font:inherit;text-align:right;background:var(--card);color:var(--ink)}
+.crconti{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:4px 16px 12px}
+.crconto{border:1px solid var(--line-strong);border-radius:14px;padding:12px;text-align:center}
+.crconto b{display:block;font-size:.95rem;margin-bottom:8px}
+.crconto .pm{display:flex;align-items:center;justify-content:center;gap:12px}
+.crconto .pm button{width:46px;height:46px;border-radius:12px;border:1px solid var(--line-strong);background:var(--card);font-size:1.4rem;color:var(--ink)}
+.crconto .pm output{min-width:28px;font-size:1.6rem;font-weight:700}
+.crnota{margin:0 16px 12px;font-size:.82rem;color:var(--ink-soft)}
+.crbtn{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 16px 16px}
 .hint{font-size:.78rem;color:var(--ink-soft);margin:0 0 14px;text-align:center}
 
 .tablewrap{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:16px;margin-bottom:16px;-webkit-overflow-scrolling:touch}
@@ -505,6 +539,7 @@ body.bloccata{overflow:hidden}
     <p class="hint">Scorri la griglia: a sinistra c'è il mese prima. Tocca una casella per correggerla.</p>
     <p class="hint" id="notaCumulo"></p>
     <div class="legenda" id="legenda"></div>
+    <button class="crapri" id="apriCrocette"><span class="ic" aria-hidden="true">🍽️</span><span><b>Crocette dei pasti degli autisti</b><small>Quello che hanno segnato dall'app, giorno per giorno. Si corregge da qui.</small></span><span class="fr">›</span></button>
     <h2 style="margin-top:24px">Pasti del mese</h2>
     <p class="sub">L'importo complessivo dei pasti di ogni autista. Finisce in un foglio a parte del file Excel.</p>
     <div id="pastiWrap"></div>
@@ -513,6 +548,24 @@ body.bloccata{overflow:hidden}
     <button class="btn" id="sendBtn">Invia al commercialista</button>
     <button class="btn ghost" id="exportBtn" style="margin-top:10px">Scarica il file Excel</button>
     <p class="note" id="exportNote"></p>
+  </section>
+
+  <!-- ============ CROCETTE DEI PASTI (dalla 1.9) ============ -->
+  <section class="view" id="v-crocette">
+    <div class="crtesta"><button id="crIndietro">‹ Riepilogo</button></div>
+    <h2>Crocette dei pasti</h2>
+    <p class="sub">Le segnano gli autisti dall'app, ogni giorno di servizio. <b>O</b> = pasto offerto (cliente o busta) · <b>L</b> = pasto libero (pagato da loro). Tocca una casella per correggerla: l'autista vede la correzione sul telefono.</p>
+    <div class="mesenav">
+      <button class="arrow" id="crPrev" aria-label="Mese precedente">‹</button>
+      <button class="lbl" id="crMese">—</button>
+      <button class="arrow" id="crNext" aria-label="Mese successivo">›</button>
+    </div>
+    <div id="crWrap"></div>
+    <div class="crleg"><span><i class="o" style="color:var(--accent)">O</i> offerto</span><span><i style="color:var(--ambra)">L</i> libero</span><span>casella gialla = corretta dall'ufficio</span><span>grigia = riposo, rimessa, malattia o lutto: non conta</span></div>
+    <h2 style="margin-top:8px">Totali del mese</h2>
+    <div class="crtariffa"><label for="crTariffa">Importo di un pasto libero</label><input id="crTariffa" inputmode="decimal" placeholder="0,00" autocomplete="off"></div>
+    <div id="crTot"></div>
+    <p class="hint">Questi importi vanno da soli nel foglio Pasti del commercialista (Riepilogo › Pasti del mese). Se lì scrivete una cifra a mano, vale la vostra.</p>
   </section>
 
   <!-- ============ DIPENDENTI ============ -->
@@ -565,7 +618,7 @@ body.bloccata{overflow:hidden}
       <input type="file" id="restoreFile" accept="application/json,.json" hidden>
     </div>
 
-    <p class="versione">La Terra · Registro presenze<br>versione 1.8</p>
+    <p class="versione">La Terra · Registro presenze<br>versione 1.9</p>
   </section>
 
 </main>
@@ -596,6 +649,18 @@ body.bloccata{overflow:hidden}
     <label class="fino"><span>fino al</span><input type="date" id="rbEnd"></label>
   </div>
   <div id="sheetOpts"></div>
+</div>
+
+<div class="sheet" id="sheetCr" role="dialog" aria-modal="true" aria-label="Correggi le crocette">
+  <div class="grab"></div>
+  <h3>Crocette dei pasti</h3>
+  <p class="who" id="crChi"></p>
+  <div class="crconti">
+    <div class="crconto"><b>Pasto offerto</b><div class="pm"><button data-cr="po" data-d="-1" aria-label="Uno in meno">−</button><output id="crPo">0</output><button data-cr="po" data-d="1" aria-label="Uno in più">+</button></div></div>
+    <div class="crconto"><b>Pasto libero</b><div class="pm"><button data-cr="pl" data-d="-1" aria-label="Uno in meno">−</button><output id="crPl">0</output><button data-cr="pl" data-d="1" aria-label="Uno in più">+</button></div></div>
+  </div>
+  <p class="crnota" id="crNota"></p>
+  <div class="crbtn"><button class="btn ghost" id="crAnnulla">Annulla</button><button class="btn" id="crSalva">Salva</button></div>
 </div>
 
 <div class="scrim alto" id="scrim2"></div>
@@ -699,8 +764,31 @@ function setPasto(key, empId, importo){
   saveMonth(key);
   if(typeof accoda === 'function') accoda({t:'pasto', id:empId, mese:key, importo: importo > 0 ? importo : null});
 }
+/* Dalla 1.9: l'importo dei pasti che vale (Riepilogo, totale e foglio del commercialista).
+   Se nel Riepilogo c'è una cifra scritta a mano vale quella; altrimenti si calcola dalle
+   crocette degli autisti: pasti liberi del mese × importo di un pasto libero. */
+function pastiCalcolati(key){
+  const out = {};
+  try{ if(!crTariffa) return out; }catch(e){ return out; }   // all'avvio la parte delle crocette può non essere ancora pronta
+  const dati = crocetteDi(key), marks = marksDi(key);
+  Object.keys(dati).forEach(g=>{ if(g.slice(0,7) !== key) return;
+    Object.keys(dati[g]).forEach(id=>{
+      const code = marks[g] && marks[g][id];
+      if(code && NON_CONTANO.includes(code)) return;   // vince la presenza
+      const pl = Number(dati[g][id].pl) || 0;
+      if(pl) out[id] = (out[id] || 0) + pl;
+    });
+  });
+  Object.keys(out).forEach(id=>{ out[id] = Math.round(out[id] * crTariffa * 100) / 100; });
+  return out;
+}
+function pastiEffettivi(key){
+  const mano = pastiDi(key), calc = pastiCalcolati(key), out = Object.assign({}, calc);
+  Object.keys(mano).forEach(id=>{ if(Number(mano[id]) > 0) out[id] = Number(mano[id]); });
+  return out;
+}
 function totalePasti(key, righe){
-  const p = pastiDi(key);
+  const p = pastiEffettivi(key);
   if(righe) return righe.reduce((a,r)=> a + (Number(p[r.id])||0), 0);
   return Object.keys(p).reduce((a,k)=> a + (Number(p[k])||0), 0);
 }
@@ -1082,23 +1170,30 @@ let righeRiepilogo = [];    // le righe attualmente a schermo
 function renderPasti(righe){
   righeRiepilogo = righe;
   const host = $('#pastiWrap');
-  const firma = sumMonth + '|' + righe.map(r=>r.id).join(',');
+  const mano = pastiDi(sumMonth), calc = pastiCalcolati(sumMonth);
+  const firma = sumMonth + '|' + righe.map(r=>r.id).join(',') + '|' + JSON.stringify(calc) + '|' + JSON.stringify(mano);
   if(pastiMostrati !== firma || !host.children.length){
     pastiMostrati = firma;
-    const p = pastiDi(sumMonth);
+    const conCalcolo = Object.keys(calc).length > 0;
     host.innerHTML = righe.length
-      ? '<div class="pasti">' + righe.map(r=>
-          '<div class="pasto"><span class="pn">'+escapeHtml(r.nome)+'</span>'
+      ? (conCalcolo ? '<p class="pastinota">Le cifre in verde sono calcolate dalle crocette degli autisti (pasti liberi × '+euro(crTariffa)+'). Se scrivi una cifra vale la tua; se svuoti la casella torna il calcolo.</p>' : '')
+        + '<div class="pasti">' + righe.map(r=>{
+          const aMano = Number(mano[r.id]) > 0, v = aMano ? mano[r.id] : calc[r.id];
+          return '<div class="pasto"><span class="pn">'+escapeHtml(r.nome)+'</span>'
           + '<span class="eur">€</span>'
-          + '<input type="text" inputmode="decimal" enterkeyhint="done" placeholder="0,00" '
-          + 'data-emp="'+r.id+'" value="'+scriviImporto(p[r.id])+'"></div>'
-        ).join('') + '</div>'
+          + '<input type="text" inputmode="decimal" enterkeyhint="done" placeholder="0,00"'+(!aMano && calc[r.id] ? ' class="calc" data-calc="'+calc[r.id]+'" title="Calcolato dalle crocette"' : '')+' '
+          + 'data-emp="'+r.id+'" value="'+scriviImporto(v)+'"></div>';
+        }).join('') + '</div>'
       : '';
     host.querySelectorAll('input').forEach(inp=>{
       const salva = ()=>{
         const v = leggiImporto(inp.value);
+        // una cifra calcolata lasciata com'è non diventa "scritta a mano"
+        if(inp.dataset.calc && v === Number(inp.dataset.calc)){ inp.value = scriviImporto(v); return; }
         inp.value = scriviImporto(v);            // rimetto in ordine quello che e' stato scritto
         setPasto(sumMonth, inp.dataset.emp, v);
+        if(!v){ pastiMostrati = null; renderPasti(righeRiepilogo); return; } // svuotata: torna il calcolo, se c'è
+        inp.classList.remove('calc'); delete inp.dataset.calc;
         aggiornaTotalePasti();
       };
       inp.addEventListener('change', salva);
@@ -1460,7 +1555,7 @@ function creaFileExcel(){
   const nG = giorniDelMese(sumMonth);
   const marks = marksDi(sumMonth);
   const righe = totalsFor(sumMonth);
-  const pastiDelMese = pastiDi(sumMonth);
+  const pastiDelMese = pastiEffettivi(sumMonth);   // dalla 1.9: anche gli importi calcolati dalle crocette
   if(!Object.keys(marks).length && !Object.keys(pastiDelMese).length){
     toast('Nessuna presenza da esportare'); return null;
   }
@@ -1751,11 +1846,152 @@ function goDate(iso){
   if(m !== curMonth){ curMonth = m; ensureMonth(m); }
   renderDay();
 }
+/* ============================================================
+   Crocette dei pasti (dalla 1.9)
+   Le scrivono gli autisti dall'App Autista; il servizio delle
+   notifiche le copia nella tabella "crocette" dell'archivio.
+   Da qui l'ufficio le vede e le corregge: la correzione torna
+   sul telefono dell'autista. Nei giorni di riposo, rimessa,
+   malattia e lutto non contano (vince la presenza).
+   ============================================================ */
+const NON_CONTANO = ['RI','RC','RM','MA','LU'];
+let crMese = todayISO().slice(0,7);
+let crDati = {};            // "2026-10" -> { "2026-10-23": { empId: {po,pl,fonte,at} } }
+let crTariffa = lsGet('crTariffa', 0);
+let crAperta = null;        // {id, giorno, po, pl}
+
+function crocetteDi(key){ return crDati[key] || (crDati[key] = lsGet('crocette.'+key, {})); }
+async function caricaCrocette(key, silenzioso){
+  crocetteDi(key);
+  renderCrocette();
+  if(!configNuvola() || !sessioneNuvola() || !navigator.onLine) return;
+  try{
+    const fine = key + '-' + String(giorniDelMese(key)).padStart(2,'0');
+    const righe = await leggiTabella('crocette', '?select=*&giorno=gte.' + key + '-01&giorno=lte.' + fine);
+    const nuovo = {};
+    (righe || []).forEach(r=>{
+      const g = String(r.giorno).slice(0,10);
+      if(!nuovo[g]) nuovo[g] = {};
+      nuovo[g][r.dipendente_id] = {po: Number(r.po)||0, pl: Number(r.pl)||0, fonte: r.fonte, at: r.aggiornato};
+    });
+    // le correzioni ancora in coda non devono sparire mentre aspettano di partire
+    codaModifiche().forEach(op=>{
+      if(op.t === 'crocetta' && op.giorno.slice(0,7) === key){
+        if(!nuovo[op.giorno]) nuovo[op.giorno] = {};
+        nuovo[op.giorno][op.id] = {po: op.po, pl: op.pl, fonte: 'ufficio', at: ''};
+      }
+    });
+    crDati[key] = nuovo; lsSet('crocette.'+key, nuovo);
+    const imp = await leggiTabella('impostazioni', '?select=*&chiave=eq.tariffa_pasto_libero');
+    if(imp && imp[0] && !codaModifiche().some(op=>op.t==='impostazione')){ crTariffa = leggiImporto(imp[0].valore); lsSet('crTariffa', crTariffa); }
+    renderCrocette();
+  }catch(e){
+    if(!silenzioso) toast('Crocette non aggiornate: ' + (e.message || 'riprovo più tardi'));
+  }
+}
+function crCella(v, code){
+  if(!v || !(v.po || v.pl)) return '';
+  const t = '<span class="o">' + 'O'.repeat(v.po) + '</span><span class="l">' + 'L'.repeat(v.pl) + '</span>';
+  return code ? '<s>' + t + '</s>' : t;
+}
+function renderCrocette(){
+  if($('#v-riepilogo').classList.contains('active') && righeRiepilogo){ pastiMostrati = null; renderPasti(righeRiepilogo); }
+  if(!$('#v-crocette').classList.contains('active')) return;
+  const titolo = fmtMonth.format(parseISO(crMese+'-01'));
+  $('#crMese').textContent = titolo.charAt(0).toUpperCase() + titolo.slice(1);
+  if(!crTariffa) $('#crTariffa').value = ''; else if(document.activeElement !== $('#crTariffa')) $('#crTariffa').value = scriviImporto(crTariffa);
+  const host = $('#crWrap');
+  if(!configNuvola() || !sessioneNuvola()){
+    host.innerHTML = '<div class="empty-state"><b>Serve l\'archivio online</b>Le crocette arrivano dai telefoni degli autisti attraverso l\'archivio. Collegalo dalla scheda Dipendenti, riquadro «Telefono e computer insieme».</div>';
+    $('#crTot').innerHTML = ''; return;
+  }
+  const dip = activeEmps();
+  if(!dip.length){ host.innerHTML = '<div class="empty-state"><b>Nessun dipendente in elenco</b></div>'; $('#crTot').innerHTML=''; return; }
+  const giorni = giorniDelMeseInfo(crMese), dati = crocetteDi(crMese), marks = marksDi(crMese), oggi = todayISO();
+  let h = '<tr><th class="nome">Cognome e nome</th>' + giorni.map(d=>{
+    const fest = d.gs===0 ? ' domenica' : (d.gs===6 ? ' festivo' : '');
+    return '<th class="dnum'+fest+'"><b>'+d.g+'</b><span>'+INIZIALI[d.gs]+'</span></th>';
+  }).join('') + '</tr>';
+  const totali = [];
+  const corpo = dip.map(e=>{
+    let po = 0, pl = 0;
+    let tr = '<tr><td class="nome" title="'+escapeHtml(e.nome)+'">'+escapeHtml(e.nome)+'</td>';
+    giorni.forEach(d=>{
+      const v = dati[d.iso] && dati[d.iso][e.id];
+      const code = marks[d.iso] && marks[d.iso][e.id];
+      const fuori = code && NON_CONTANO.includes(code) ? code : null;
+      if(v && !fuori){ po += v.po; pl += v.pl; }
+      const cls = ['cella','cr'];
+      if(fuori) cls.push('riposo');
+      else if(v && v.fonte === 'ufficio' && (v.po || v.pl || v.at)) cls.push('uff');
+      if(d.gs===0) cls.push('domenica');
+      if(d.iso===oggi) cls.push('oggi');
+      const titolo = fuori ? TIPO[fuori].label + ': le crocette non contano' : (v && (v.po||v.pl) ? v.po+' offerti, '+v.pl+' liberi' : 'nessun pasto');
+      tr += '<td class="'+cls.join(' ')+'" title="'+escapeHtml(titolo)+'" data-emp="'+e.id+'" data-date="'+d.iso+'"'+(fuori?' data-fuori="'+fuori+'"':'')+'>'
+          + (fuori && !(v && (v.po||v.pl)) ? '<span style="opacity:.55">'+TIPO[fuori].m+'</span>' : crCella(v, fuori)) + '</td>';
+    });
+    totali.push({nome: e.nome, po, pl});
+    return tr + '</tr>';
+  }).join('');
+  const vecchia = host.querySelector('.foglio'), sx = vecchia ? vecchia.scrollLeft : 0;
+  host.innerHTML = '<div class="foglio"><table class="griglia"><thead>'+h+'</thead><tbody>'+corpo+'</tbody></table></div>';
+  host.querySelector('.foglio').scrollLeft = sx;
+  host.querySelectorAll('td.cr').forEach(td=> td.addEventListener('click', ()=> apriCrocetta(td.dataset.emp, td.dataset.date, td.dataset.fuori)));
+  const tPo = totali.reduce((a,r)=>a+r.po,0), tPl = totali.reduce((a,r)=>a+r.pl,0), mano = pastiDi(crMese), eff = pastiEffettivi(crMese);
+  dip.forEach((e,i)=>{ totali[i].imp = eff[e.id] || 0; totali[i].mano = Number(mano[e.id]) > 0; });
+  $('#crTot').innerHTML = '<div class="crtot"><div class="r"><span>Autista</span><span>Offerti</span><span>Liberi</span><span>Importo</span></div>'
+    + totali.map(r=>'<div class="r"><span>'+escapeHtml(r.nome)+(r.mano?' <small style="color:var(--ink-soft)">(a mano)</small>':'')+'</span><span>'+(r.po||'–')+'</span><span>'+(r.pl||'–')+'</span><span>'+(r.imp ? euro(r.imp) : '–')+'</span></div>').join('')
+    + '<div class="r tot"><span>Totale</span><span>'+tPo+'</span><span>'+tPl+'</span><span>'+euro(totali.reduce((a,r)=>a+r.imp,0))+'</span></div></div>';
+}
+function apriCrocetta(id, giorno, fuori){
+  if(fuori){ toast(empName(id) + ' il ' + fmtBig.format(parseISO(giorno)) + ': ' + TIPO[fuori].label.toLowerCase() + '. Le crocette non contano.'); return; }
+  const v = (crocetteDi(giorno.slice(0,7))[giorno] || {})[id] || {po:0, pl:0};
+  crAperta = {id, giorno, po: v.po||0, pl: v.pl||0};
+  $('#crChi').textContent = empName(id) + ' · ' + fmtBig.format(parseISO(giorno));
+  $('#crNota').textContent = v.fonte === 'ufficio' && v.at ? 'Già corretta dall\'ufficio.' : (v.po||v.pl ? 'Segnata dall\'autista dal telefono.' : 'L\'autista non ha segnato niente.');
+  crAggiorna();
+  $('#sheetCr').classList.add('open'); $('#scrim').classList.add('open');
+}
+function crAggiorna(){ $('#crPo').textContent = crAperta.po; $('#crPl').textContent = crAperta.pl; }
+function chiudiCrocetta(){ $('#sheetCr').classList.remove('open'); if(!$('#sheet').classList.contains('open')) $('#scrim').classList.remove('open'); crAperta = null; }
+function salvaCrocetta(){
+  if(!crAperta) return;
+  const {id, giorno, po, pl} = crAperta, key = giorno.slice(0,7), d = crocetteDi(key);
+  if(!d[giorno]) d[giorno] = {};
+  d[giorno][id] = {po, pl, fonte: 'ufficio', at: new Date().toISOString()};
+  lsSet('crocette.'+key, d);
+  accoda({t:'crocetta', id, giorno, po, pl});
+  chiudiCrocetta(); renderCrocette();
+  toast('Salvata: arriva sul telefono dell\'autista entro un paio di minuti');
+}
+document.querySelectorAll('#sheetCr [data-cr]').forEach(b=> b.addEventListener('click', ()=>{
+  if(!crAperta) return;
+  const k = b.dataset.cr, altro = k === 'po' ? 'pl' : 'po', n = crAperta[k] + Number(b.dataset.d);
+  if(n < 0 || n > 2) return;
+  if(n + crAperta[altro] > 2){ toast('Al massimo 2 pasti al giorno'); return; }
+  crAperta[k] = n; crAggiorna();
+}));
+$('#crSalva').addEventListener('click', salvaCrocetta);
+$('#crAnnulla').addEventListener('click', chiudiCrocetta);
+$('#scrim').addEventListener('click', chiudiCrocetta);
+$('#apriCrocette').addEventListener('click', ()=>{ crMese = sumMonth; showView('crocette'); });
+$('#crIndietro').addEventListener('click', ()=> showView('riepilogo'));
+$('#crPrev').addEventListener('click', ()=>{ crMese = meseSpostato(crMese, -1); ensureMonth(crMese); caricaCrocette(crMese); });
+$('#crNext').addEventListener('click', ()=>{ crMese = meseSpostato(crMese, 1); ensureMonth(crMese); caricaCrocette(crMese); });
+$('#crTariffa').addEventListener('change', e=>{
+  crTariffa = leggiImporto(e.target.value); lsSet('crTariffa', crTariffa);
+  e.target.value = crTariffa ? scriviImporto(crTariffa) : '';
+  accoda({t:'impostazione', chiave:'tariffa_pasto_libero', valore: crTariffa});
+  renderCrocette();
+});
+
 function showView(name){
   document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active', v.id==='v-'+name));
-  document.querySelectorAll('nav.tabs button').forEach(b=>b.classList.toggle('active', b.dataset.view===name));
+  document.querySelectorAll('nav.tabs button').forEach(b=>b.classList.toggle('active', b.dataset.view===(name==='crocette'?'riepilogo':name)));
+  if(name==='crocette'){ ensureMonth(crMese); caricaCrocette(crMese); }
   if(name==='riepilogo'){
     ensureMonth(sumMonth); renderSummary();
+    if(typeof caricaCrocette === 'function') caricaCrocette(sumMonth, true);
     // il secondo passaggio serve solo quando i mesi arrivano dall'archivio online
     const attesa = precaricaMesi();
     if(attesa && typeof attesa.then === 'function') attesa.then(()=>renderSummary());
@@ -1779,7 +2015,7 @@ $('#copyPrev').addEventListener('click', ()=>{
   activeEmps().forEach(e=>{ if(src[e.id]){ setMark(curDate, e.id, src[e.id]); n++; } });
   renderDay(); toast(n+' presenze copiate dal giorno prima');
 });
-function vaiAlMese(key){ sumMonth = key; pastiMostrati = null; ensureMonth(key); renderSummary(); }
+function vaiAlMese(key){ sumMonth = key; pastiMostrati = null; ensureMonth(key); renderSummary(); caricaCrocette(key, true); }
 function spostaMese(n){ vaiAlMese(meseSpostato(sumMonth, n)); }
 $('#prevMonth').addEventListener('click', ()=>spostaMese(-1));
 $('#nextMonth').addEventListener('click', ()=>spostaMese(1));
@@ -1995,6 +2231,18 @@ async function eseguiOperazione(op){
         '?dipendente_id=eq.' + encodeURIComponent(op.id) + '&giorno=eq.' + op.giorno);
     }
 
+  } else if(op.t === 'crocetta'){
+    // dalla 1.9: crocette dei pasti corrette dall'ufficio (una crocetta tolta resta come riga a zero)
+    await scriviTabella('crocette', [{
+      utente: s.utente, dipendente_id: op.id, giorno: op.giorno,
+      po: op.po, pl: op.pl, fonte: 'ufficio', aggiornato: adesso
+    }], 'utente,dipendente_id,giorno');
+
+  } else if(op.t === 'impostazione'){
+    await scriviTabella('impostazioni', [{
+      utente: s.utente, chiave: op.chiave, valore: String(op.valore), aggiornato: adesso
+    }], 'utente,chiave');
+
   } else if(op.t === 'pasto'){
     if(op.importo != null && op.importo > 0){
       await scriviTabella('pasti', [{
@@ -2107,6 +2355,7 @@ async function sincronizza(silenzioso){
     renderDay();
     if($('#v-riepilogo').classList.contains('active')) renderSummary();
     if($('#v-dipendenti').classList.contains('active')) renderEmps();
+    if($('#v-crocette').classList.contains('active')) caricaCrocette(crMese, true);
     if(esito === 'rimandato'){
       if(!silenzioso) toast('L\'archivio era vuoto: ho rimandato su tutto');
     } else if(!silenzioso) toast('Allineato');
