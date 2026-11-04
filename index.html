@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- La Terra – Registro presenze · versione 1.9 · 23 ottobre 2026
+<!-- La Terra – Registro presenze · versione 1.10 · 4 novembre 2026
      Telefono e computer tenuti insieme dall'archivio online.
      Storico delle modifiche: vedi README.md -->
 <html lang="it">
@@ -430,12 +430,16 @@ nav.tabs button.active{color:var(--accent);font-weight:600}
 /* ---------- schermi grandi: computer ---------- */
 @media (min-width:900px){
   .wrap{max-width:1080px}
-  nav.tabs{max-width:1080px;left:50%;transform:translateX(-50%);border:1px solid var(--line);
+  nav.tabs{width:min(1080px,calc(100% - 32px));max-width:none;left:50%;right:auto;transform:translateX(-50%);border:1px solid var(--line);
     border-bottom:none;border-radius:16px 16px 0 0}
   nav.tabs button{padding:12px 4px 14px;font-size:.8rem}
   nav.tabs button svg{width:20px;height:20px}
   .row{min-height:54px}
-  #v-giorno{max-width:760px}
+  /* dalla 1.10: tutto centrato; le pagine strette sono una colonna di 760 px in mezzo allo schermo */
+  #v-giorno,#v-dipendenti,.colonna{max-width:760px;margin-left:auto;margin-right:auto}
+  #v-dipendenti .addrow,#v-dipendenti .card,#v-dipendenti .emplist,#v-dipendenti .backup,.colonna .pasti,.colonna .pastiTot,.colonna .note,.colonna .hint{max-width:none}
+  .legenda{justify-content:center}
+  .sheet{max-width:620px;margin:0 auto;border-radius:22px 22px 0 0}
   .toolrow .tool{font-size:.9rem}
   table.griglia{font-size:12px}
   table.griglia .dnum{width:36px;min-width:36px}
@@ -443,8 +447,8 @@ nav.tabs button.active{color:var(--accent);font-weight:600}
   .pasti,.pastiTot{max-width:560px}
   .modulo,.smista,.foglio-card,.barra-lotto{max-width:760px}
   .emplist,.addrow,.backup,.card{max-width:720px}
-  .btn,.azione{max-width:420px}
-  .note,.hint,.conta{max-width:720px}
+  .btn,.azione{max-width:420px;margin-left:auto;margin-right:auto}
+  .note,.hint,.conta{max-width:720px;margin-left:auto;margin-right:auto}
 }
 /* il puntatore del mouse merita una reazione */
 @media (hover:hover){
@@ -540,6 +544,7 @@ body.bloccata{overflow:hidden}
     <p class="hint" id="notaCumulo"></p>
     <div class="legenda" id="legenda"></div>
     <button class="crapri" id="apriCrocette"><span class="ic" aria-hidden="true">🍽️</span><span><b>Crocette dei pasti degli autisti</b><small>Quello che hanno segnato dall'app, giorno per giorno. Si corregge da qui.</small></span><span class="fr">›</span></button>
+    <div class="colonna">
     <h2 style="margin-top:24px">Pasti del mese</h2>
     <p class="sub">L'importo complessivo dei pasti di ogni autista. Finisce in un foglio a parte del file Excel.</p>
     <div id="pastiWrap"></div>
@@ -548,6 +553,7 @@ body.bloccata{overflow:hidden}
     <button class="btn" id="sendBtn">Invia al commercialista</button>
     <button class="btn ghost" id="exportBtn" style="margin-top:10px">Scarica il file Excel</button>
     <p class="note" id="exportNote"></p>
+    </div>
   </section>
 
   <!-- ============ CROCETTE DEI PASTI (dalla 1.9) ============ -->
@@ -562,10 +568,12 @@ body.bloccata{overflow:hidden}
     </div>
     <div id="crWrap"></div>
     <div class="crleg"><span><i class="o" style="color:var(--accent)">O</i> offerto</span><span><i style="color:var(--ambra)">L</i> libero</span><span>casella gialla = corretta dall'ufficio</span><span>grigia = riposo, rimessa, malattia o lutto: non conta</span></div>
+    <div class="colonna">
     <h2 style="margin-top:8px">Totali del mese</h2>
     <div class="crtariffa"><label for="crTariffa">Importo di un pasto libero</label><input id="crTariffa" inputmode="decimal" placeholder="0,00" autocomplete="off"></div>
     <div id="crTot"></div>
     <p class="hint">Questi importi vanno da soli nel foglio Pasti del commercialista (Riepilogo › Pasti del mese). Se lì scrivete una cifra a mano, vale la vostra.</p>
+    </div>
   </section>
 
   <!-- ============ DIPENDENTI ============ -->
@@ -618,7 +626,7 @@ body.bloccata{overflow:hidden}
       <input type="file" id="restoreFile" accept="application/json,.json" hidden>
     </div>
 
-    <p class="versione">La Terra · Registro presenze<br>versione 1.9</p>
+    <p class="versione">La Terra · Registro presenze<br>versione 1.10</p>
   </section>
 
 </main>
@@ -1371,12 +1379,13 @@ function letteraColonna(n){            // 1 -> A, 27 -> AA
 const STILI_XLSX = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
 + '<styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">'
 + '<numFmts count="1"><numFmt numFmtId="164" formatCode="#,##0.00\\ &quot;€&quot;"/></numFmts>'
-+ '<fonts count="5">'
++ '<fonts count="6">'
 +   '<font><sz val="11"/><name val="Calibri"/><family val="2"/></font>'
 +   '<font><b/><sz val="14"/><name val="Calibri"/><family val="2"/></font>'
 +   '<font><b/><sz val="12"/><name val="Calibri"/><family val="2"/></font>'
 +   '<font><sz val="12"/><name val="Calibri"/><family val="2"/></font>'
 +   '<font><b/><sz val="11"/><name val="Calibri"/><family val="2"/></font>'
++   '<font><b/><sz val="12"/><color rgb="FFE00000"/><name val="Calibri"/><family val="2"/></font>'
 + '</fonts>'
 + '<fills count="3">'
 +   '<fill><patternFill patternType="none"/></fill>'
@@ -1389,7 +1398,7 @@ const STILI_XLSX = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
 +   '<top style="thin"><color rgb="FF9BA7B4"/></top><bottom style="thin"><color rgb="FF9BA7B4"/></bottom><diagonal/></border>'
 + '</borders>'
 + '<cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs>'
-+ '<cellXfs count="10">'
++ '<cellXfs count="11">'
 +   '<xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0"/>'
 +   '<xf numFmtId="0" fontId="1" fillId="0" borderId="0" xfId="0" applyFont="1"/>'
 +   '<xf numFmtId="0" fontId="2" fillId="0" borderId="0" xfId="0" applyFont="1"/>'
@@ -1400,6 +1409,7 @@ const STILI_XLSX = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
 +   '<xf numFmtId="0" fontId="3" fillId="0" borderId="1" xfId="0" applyFont="1" applyBorder="1" applyAlignment="1"><alignment horizontal="left" vertical="center"/></xf>'
 +   '<xf numFmtId="164" fontId="3" fillId="0" borderId="1" xfId="0" applyFont="1" applyBorder="1" applyNumberFormat="1" applyAlignment="1"><alignment horizontal="right" vertical="center"/></xf>'
 +   '<xf numFmtId="164" fontId="2" fillId="0" borderId="1" xfId="0" applyFont="1" applyBorder="1" applyNumberFormat="1" applyAlignment="1"><alignment horizontal="right" vertical="center"/></xf>'
++   '<xf numFmtId="0" fontId="5" fillId="0" borderId="1" xfId="0" applyFont="1" applyBorder="1" applyAlignment="1"><alignment horizontal="center" vertical="center"/></xf>'
 + '</cellXfs>'
 + '<cellStyles count="1"><cellStyle name="Normal" xfId="0" builtinId="0"/></cellStyles>'
 + '</styleSheet>';
@@ -1581,7 +1591,8 @@ function creaFileExcel(){
     const riga = [{v:p.nome, s:7}];
     giorni.forEach(d=>{
       const code = (marks[d.iso] && marks[d.iso][p.id]) || null;
-      riga.push({v: code ? TIPO[code].sx : '', s:6});
+      // dalla 1.10: i riposi (R, anche il compensativo) in rosso
+      riga.push({v: code ? TIPO[code].sx : '', s: code && TIPO[code].sx === 'R' ? 10 : 6});
     });
     r.push(riga);
   });

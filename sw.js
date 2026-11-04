@@ -8,7 +8,7 @@
    c'è qualcosa di nuovo da prendere.
    ============================================================ */
 
-const VERSIONE = 'presenze-1.9';
+const VERSIONE = 'presenze-1.10';
 
 const DA_TENERE = [
   './',
