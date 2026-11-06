@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- La Terra – Registro presenze · versione 1.10 · 4 novembre 2026
+<!-- La Terra – Registro presenze · versione 1.11 · 6 novembre 2026
      Telefono e computer tenuti insieme dall'archivio online.
      Storico delle modifiche: vedi README.md -->
 <html lang="it">
@@ -493,6 +493,20 @@ body.bloccata{overflow:hidden}
   z-index:60;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;max-width:88vw;text-align:center
 }
 #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+/* ---------- dalla 1.11: riposi e rimesse visti dall'autista (tasto OK nell'app autisti) ---------- */
+.row.nonvisto .gutter{background:var(--line-strong)}
+.chip.nonvisto{background:color-mix(in srgb,var(--ink) 6%,var(--card));color:var(--ink-soft);border-color:var(--line-strong)}
+.chip.nonvisto .ico{filter:grayscale(1);opacity:.7}
+.chip.nonvisto .sigla,.chip.nonvisto .lbl{color:var(--ink-soft);font-weight:400}
+.chip.visto .sigla{font-weight:900}
+table.griglia td.cella.nonvisto{color:var(--ink-soft);font-weight:400;filter:grayscale(1);opacity:.75}
+table.griglia td.cella.visto{font-weight:900}
+.avviso.visti{background:color-mix(in srgb,var(--c-ri) 9%,var(--card));border-color:color-mix(in srgb,var(--c-ri) 40%,transparent)}
+.avviso.visti .av-b{background:var(--c-ri);color:#fff}
+.sheet .visto-nota{margin:-6px 16px 12px;font-size:.84rem;font-weight:600}
+.sheet .visto-nota.si{color:var(--accent)}
+.sheet .visto-nota.no{color:var(--ink-soft)}
+.sheet .visto-nota[hidden]{display:none}
 </style>
 </head>
 <body>
@@ -626,7 +640,7 @@ body.bloccata{overflow:hidden}
       <input type="file" id="restoreFile" accept="application/json,.json" hidden>
     </div>
 
-    <p class="versione">La Terra · Registro presenze<br>versione 1.10</p>
+    <p class="versione">La Terra · Registro presenze<br>versione 1.11</p>
   </section>
 
 </main>
@@ -651,6 +665,7 @@ body.bloccata{overflow:hidden}
   <div class="grab"></div>
   <h3 id="sheetTitle">Segna la presenza</h3>
   <p class="who" id="sheetWho"></p>
+  <p class="visto-nota" id="sheetVisto" hidden></p>
   <div class="rangebar" id="rangeBar">
     <button class="rb on" id="rbUno">Solo questo giorno</button>
     <button class="rb" id="rbPiu">Più giorni</button>
@@ -712,6 +727,26 @@ const TIPI = [
   {k:'LU', m:'L',              s:'L', sx:'L', color:'--c-lu', label:'Lutto',               xls:'Lutto'}
 ];
 const TIPO = Object.fromEntries(TIPI.map(t=>[t.k,t]));
+
+/* Dalla 1.11: riposi e rimesse visti dagli autisti (tasto OK sull'animazione dell'app autisti 1.13).
+   Il servizio notifiche li scrive nella tabella impostazioni, riga "visti_autisti":
+   {conApp: [dipendenti con l'app 1.13], visti: {dipendente: {giorno: {c: "RI" o "RM", at}}}}.
+   Solo da domani in poi e solo per chi ha l'app: il riposo resta in bianco e nero e la R (o RC) grigia
+   finché l'autista non preme OK; dopo il riposo è a colori e la R in grassetto. Oggi e i giorni passati come prima. */
+const VISTI_CODICI = ['RI','RC','RM'];
+let visti = lsGet('visti', null);
+function statoVisto(date, empId, code){              // null = niente da mostrare · 'si' visto · 'no' non ancora visto
+  if(!code || !VISTI_CODICI.includes(code) || date <= todayISO()) return null;
+  if(!visti || !Array.isArray(visti.conApp) || !visti.conApp.includes(empId)) return null;
+  const v = visti.visti && visti.visti[empId] && visti.visti[empId][date];
+  return v && v.c === (code === 'RM' ? 'RM' : 'RI') ? 'si' : 'no';  // il compensativo, per l'autista, è un riposo
+}
+function quandoVisto(date, empId){
+  const v = visti && visti.visti && visti.visti[empId] && visti.visti[empId][date];
+  const d = v && v.at ? new Date(v.at) : null;
+  if(!d || isNaN(d)) return '';
+  return fmtBig.format(d) + ' alle ' + String(d.getHours()).padStart(2,'0') + ':' + String(d.getMinutes()).padStart(2,'0');
+}
 
 /* ---------------- stato ---------------- */
 const LS = 'presenze.v1.';
@@ -920,10 +955,11 @@ function renderDay(){
     if(code) segnati++;
     const t = code ? TIPO[code] : null;
     const style = t ? 'style="--rc-color:var('+t.color+')"' : '';
+    const sv = statoVisto(curDate, e.id, code), cv = sv === 'no' ? ' nonvisto' : (sv === 'si' ? ' visto' : '');
     const chip = t
-      ? '<span class="chip" '+style+'><span class="'+(t.ico?'ico':'sigla')+'">'+t.m+'</span><span class="lbl">'+t.label+'</span></span>'
+      ? '<span class="chip'+cv+'" '+style+(sv === 'no' ? ' title="Non ancora visto dall\'autista"' : '')+'><span class="'+(t.ico?'ico':'sigla')+'">'+t.m+'</span><span class="lbl">'+t.label+'</span></span>'
       : '<span class="chip empty">segna</span>';
-    return '<button class="row '+(t?'set':'')+'" '+style+' data-emp="'+e.id+'">'
+    return '<button class="row '+(t?'set':'')+cv+'" '+style+' data-emp="'+e.id+'">'
          +   '<span class="gutter"></span>'
          +   '<span class="name">'+escapeHtml(e.nome)+'</span>'
          +   chip
@@ -938,7 +974,20 @@ function renderDay(){
       + '<button class="av-b" id="avSegna">Segnali adesso</button></div>'
     : '';
 
-  host.innerHTML = avviso + '<div class="register">'+rows+'</div>';
+  // dalla 1.11: chi non ha ancora visto (tasto OK nell'app) il riposo o la rimessa di domani
+  const domani = shiftDay(todayISO(), 1);
+  const nonVisti = (curDate === todayISO() || curDate === domani)
+    ? list.filter(e=> statoVisto(domani, e.id, markOf(domani, e.id)) === 'no') : [];
+  const avvisoVisti = nonVisti.length
+    ? '<div class="avviso visti"><div class="av-t">'
+      + (nonVisti.length === 1 ? 'Non ha ancora visto il giorno di domani' : 'Non hanno ancora visto il giorno di domani')
+      + '</div><div class="av-n">'+nonVisti.map(e=> escapeHtml(e.nome)+' ('+(markOf(domani, e.id) === 'RM' ? 'rimessa' : 'riposo')+')').join(' · ')
+      + '<br>L\'icona si colora quando l\'autista preme OK sull\'app.</div>'
+      + (curDate !== domani ? '<button class="av-b" id="avDomani">Vai a domani</button>' : '') + '</div>'
+    : '';
+  host.innerHTML = avviso + avvisoVisti + '<div class="register">'+rows+'</div>';
+  const bottoneDomani = $('#avDomani');
+  if(bottoneDomani) bottoneDomani.addEventListener('click', ()=> goDate(domani));
   $('#dayCount').textContent = segnati+' di '+list.length+' segnati';
 
   const bottoneAvviso = $('#avSegna');
@@ -1056,6 +1105,10 @@ function openSheet(empId, data, giorniPreimpostati){
   $('#sheetWho').textContent = bulk
     ? 'Si applica a chi non è ancora segnato il ' + fmtBig.format(parseISO(sheetDate))
     : fmtBig.format(parseISO(sheetDate));
+  // dalla 1.11: l'autista ha visto il riposo o la rimessa? (tasto OK nell'app)
+  const sv = bulk ? null : statoVisto(sheetDate, empId, current), nv = $('#sheetVisto');
+  nv.hidden = !sv; nv.className = 'visto-nota ' + (sv || '');
+  nv.textContent = sv === 'si' ? ('Visto dall\'autista ' + quandoVisto(sheetDate, empId)).trim() : (sv === 'no' ? 'Non ancora visto dall\'autista' : '');
 
   const opts = TIPI.map(t=>
     '<button class="opt '+(current===t.k?'current':'')+'" style="--rc-color:var('+t.color+')" data-k="'+t.k+'">'
@@ -1297,6 +1350,8 @@ function renderSummary(){
       if(i === nPrec) cls.push('inizio');
       const stile = t ? ' style="--rc-color:var('+t.color+')"' : '';
       if(t && t.ico) cls.push('conIcona');
+      const sv = statoVisto(iso, r.id, code);                  // dalla 1.11
+      if(sv === 'no') cls.push('nonvisto'); else if(sv === 'si') cls.push('visto');
       tr += '<td class="'+cls.join(' ')+'"'+stile+' data-emp="'+r.id+'" data-date="'+iso+'">'+(t?t.m:'')+'</td>';
     }
     const riposiMese = indiciRiposi.reduce((a,i)=> a + (r.counts[i]||0), 0);
@@ -1900,6 +1955,17 @@ async function caricaCrocette(key, silenzioso){
     if(!silenzioso) toast('Crocette non aggiornate: ' + (e.message || 'riprovo più tardi'));
   }
 }
+/* dalla 1.11: le conferme degli autisti dall'archivio (riga "visti_autisti"); true se è cambiato qualcosa */
+async function caricaVisti(){
+  if(!configNuvola() || !sessioneNuvola() || !navigator.onLine) return false;
+  const r = await leggiTabella('impostazioni', '?select=valore&chiave=eq.visti_autisti');
+  let nuovo = null;
+  try{ nuovo = r && r[0] && r[0].valore ? JSON.parse(r[0].valore) : null; }catch(e){ nuovo = null; }
+  if(!nuovo || typeof nuovo !== 'object' || !Array.isArray(nuovo.conApp)) nuovo = null;
+  if(JSON.stringify(nuovo) === JSON.stringify(visti)) return false;
+  visti = nuovo; lsSet('visti', visti);
+  return true;
+}
 function crCella(v, code){
   if(!v || !(v.po || v.pl)) return '';
   const t = '<span class="o">' + 'O'.repeat(v.po) + '</span><span class="l">' + 'L'.repeat(v.pl) + '</span>';
@@ -2360,6 +2426,7 @@ async function sincronizza(silenzioso){
       lsSet('primoInvio', true);
     }
     const esito = await scaricaTutto();
+    try{ await caricaVisti(); }catch(e){ /* le conferme non devono fermare il resto */ }
     lsSet('ultimaSincro', Date.now());
     pastiMostrati = null;
     ultimoMeseMostrato = null;
@@ -2384,6 +2451,11 @@ async function sincronizza(silenzioso){
 /* --- quando rifarlo da soli --- */
 window.addEventListener('online', ()=> sincronizza(true));
 document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) sincronizza(true); });
+/* dalla 1.11: con l'app aperta le conferme degli autisti (tasto OK) arrivano da sole ogni 2 minuti */
+setInterval(async ()=>{
+  if(document.hidden || sincroInCorso) return;
+  try{ if(await caricaVisti()){ renderDay(); if($('#v-riepilogo').classList.contains('active')) renderSummary(); } }catch(e){}
+}, 120000);
 
 /* --- la scritta in cima --- */
 function aggiornaStatoNuvola(modo){
